@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="fengzhaoyang&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+  <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+    fzy-blog
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  <script src="/js/qrious.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>fzy-blog</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2></h2>
+  <p class="post-date">2019-05-20</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>架构层面：<br>日志集中<br>所谓日志集中就是把程序的所有日志和异常信息的记录都汇总到一起，在只有一台服务器的时候我们记录本地文件问题也不是最大，但是在负载均衡环境下再记录本地日志的话就出现问题了。在想查看网站日志的时候到哪台机器去查都不知道，难道有 100 台机器就 100 台机器逐一远程连上去看？因此，把这些数据汇总在一起保存对于大型网站系统来说是很必要的，这样我们就可以直接进行查看、搜索，也很明确可以知道是哪台机器的业务出了问题。至于这种日志数据是写到 RDBMS 还是 NOSQL 甚至是搜索引擎这就看需要了，总之避免写本地的文本文件，否则真的是灾难。当然写一个日志远远没有想的这么简单：</p>
+<p>为了达到比较好的性能，日志是否先写本地内存队列然后定时刷到数据库中去？<br>各种日志混在一起也难以搜索，是否要添加一些搜索字段？比如分模块？<br>如果数据库不可用的话是不是先写本地日志以后再汇总过去？<br>日志是否易于辨明问题还是看日志怎么记录，如果日志中只写错误那么记录了也白记录，一定要写清楚这是哪个模块哪里出现了问题，有条件的话还可以写上一些参数信息和当前的状态。<br>对于未处理的异常信息不太可能手动去记录，一般而言很多框架或服务器都会提供一个接口点可以回调我们自己的代码，在这里我们就可以收集这些未处理异常然后统一记录，最后把用户带到友好的错误页面。不记录任何一个未处理异常都是可怕的事情，想象一下用户已经看到了色彩斑斓的页面，而开发还一无所知，这样的话这个问题始终会存在，即使用户投诉了反馈了我们也很难重现。</p>
+<p>配置集中<br>配置集中和日志集中的道理是一样的，就是统一管理。任何一个系统其实或多或少都会有一些不能在程序中写死的参数（比如至少的数据库连接字符串和外部服务地址），一般情况下会写到配置文件中，这样存在几个问题，第一就是在多服务器的负载集群情况下要修改配置需要逐一修改每一台服务器的配置，第二就是在修改配置还可以需要重启服务或网站才会生效，第三无法统一管理也无法知道是否所有网站都统一配置了相同参数。解决的办法还是一样的就是汇总保存在统一的地方比如保存在数据库中，然后每一个网站都从数据库中获取配置的值，在实现的时候简单有简单的做法，复杂有复杂的做法，比如要考虑以下问题：</p>
+<p>参数的值是直接保存强类型的那还是保存字符串在使用的时候转？甚至说值是支持对象和数组的，而不是简单类型。<br>参数的值不可能每一次获取都从数据库取，怎么做缓存，缓存多长时间，值修改了怎么同步回来？<br>程序是否允许修改值？还是说程序只是读取，不允许修改，修改参数的值只能通过数据库或后台进行。<br>是否是需要根据不同的部署环境、用户的语言、服务器的 IP 来设置不同的值。<br>不管怎么样，至少一个最简单的配置服务，从数据库中读取参数值，哪怕读取后永远缓存只有重启服务才能生效，也会比直接从本地配置文件中读要好很多。示例分享</p>
+<p>缓存<br>缓存这个架构手段实在是太常用了，几乎所有的人都知道缓存这个设计和性能优化手段。对于一个网站系统来说又有太多的地方可以做缓存，真正能把缓存用好，在合理的地方用缓存，监控缓存的命中率，想办法提高缓存的命中率其实不是这么容易的，一般来说有这些地方可以做缓存，从上到下：</p>
+<p>浏览器和 CDN 缓存：通过这两种整页的缓存可以尽量减少请求打到网站服务器的机会，也就提高了网站服务器的负载能力，当然一般来说静态的资源比较容易走这种缓存，动态的资源其实也可以走，只不过要能根据访问的条件做出合适的 Key，对于和每一个用户都独立的页面可能要直接进行页面缓存比较难一点。<br>反向代理的缓存：反向代理作为服务器的代理可以进行整页或是片段页面的缓存，可以提高直接把请求达到网站服务器的机会提高性能。<br>数据的缓存：如果请求真正到了网站服务器，那么我们也不一定要所有的数据都从数据库中取，可以尝试把部分数据保存在分布式缓存中。只要 Key 合理，并且请求有规律那么可以保证比较高的命中率，从而减轻数据库的压力，也减轻网站服务器的压力。<br>大块数据的内存中缓存：对于有一些大块的数据是无法保存在分布式缓存中的，那么可以直接在网站启动的时候把这种不太会改变的大块数据全部加到内存中来，这样这快数据的访问效率和计算效率就很高了。</p>
+<p>分布式缓存<br>所谓分布式缓存就是缓存的数据是分布在多个节点上的，好处是一来可以尽量利用服务器的资源，比如一台服务器可以有 1GB 内存空闲，找 50 台服务器就是 50GB 了，如果不用这 50 台服务器其实也就是这么多内存空着（一般来说网站服务器使用的内存是相对固定的，主要业务不怎么变化的话，而且诸如 Memcached 之类分布式缓存对 CPU 的使用是很低的，完全可以把 Memcached 寄居在大内存的 Web 服务器或是应用服务器上，实现神不知鬼不觉的分布式缓存）；第二个好处就是可以减少单点故障带来的影响，一般来说分布式缓存都有类似于一致性哈希的算法，即使有单点故障的话也只是少部分缓存数据会不命中，损失不是太大。在使用分布式缓存的时候要牢记下面几点：</p>
+<p>缓存就是缓存，数据是允许排出和丢失的，当成文件系统用的话就错了。<br>分布式缓存的数据是通过网络存取的，数据传输走网络和本机内存中效率不能比，而且数据需要序列化和反序列化要考虑到性能开销。<br>缓存的 Key 生成的策略是很关键的，Key 生成的参数过多的话很可能命中率会几乎为 0，这种缓存做了也白做，因此需要针对分布式缓存的命中率有监控。示例资源</p>
+<p>队列<br>队列也是实现高性能架构的一个必不可少的利器，通过把执行时间比较长的任务在队列中进行排队，通过限制队列的最大容纳项目数，实现一个抗高压的能力，并且队列后端的点也能有一个比较平稳的压力。队列说到底也只是一个容器，如果前端的压力永远比后端处理能力大的话，队列总是要爆的，因此队列也不是万能。往往对于网站系统即使后端的业务有队列，前端的页面如果扛不住高压力，甚至是验证码之类的都刷不出来的话也是没用的，架构上就是这样系统中任何一个点都会拖累整站的架构，架构优化针对最薄弱的地方而不是最强的地方。形式上来说队列有两种：</p>
+<p>生产者和消费者：生产者生产出来的数据只能被一个消费者消费，也就是任务只能执行一次的。往往这种形式的数据是需要持久化的。<br>发布和订阅：任何一个事件都允许有多个发布者和多个订阅者，订阅者订阅自己感兴趣的东西，只要发布者发布了订阅者感兴趣的内容就会传播到所有的订阅者。一般来说这种形式的数据可以是允许丢失的不需要持久化的。</p>
+<p>池技术<br>所谓的数据库连接池，线程池都是池技术的一个应用。池技术说到底就是把创建开销比较大的对象缓存在池中避免重复创建和销毁，对象用的时候从池拿出来用，用好了重置后还到池里面别人还可以接着用。比如说数据库连接池就是避免了频繁创建代价高的 TCP 连接，线程池就是避免了频繁创建代价高的线程。虽然说原理上是这样，但池其实也有一些算法需要考虑的：</p>
+<p>创建的富裕的对象的回收策略怎么做？<br>对象损坏怎么处理？<br>一般来说可以参考网上的池实现方式来实现一个通用的池，这样各种对象都可以进行管理了。</p>
+<p>分布式文件系统<br>分布式文件系统并不是所有网站都必须的，一般小网站会把用户上传的图片直接保存在 Web 服务器本地，这么做是可以的，但量大了之后会有问题，首先一台服务器保存不下怎么办，怎么知道哪个图片在哪个服务器上？其次读的请求怎么进行分离，怎么把图片同步到其它服务器上去。分布式文件系统就是来解决这个问题的，通过把一组服务器当做一个文件系统使得我们的文件资源可以分散保存在多个服务器上并且确保有一定的数据备份。在网站规模不是很大的时候其实可以保存在单台服务器上，然后使用文件同步工具同步到另一台服务器，之前再架反向代理解决，数据量再大一定要分布式的话就要上分布式文件系统了。从原理上来说分布式文件系统其实不是很复杂的，但选型的时候也要进行稳定性和性能的考量。有的人是把数据库保存在数据库中的，虽然这样可以实现单点虽然这样可以实现备份，但这显然不是很合理的，会极大增加数据库的压力。</p>
+<p>分布式搜索引擎<br>如果有站内搜索需求的话就要上搜索引擎了，现在开源的搜索引擎非常多，不过很多都是 Lucene 的封装，在选型的时候要根据自己的需求进行选型。所谓分布式也就是如果单点的索引和查询不能满足性能容量需求的话就需要分布到多点了。从原理上来说搜索引擎主要还是一个分词和倒排索引，但是搜索引擎在内容的排序等细节上点还是有很多算法的，除非必要不推荐自己去实现搜索引擎，可以直接针对开源组件进行封装和改良。搜索引擎做的好其实远远不止全文搜索这么简单，甚至可以根据用户搜索的内容给予搜索的建议，可以根据用户搜索的内容进行索引的自完善，还可以根据用户的搜索结果进行大量的用户行为分析，为网站的产品进行改良，如果站点具有自己的搜索模块的话其实有很多事情可以做的。示例资源</p>
+<p>NOSQL<br>NOSQL 就是非关系型的数据库，NOSQL 不是用来取代关系型数据库的，之所以 NOSQL 这么火是因为其性能。从本质上来说，程序就是一组代码，对于相同的硬件配置来说，程序性能的高低也就取决于实现相同的操作要有多少代码在 CPU 中执行一遍，要有多少 IO 操作要在磁盘上过一遍，往往通用性的东西就会有比较多的计算和 IO，往往定制化的东西性能就会比较高。我们说 RDBMS 性能不高，但是我们也应该看到 RDBMS 要确保数据的完整性，持久性，要实现通用的功能，要把它的性能和 IO 达到内存中然后定期刷磁盘的组件来比就不合理了，因此我们要根据业务在合理的地方使用合理的 NOSQL，对于资金相关的业务需要事务的业务不太适合 NOSQL，对于允许延迟允许数据丢失需要大访问量的业务比较适合 NOSQL。任何一种 NOSQL 往往都是某个大型公司针对自己的需要定制出来的产品，只有这样定制化的东西才可能实现高性能，因此市面上才会有这么多 NOSQL，那么我们在选择的时候也要看这个 NOSQL 针对的应用场景是否就是符合我们业务需要的。另外，NOSQL 逼近是一个新新事物，其用户群不可能有 MYSQL 或 ORACLE 这么多，因此我们也不能期望其稳定性能达到非常高的标准，而且 NOSQL 由于其定制化的特点，在使用的时候不一定都可以通过标准 SQL 来使用对于学习成本也是我们需要考虑的因素。不管怎么样在该需要用的时候还是要用，有的应用单靠 RDBMS 是没有可能实现这么高性能的，不用 NOSQL 就是死路一条，用了即使它不稳定还有可能活。</p>
+<p>NOSQL 之 Mongodb<br>Mongodb 是一款性能超高的文档型数据库，之所以它这么火不仅仅是因为性能高，而且它功能也很全，相比其它 NOSQL 它几乎可以实现 90%以上的 SQL 操作，并且也有丰富的高可用性的配置方式。总结下来 Mongodb 是一款性能几倍于传统 RDBMS 的最接近于 RDBMS 功能的 NOSQL。对于对性能要求很高，特别是写数据并发要求很高的应用来说使用 Mongodb 是比较适合的，比如存业务日志或系统日志。值得一提的是：</p>
+<p>Mongodb 也不是万能的，对于超大级别的数据量如果不进行数据分区，那么 Mongodb 也救不了你，并且不要期望 Mongodb 的自动 Sharding 功能能有多好，自动的毕竟没有手动这么准确，如果你能想到怎么进行数据分片的话还是推荐手动进行。<br>Mongodb 的性能是很好的，但这也是有限度的。只要拥有比较大的内存，那么热数据可以在内存中保存，读取性能不会太差，但是数据量达到一定的限度之后，如果你的索引数据都在内存中放不下的话，那么其性能会很差的，其实我们也很容易想到为什么，举个例子，我们在查字典的时候需要翻索引的，至于字典真正的内容在哪里其实问题不大的，如果一本百科全书即使由 100 本书构成，只要索引在手里查到了哪一本再去取问题不大，如果这个索引也是由 100 本书构成，查索引就不能一次性在手里查完还需要翻不同书的话这个性能就会非常差。</p>
+<p>NOSQL 之 Redis<br>Redis 于其说是一款 NOSQL 还不如说是一款缓存组件，在大多数时候把 NOSQL 当成一个服务端可以做计算的，存储复杂类型的，又具有一些诸如队列、管道等小功能的升级版本的 Memcached 是不错的。我个人使用 Redis 的心得是：</p>
+<p>Redis 不像 Memcached，它可以保存多种形式的数据，而不仅仅是一个字符串，这是很有亮点的，意味着我们直接可以在服务端针对大量数据进行一个计算，然后服务端直接返回计算结果，而不是要从缓存中把所有数据都取出来在客户端进行一番计算然后再保存回缓存中的（这里的客户端是指使用 NOSQL 的客户端，不是浏览器），也就是说要用好 Redis 是要写一些定制性的代码的，把我们真正的业务逻辑嵌入到 Redis 中去，如果只是存 KeyValue 的话性能不一定比 Memcached 高多少的。<br>一般情况下不建议过多依赖 Redis 的磁盘 VM 的，有 16GB 内存保存 32GB 的数据是可以的，有 16GB 的内存用 Redis 保存 1TB 的数据那就是用错 Redis 了。NOSQL 的产品其实原理上来说都不是特别复杂的，使用 NOSQL 之前最好熟悉一下它的原理，这样我们更容易用好 NOSQL 产品。总之我的观点还是这样，由于内存和磁盘性能的巨大差异，如果说能在内存中做大部分事情的话，这个性能就会比较好，如果要来回在内存和磁盘上翻腾的话这个性能也好不到哪里去。示例分享</p>
+<p>NOSQL 之 HBase<br>HBase、Hadoop 适合的是超大数据量的存储和计算，它其实是真正的一个分布式的概念，数据不再能在一个单点上保存了，需要分散到很多机器上，然后计算结果也是分别计算后汇总在一起。对于这套东西我的体会是不要轻易引入：</p>
+<p>除非是亿级以上的数据量并且数据的格式比较简单，否则要考虑是否适合引入，HBase 的学习曲线不低的，而且最好是在社区熟悉过一段时间的，否则连用哪套版本的 Hadoop 什么的都搞不清楚，版本没用对要么有很多难以解决的 BUG 要么就是连基本的连通性都搞不起来。<br>要想有很好的性能，至少有 20 台以上的服务器再来搞 HBase，一两台机器就算了，还没到分布式的这个需求。想想也知道所谓通过并行来提高效率首先是你有这么多资源可以把数据并行分散出去，然后同时进行计算汇总才能节约时间，如果根本数据都没分出去怎么可能节省时间。</p>
+</section>
+    <!-- Tags START -->
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/05/20/分布式微服务架构/电子商务系统的设计与实现：数据库设计/">
+        <span class="nav-arrow">← </span>
+        
+          (untitled)
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/05/20/分布式微服务架构/架构设计演变/">
+        
+          (untitled)
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <div class="money-like">
+      <div class="reward-btn">
+        赏
+        <span class="money-code">
+          <span class="alipay-code">
+            <div class="code-image"></div>
+            <b>使用支付宝打赏</b>
+          </span>
+          <span class="wechat-code">
+            <div class="code-image"></div>
+            <b>使用微信打赏</b>
+          </span>
+        </span>
+      </div>
+      <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+    </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <div class="qrcode">
+      <canvas id="share-qrcode"></canvas>
+      <p class="notice">扫描二维码，分享此文章</p>
+    </div>
+    
+    <!-- 二维码 END -->
+    
+    <!-- No Comment -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+  <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="nav">none</ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://fengzhaoy.gitee.io/2019/05/20/分布式微服务架构/后端架构-架构层面/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function () {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function () {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="' + src +
+          '" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function () {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+<script>
+  var qr = new QRious({
+    element: document.getElementById('share-qrcode'),
+    value: document.location.href
+  });
+</script>
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019
+  </p>
+</footer>
+
+<script>
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async ("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function () {
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async ("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function () {
+    $('figure pre').each(function (i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

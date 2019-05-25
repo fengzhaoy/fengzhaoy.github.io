@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="fengzhaoyang&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+  <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+    fzy-blog
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  <script src="/js/qrious.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>fzy-blog</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2></h2>
+  <p class="post-date">2019-05-21</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h1 id="java-并发处理-规范"><a href="#java-并发处理-规范" class="headerlink" title="java 并发处理 规范"></a>java 并发处理 规范</h1><p>(九) 并发处理<br>Rule 1. 【强制】创建线程或线程池时请指定有意义的线程名称，方便出错时回溯</p>
+<p>1）创建单条线程时直接指定线程名称</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Thread t = <span class="keyword">new</span> Thread();</span><br><span class="line">t.setName(<span class="string">"cleanup-thread"</span>);</span><br></pre></td></tr></table></figure>
+<p>2） 线程池则使用 guava 或自行封装的 ThreadFactory，指定命名规则。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//guava 或自行封装的ThreadFactory</span></span><br><span class="line">ThreadFactory threadFactory = <span class="keyword">new</span> ThreadFactoryBuilder().setNameFormat(threadNamePrefix + <span class="string">"-%d"</span>).build();</span><br><span class="line"></span><br><span class="line">ThreadPoolExecutor executor = <span class="keyword">new</span> ThreadPoolExecutor(..., threadFactory, ...);</span><br></pre></td></tr></table></figure>
+<p>Rule 2. 【推荐】尽量使用线程池来创建线程</p>
+<p>除特殊情况，尽量不要自行创建线程，更好的保护线程资源。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//WRONG</span></span><br><span class="line">Thread thread = <span class="keyword">new</span> Thread(...);</span><br><span class="line">thread.start();</span><br></pre></td></tr></table></figure>
+<p>同理，定时器也不要使用 Timer，而应该使用 ScheduledExecutorService。</p>
+<p>因为 Timer 只有单线程，不能并发的执行多个在其中定义的任务，而且如果其中一个任务抛出异常，整个 Timer 也会挂掉，而 ScheduledExecutorService 只有那个没捕获到异常的任务不再定时执行，其他任务不受影响。</p>
+<p>Rule 3. 【强制】线程池不允许使用 Executors 去创建，避资源耗尽风险</p>
+<p>Executors 返回的线程池对象的弊端 ：</p>
+<p>1）FixedThreadPool 和 SingleThreadPool:</p>
+<p>允许的请求队列长度为 Integer.MAX_VALUE，可能会堆积大量的请求，从而导致 OOM。</p>
+<p>2）CachedThreadPool 和 ScheduledThreadPool:</p>
+<p>允许的创建线程数量为 Integer.MAX_VALUE，可能会创建大量的线程，从而导致 OOM。</p>
+<p>应通过 new ThreadPoolExecutor(xxx,xxx,xxx,xxx)这样的方式，更加明确线程池的运行规则，合理设置 Queue 及线程池的 core size 和 max size，建议使用 vjkit 封装的 ThreadPoolBuilder。</p>
+<p>Rule 4. 【强制】正确停止线程</p>
+<p>Thread.stop()不推荐使用，强行的退出太不安全，会导致逻辑不完整，操作不原子，已被定义成 Deprecate 方法。</p>
+<p>停止单条线程，执行 Thread.interrupt()。</p>
+<p>停止线程池：</p>
+<p>ExecutorService.shutdown(): 不允许提交新任务，等待当前任务及队列中的任务全部执行完毕后退出；</p>
+<p>ExecutorService.shutdownNow(): 通过 Thread.interrupt()试图停止所有正在执行的线程，并不再处理还在队列中等待的任务。</p>
+<p>最优雅的退出方式是先执行 shutdown()，再执行 shutdownNow()，vjkit 的 ThreadPoolUtil 进行了封装。</p>
+<p>注意，Thread.interrupt()并不保证能中断正在运行的线程，需编写可中断退出的 Runnable，见规则 5。</p>
+<p>Rule 5. 【强制】编写可停止的 Runnable</p>
+<p>执行 Thread.interrupt()时，如果线程处于 sleep(), wait(), join(), lock.lockInterruptibly()等 blocking 状态，会抛出 InterruptedException，如果线程未处于上述状态，则将线程状态设为 interrupted。</p>
+<p>因此，如下的代码无法中断线程:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (<span class="keyword">true</span>) &#123; <span class="comment">//WRONG，无判断线程状态。</span></span><br><span class="line">    sleep();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sleep</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">      logger.warn(<span class="string">"Interrupted!"</span>, e); <span class="comment">//WRONG，吃掉了异常，interrupt状态未再传递</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>5.1 正确处理 InterruptException</p>
+<p>因为 InterruptException 异常是个必须处理的 Checked Exception，所以 run()所调用的子函数很容易吃掉异常并简单的处理成打印日志，但这等于停止了中断的传递，外层函数将收不到中断请求，继续原有循环或进入下一个堵塞。</p>
+<p>正确处理是调用 Thread.currentThread().interrupt(); 将中断往外传递。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//RIGHT</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">myMethod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    ...</span><br><span class="line">  &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">    Thread.currentThread().interrupt();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Sonar-2142: “InterruptedException” should not be ignored<br>5.2 主循环及进入阻塞状态前要判断线程状态</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//RIGHT</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">while</span> (!Thread.isInterrupted()) &#123;</span><br><span class="line">      <span class="comment">// do stuff</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">    logger.warn(<span class="string">"Interrupted!"</span>, e);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其他如 Thread.sleep()的代码，在正式 sleep 前也会判断线程状态。</p>
+<p>Rule 6. 【强制】Runnable 中必须捕获一切异常</p>
+<p>如果 Runnable 中没有捕获 RuntimeException 而向外抛出，会发生下列情况：</p>
+<ol>
+<li><p>ScheduledExecutorService 执行定时任务，任务会被中断，该任务将不再定时调度，但线程池里的线程还能用于其他任务。</p>
+</li>
+<li><p>ExecutorService 执行任务，当前线程会中断，线程池需要创建新的线程来响应后续任务。</p>
+</li>
+<li><p>如果没有在 ThreadFactory 设置自定义的 UncaughtExceptionHanlder，则异常最终只打印在 System.err，而不会打印在项目的日志中。</p>
+</li>
+</ol>
+<p>因此建议自写的 Runnable 都要保证捕获异常; 如果是第三方的 Runnable，可以将其再包裹一层 vjkit 中的 SafeRunnable。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">executor.execute(ThreadPoolUtil.safeRunner(runner));</span><br></pre></td></tr></table></figure>
+<p>Rule 7. 【强制】全局的非线程安全的对象可考虑使用 ThreadLocal 存放</p>
+<p>全局变量包括单例对象，static 成员变量。</p>
+<p>著名的非线程安全类包括 SimpleDateFormat，MD5/SHA1 的 Digest。</p>
+<p>对这些类，需要每次使用时创建。</p>
+<p>但如果创建有一定成本，可以使用 ThreadLocal 存放并重用。</p>
+<p>ThreadLocal 变量需要定义成 static，并在每次使用前重置。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> ThreadLocal&lt;MessageDigest&gt; SHA1_DIGEST = <span class="keyword">new</span> ThreadLocal&lt;MessageDigest&gt;() &#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">protected</span> MessageDigest <span class="title">initialValue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> MessageDigest.getInstance(<span class="string">"SHA"</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (NoSuchAlgorithmException e) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"..."</span>, e);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">digest</span><span class="params">(<span class="keyword">byte</span>[] input)</span> </span>&#123;</span><br><span class="line">  MessageDigest digest = SHA1_DIGEST.get();</span><br><span class="line">  digest.reset();</span><br><span class="line">  <span class="keyword">return</span> digest.digest(input);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Sonar-2885: Non-thread-safe fields should not be static<br>Facebook-Contrib: Correctness - Field is an instance based ThreadLocal variable<br>Rule 8. 【推荐】缩短锁</p>
+<p>1） 能锁区块，就不要锁整个方法体；</p>
+<p>//锁整个方法，等价于整个方法体内 synchronized(this)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">boolean</span> <span class="title">foo</span><span class="params">()</span></span>&#123;&#125;;</span><br></pre></td></tr></table></figure>
+<p>//锁区块方法，仅对需要保护的原子操作的连续代码块进行加锁。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">foo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">synchronized</span>(<span class="keyword">this</span>) &#123;</span><br><span class="line">        ...</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//other stuff</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2）能用对象锁，就不要用类锁。</p>
+<p>//对象锁，只影响使用同一个对象加锁的线程</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span>(<span class="keyword">this</span>) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>//类锁，使用类对象作为锁对象，影响所有线程。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span>(A.class) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Rule 10. 【推荐】选择分离锁，分散锁甚至无锁的数据结构</p>
+<p>分离锁：<br>1） 读写分离锁 ReentrantReadWriteLock，读读之间不加锁，仅在写读和写写之间加锁；</p>
+<p>2） Array Base 的 queue 一般是全局一把锁，而 Linked Base 的 queue 一般是队头队尾两把锁。</p>
+<p>分散锁（又称分段锁）：<br>1）如 JDK7 的 ConcurrentHashMap，分散成 16 把锁；</p>
+<p>2）对于经常写，少量读的计数器，推荐使用 JDK8 或 vjkit 封装的 LongAdder 对象性能更好（内部分散成多个 counter，减少乐观锁的使用，取值时再相加所有 counter）</p>
+<p>无锁的数据结构：<br>1）完全无锁无等待的结构，如 JDK8 的 ConcurrentHashMap；</p>
+<p>2）基于 CAS 的无锁有等待的数据结构，如 AtomicXXX 系列。</p>
+<p>Rule 11. 【推荐】基于 ThreadLocal 来避免锁</p>
+<p>比如 Random 实例虽然是线程安全的，但其实它的 seed 的访问是有锁保护的。因此建议使用 JDK7 的 ThreadLocalRandom，通过在每个线程里放一个 seed 来避免了加锁。</p>
+<p>Rule 12. 【推荐】规避死锁风险</p>
+<p>对多个资源多个对象的加锁顺序要一致。</p>
+<p>如果无法确定完全避免死锁，可以使用带超时控制的 tryLock 语句加锁。</p>
+<p>Rule 13. 【推荐】volatile 修饰符，AtomicXX 系列的正确使用</p>
+<p>多线程共享的对象，在单一线程内的修改并不保证对所有线程可见。使用 volatile 定义变量可以解决（解决了可见性）。</p>
+<p>但是如果多条线程并发进行基于当前值的修改，如并发的 counter++，volatile 则无能为力（解决不了原子性）。</p>
+<p>此时可使用 Atomic*系列:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AtomicInteger count = <span class="keyword">new</span> AtomicInteger();</span><br><span class="line">count.addAndGet(<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<p>但如果需要原子地同时对多个 AtomicXXX 的 Counter 进行操作，则仍然需要使用 synchronized 将改动代码块加锁。</p>
+<p>Rule 14. 【推荐】延时初始化的正确写法</p>
+<p>通过双重检查锁（double-checked locking）实现延迟初始化存在隐患，需要将目标属性声明为 volatile 型，为了更高的性能，还要把 volatile 属性赋予给临时变量，写法复杂。</p>
+<p>所以如果只是想简单的延迟初始化，可用下面的静态类的做法，利用 JDK 本身的 class 加载机制保证唯一初始化。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">LazyObjectHolder</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">final</span> LazyObject instance = <span class="keyword">new</span> LazyObject();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">myMethod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  LazyObjectHolder.instance.doSomething();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Sonar-2168: Double-checked locking should not be used</p>
+<p>来源：<a href="https://vipshop.github.io/vjtools/#/standard/chapter09" target="_blank" rel="noopener">https://vipshop.github.io/vjtools/#/standard/chapter09</a></p>
+</section>
+    <!-- Tags START -->
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/05/21/多线程异步并发/java线程池、包括线程的异常处理/">
+        <span class="nav-arrow">← </span>
+        
+          (untitled)
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/05/21/算法/javahash算法大全/">
+        
+          (untitled)
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <div class="money-like">
+      <div class="reward-btn">
+        赏
+        <span class="money-code">
+          <span class="alipay-code">
+            <div class="code-image"></div>
+            <b>使用支付宝打赏</b>
+          </span>
+          <span class="wechat-code">
+            <div class="code-image"></div>
+            <b>使用微信打赏</b>
+          </span>
+        </span>
+      </div>
+      <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+    </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <div class="qrcode">
+      <canvas id="share-qrcode"></canvas>
+      <p class="notice">扫描二维码，分享此文章</p>
+    </div>
+    
+    <!-- 二维码 END -->
+    
+    <!-- No Comment -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+  <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#java-并发处理-规范"><span class="toc-nav-text">java 并发处理 规范</span></a></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://fengzhaoy.gitee.io/2019/05/21/多线程异步并发/java并发处理规范/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function () {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function () {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="' + src +
+          '" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function () {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+<script>
+  var qr = new QRious({
+    element: document.getElementById('share-qrcode'),
+    value: document.location.href
+  });
+</script>
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019
+  </p>
+</footer>
+
+<script>
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async ("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function () {
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async ("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function () {
+    $('figure pre').each(function (i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

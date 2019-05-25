@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="fengzhaoyang&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+  <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+    fzy-blog
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  <script src="/js/qrious.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>fzy-blog</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2></h2>
+  <p class="post-date">2019-05-23</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h1 id="Linux-nc-命令"><a href="#Linux-nc-命令" class="headerlink" title="Linux nc 命令"></a>Linux nc 命令</h1><p>nc 参数：<br>-g&lt;网关&gt; 设置路由器跃程通信网关，最多可设置 8 个。<br>-G&lt;指向器数目&gt; 设置来源路由指向器，其数值为 4 的倍数。<br>-h 在线帮助。<br>-i&lt;延迟秒数&gt; 设置时间间隔，以便传送信息及扫描通信端口。<br>-l 使用监听模式，管控传入的资料。<br>-n 直接使用 IP 地址，而不通过域名服务器。<br>-o&lt;输出文件&gt; 指定文件名称，把往来传输的数据以 16 进制字码倾倒成该文件保存。<br>-p&lt;通信端口&gt; 设置本地主机使用的通信端口。<br>-r 乱数指定本地与远端主机的通信端口。<br>-s&lt;来源地址&gt; 设置本地主机送出数据包的 IP 地址。<br>-u 使用 UDP 传输协议。<br>-v 显示指令执行过程。<br>-w&lt;超时秒数&gt; 设置等待连线的时间。<br>-z 使用 0 输入/输出模式，只在扫描通信端口时使用。</p>
+<h5 id="远程拷贝日志文件到本地"><a href="#远程拷贝日志文件到本地" class="headerlink" title="远程拷贝日志文件到本地"></a>远程拷贝日志文件到本地</h5><p>从 server1 拷贝文件到 server2 上。需要先在 server2 上，用 nc 激活监听。<br>server2:<br>ip: 192.168.200.27</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -l 1234 &gt; 1234.txt</span><br></pre></td></tr></table></figure>
+<p>server1：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat abc.txt</span><br><span class="line">aaaa</span><br><span class="line">nc -w 1 192.168.200.27 1234 &lt; abc.txt</span><br></pre></td></tr></table></figure>
+<h5 id="克隆硬盘或分区"><a href="#克隆硬盘或分区" class="headerlink" title="克隆硬盘或分区"></a>克隆硬盘或分区</h5><p>操作与上面的拷贝是雷同的，只需要由 dd 获得硬盘或分区的数据，然后传输即可。<br>克隆硬盘或分区的操作，不应在已经 mount 的的系统上进行。</p>
+<p>#server2 上进行类似的监听动作：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -l -p 1234 | dd of=/dev/sda</span><br></pre></td></tr></table></figure>
+<p>#server1 上执行传输，即可完成从 server1 克隆 sda 硬盘到 server2 的任务：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd if=/dev/sda | nc 192.168.200.27 1234</span><br></pre></td></tr></table></figure>
+<h5 id="端口扫描"><a href="#端口扫描" class="headerlink" title="端口扫描"></a>端口扫描</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">nc -v -w 1 192.168.200.29 -z 20-30</span><br><span class="line">nc: connect to 192.168.200.29 port 20 (tcp) failed: Connection refused</span><br><span class="line">nc: connect to 192.168.200.29 port 21 (tcp) failed: Connection refused</span><br><span class="line">Connection to 192.168.200.29 22 port [tcp/ssh] succeeded!</span><br><span class="line">nc: connect to 192.168.200.29 port 23 (tcp) failed: Connection refused</span><br><span class="line">nc: connect to 192.168.200.29 port 24 (tcp) failed: Connection refused</span><br><span class="line">nc: connect to 192.168.200.29 port 25 (tcp) failed: Connection refused</span><br><span class="line">nc: connect to 192.168.200.29 port 26 (tcp) failed: Connection refused</span><br><span class="line">nc: connect to 192.168.200.29 port 27 (tcp) failed: Connection refused</span><br><span class="line">nc: connect to 192.168.200.29 port 28 (tcp) failed: Connection refused</span><br><span class="line">nc: connect to 192.168.200.29 port 29 (tcp) failed: Connection refused</span><br><span class="line">nc: connect to 192.168.200.29 port 30 (tcp) failed: Connection refused</span><br></pre></td></tr></table></figure>
+<h5 id="聊天（类似-qq-聊天）"><a href="#聊天（类似-qq-聊天）" class="headerlink" title="聊天（类似 qq 聊天）"></a>聊天（类似 qq 聊天）</h5><p>server2:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nc -l 1234</span><br><span class="line">hello!</span><br><span class="line">hi!</span><br></pre></td></tr></table></figure>
+<p>server1:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nc  192.168.200.27 1234</span><br><span class="line">hello!</span><br><span class="line">hi!</span><br></pre></td></tr></table></figure>
+</section>
+    <!-- Tags START -->
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/05/23/Linux/Linuxsystem命令/">
+        <span class="nav-arrow">← </span>
+        
+          (untitled)
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/05/23/Linux/linuxvi命令/">
+        
+          (untitled)
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <div class="money-like">
+      <div class="reward-btn">
+        赏
+        <span class="money-code">
+          <span class="alipay-code">
+            <div class="code-image"></div>
+            <b>使用支付宝打赏</b>
+          </span>
+          <span class="wechat-code">
+            <div class="code-image"></div>
+            <b>使用微信打赏</b>
+          </span>
+        </span>
+      </div>
+      <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+    </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <div class="qrcode">
+      <canvas id="share-qrcode"></canvas>
+      <p class="notice">扫描二维码，分享此文章</p>
+    </div>
+    
+    <!-- 二维码 END -->
+    
+    <!-- No Comment -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+  <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Linux-nc-命令"><span class="toc-nav-text">Linux nc 命令</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#远程拷贝日志文件到本地"><span class="toc-nav-text">远程拷贝日志文件到本地</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#克隆硬盘或分区"><span class="toc-nav-text">克隆硬盘或分区</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#端口扫描"><span class="toc-nav-text">端口扫描</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#聊天（类似-qq-聊天）"><span class="toc-nav-text">聊天（类似 qq 聊天）</span></a></li></ol></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://fengzhaoy.gitee.io/2019/05/23/Linux/Linuxnc命令/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function () {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function () {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="' + src +
+          '" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function () {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+<script>
+  var qr = new QRious({
+    element: document.getElementById('share-qrcode'),
+    value: document.location.href
+  });
+</script>
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019
+  </p>
+</footer>
+
+<script>
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async ("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function () {
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async ("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function () {
+    $('figure pre').each(function (i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

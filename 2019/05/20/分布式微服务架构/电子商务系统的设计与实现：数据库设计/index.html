@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="fengzhaoyang&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+  <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+    fzy-blog
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  <script src="/js/qrious.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>fzy-blog</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2></h2>
+  <p class="post-date">2019-05-20</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>用户相关</p>
+<p>malling_user：前端商城系统的用户，用户名、密码等</p>
+<p>malling_user_delivery_address，用户的收获地址，一个用户可以有多个收获地址</p>
+<p>malling_admin_user：后端系统的用户，与前端系统没有关系</p>
+<p>malling_admin_role：后端系统用户的角色，超级管理员、管理员等</p>
+<p>malling_admin_user_role：后端系统用户和角色的关联</p>
+<p>账务相关</p>
+<p>malling_account：用户的资金账户，账户号、可用余额、冻结余额等</p>
+<p>malling_account_internal：内部专用账户</p>
+<p>malling_account_log：资金变动日志，一次交易，两笔资金变动（思路还有点混乱）</p>
+<p>malling_account_freeze_log：提现等产生的冻结日志</p>
+<p>malling_accoount_trans_log：交易日志</p>
+<p>malling_recharge：用户的充值记录</p>
+<p>malling_receive_payment：充值之后，银行或第三方支付返回信息</p>
+<p>malling_withdraw：用户的提现记录</p>
+<p>购物相关</p>
+<p>malling_goods：商品，商品号、名称、标题、价格等</p>
+<p>malling_goods_category：商品所属分类，分类号、名称、上级分类号等</p>
+<p>malling_goods_comment：商品的评论，购买过某个商品的用户才可以对这件商品进行评论</p>
+<p>malling_orders：订单，订单号、所属用户、总价格、支付方式等</p>
+<p>malling_orders_item：订单项，一个订单可以有多个订单项，订单号、所属用户、商品 ID、商品数量、总价格、商品单价</p>
+<p>日志相关</p>
+<p>malling_op_log：操作日志，比如审核订单之类的操作</p>
+<p>malling_search_log：前端用户搜索商品产生</p>
+<p>malling_login_log：用户登录日志，包括前端和后端</p>
+<p>其它</p>
+<p>malling_sequence：序列号，用来手动生成 账户号、订单号等有业务含义的 ID</p>
+<p>Web 前端</p>
+<p>最标准化的 3 项技术：HTML、JavaScript、CSS。</p>
+<p>其中，HTML 主要使用 4，JS 框架主要使用 jquery，CSS 框架主要使用 Bootstrap。</p>
+<p>好处： 简单易学，没有什么学习成本。最标准化的技术，在一个项目中积累经验，在另外一个项目中也可以持续使用。</p>
+<p>而 Angular 等前端框架，不太熟悉，是否有较广泛的适用场景。今后可以考虑学习下。</p>
+<p>后端管理系统，前端采用开源的 dwz 框架，表格分页组件使用自己写的，其它菜单、对话框等常用组件使用 dwz 自带的。后端渲染界面，而非前端是纯静态的 HTML 页面。</p>
+<p>服务器端</p>
+<p>语言：Java</p>
+<p>IDE：Eclipse，luna-R</p>
+<p>数据库：MySQL</p>
+<p>项目性质：Dynamic Web Project，Maven</p>
+<p>框架：</p>
+<p>MVC 框架：SpringMVC</p>
+<p>IoC 容器：Spring</p>
+<p>持久层：Mybatis</p>
+<p>展示层：Freemarker</p>
+<p>UI 装饰：SiteMesh，与 Freemarker 整合</p>
+<p>搜索：Lucene</p>
+<p>其它主要工具库：FastJSON、Apache Commons 系列、Jodd</p>
+<p>开发运行环境：Jetty</p>
+<p>生产运行环境：Tomcat7+Nginx</p>
+<p>移动端</p>
+<p>暂时没有成熟的想法。</p>
+<p>原生应用：Android、iOS，Android 开发相对容易一些。iOS 如果用 Object-C，就完全没经验了。</p>
+<p>Swift 语言，据说是开发 iOS8 应用的，尚未实践过。</p>
+<p>Html5 应用：手机端，直接使用 HTML5 开发，跨平台，学习成本很低。</p>
+<p>Web 适配：不做纯粹的手机端，PC-Web 端网页进行手机端的适配。</p>
+<p>后端管理系统功能细化：</p>
+<p>1.商品管理</p>
+<p>1.1 创建商品、修改商品、删除商品、商品列表、条件查询</p>
+<p>1.2 商品分类</p>
+<p>2.用户管理</p>
+<p>基本资料、收货地址、资金余额</p>
+<p>3.订单管理</p>
+<p>订单列表、冻结、解冻、无效、修改支付状态等</p>
+<p>4.财务管理</p>
+<p>充值记录，用户的充值历史记录</p>
+<p>提现记录，用户的提现历史记录</p>
+<p>账务记录，电商平台方资金总账变动</p>
+<p>5.日志管理</p>
+<p>操作日志：商品创建、订单冻结等后台操作日志。</p>
+<p>登录日志：什么时候登录</p>
+<p>搜索日志：记录每一个用户的搜索词</p>
+<p>日志报表下载</p>
+<p>6.后期再做</p>
+<p>评论管理：用户对商品的评论</p>
+<p>权限管理：后端管理系统的用户，</p>
+<p>前端管理系统功能细化：</p>
+<p>1.注册和登录</p>
+<p>用户注册：邮箱、密码</p>
+<p>用户登录：邮箱、密码</p>
+<p>一期不做：找回密码等细节功能</p>
+<p>2.购物流程</p>
+<p>2.1 商品分类、商品列表展示 、商品搜索</p>
+<p>分类有多级、首页展示若干推荐的商品、输入商品名称可以搜索商品</p>
+<p>2.2 查看商品</p>
+<p>查看一件商品的详细信息</p>
+<p>一期不做：关联商品、商品推荐、商品评论、商品星级</p>
+<p>2.3 加入购物车</p>
+<p>加入、删除</p>
+<p>2.4 生成订单</p>
+<p>若干商品，包装成一个订单</p>
+<p>2.5 支付</p>
+<p>第三方支付，财付通、支付宝、盛付通等，使用测试账号，如果有的话</p>
+<p>3.个人主页，购物流程辅助</p>
+<p>3.1 设置个人资料</p>
+<p>姓名、性别、联系方式等</p>
+<p>3.2 设置收货地址</p>
+<p>可以有多个，增删改查</p>
+<p>3.3 订单管理</p>
+<p>支付、取消、删除、条件查询</p>
+<p>4.补充说明</p>
+<p>账务操作，充值、提现、查询余额、资金记录， 对于整个购物流程影响不大，因为可以在下单之后，直接支付，就可以了。</p>
+</section>
+    <!-- Tags START -->
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/05/20/分布式微服务架构/互联网技术架构要点/">
+        <span class="nav-arrow">← </span>
+        
+          (untitled)
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/05/20/分布式微服务架构/后端架构-架构层面/">
+        
+          (untitled)
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <div class="money-like">
+      <div class="reward-btn">
+        赏
+        <span class="money-code">
+          <span class="alipay-code">
+            <div class="code-image"></div>
+            <b>使用支付宝打赏</b>
+          </span>
+          <span class="wechat-code">
+            <div class="code-image"></div>
+            <b>使用微信打赏</b>
+          </span>
+        </span>
+      </div>
+      <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+    </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <div class="qrcode">
+      <canvas id="share-qrcode"></canvas>
+      <p class="notice">扫描二维码，分享此文章</p>
+    </div>
+    
+    <!-- 二维码 END -->
+    
+    <!-- No Comment -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+  <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="nav">none</ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://fengzhaoy.gitee.io/2019/05/20/分布式微服务架构/电子商务系统的设计与实现：数据库设计/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function () {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function () {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="' + src +
+          '" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function () {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+<script>
+  var qr = new QRious({
+    element: document.getElementById('share-qrcode'),
+    value: document.location.href
+  });
+</script>
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019
+  </p>
+</footer>
+
+<script>
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async ("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function () {
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async ("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function () {
+    $('figure pre').each(function (i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

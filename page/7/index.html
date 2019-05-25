@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="fengzhaoyang&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+  <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+    fzy-blog
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  <script src="/js/qrious.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>fzy-blog</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link active">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link mobile-active">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <main class="app-body">
+  
+  <article class="article-card">
+    <h2 class="article-head">
+      <a href="/2019/05/23/DB/mysql用户权限配置/">
+        
+        mysql 用户权限配 ...
+        
+      </a>
+    </h2>
+    <p class="article-date">2019-05-23</p>
+    
+    <div class="article-summary">
+      
+      mysql 用户权限配置12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717 ...
+      
+    </div>
+    <a class="more" href="/2019/05/23/DB/mysql用户权限配置/">详细</a>
+  </article>
+  
+  <article class="article-card">
+    <h2 class="article-head">
+      <a href="/2019/05/23/DB/数据库查询优化方案处理上百万级记录如何提高处理查询速度/">
+        
+        1.对查询进行优化，应 ...
+        
+      </a>
+    </h2>
+    <p class="article-date">2019-05-23</p>
+    
+    <div class="article-summary">
+      
+      1.对查询进行优化，应尽量避免全表扫描，首先应考虑在 where 及 order by 涉及的列上建立索引。
+2.应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描，如：
+select id from t where num is null ...
+      
+    </div>
+    <a class="more" href="/2019/05/23/DB/数据库查询优化方案处理上百万级记录如何提高处理查询速度/">详细</a>
+  </article>
+  
+  <article class="article-card">
+    <h2 class="article-head">
+      <a href="/2019/05/23/DB/Mysql行转列、字段合并、列转行/">
+        
+        
+        
+      </a>
+    </h2>
+    <p class="article-date">2019-05-23</p>
+    
+    <div class="article-summary">
+      
+      
+      
+    </div>
+    <a class="more" href="/2019/05/23/DB/Mysql行转列、字段合并、列转行/">详细</a>
+  </article>
+  
+  <article class="article-card">
+    <h2 class="article-head">
+      <a href="/2019/05/23/DB/mysql导入导出表结构及数据/">
+        
+        mysql 导入导出表 ...
+        
+      </a>
+    </h2>
+    <p class="article-date">2019-05-23</p>
+    
+    <div class="article-summary">
+      
+      mysql 导入导出表结构及数据123456789101112131415161718192021222324252627282930313233343536导出数据库：mysqldump -u用户名 -p密码 -d 数据库名 表名 脚本名;1、导出数据库为dbname的表结构（其中用户名为 ...
+      
+    </div>
+    <a class="more" href="/2019/05/23/DB/mysql导入导出表结构及数据/">详细</a>
+  </article>
+  
+  <article class="article-card">
+    <h2 class="article-head">
+      <a href="/2019/05/23/Linux/linuxmysql配置远程连接数据库/">
+        
+        linux mysql ...
+        
+      </a>
+    </h2>
+    <p class="article-date">2019-05-23</p>
+    
+    <div class="article-summary">
+      
+      linux mysql 配置远程连接数据库1.为 root 用户增加权限grant all privileges on . to ‘root’@’%’ identified by ‘unisk.88’ with grant option;flush privileges; 2.设置防火墙允许 ...
+      
+    </div>
+    <a class="more" href="/2019/05/23/Linux/linuxmysql配置远程连接数据库/">详细</a>
+  </article>
+  
+  <article class="article-card">
+    <h2 class="article-head">
+      <a href="/2019/05/23/DB/mysql统计查询/">
+        
+        12345678910 ...
+        
+      </a>
+    </h2>
+    <p class="article-date">2019-05-23</p>
+    
+    <div class="article-summary">
+      
+      12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777 ...
+      
+    </div>
+    <a class="more" href="/2019/05/23/DB/mysql统计查询/">详细</a>
+  </article>
+  
+  <article class="article-card">
+    <h2 class="article-head">
+      <a href="/2019/05/22/分布式权限服务/网站安全防御/">
+        
+        https://blo ...
+        
+      </a>
+    </h2>
+    <p class="article-date">2019-05-22</p>
+    
+    <div class="article-summary">
+      
+      https://blog.csdn.net/zhangxin09/article/details/54881190https://blog.csdn.net/zhangxin09/article/details/51926550https://blog.csdn.net/zhangxin09 ...
+      
+    </div>
+    <a class="more" href="/2019/05/22/分布式权限服务/网站安全防御/">详细</a>
+  </article>
+  
+  <article class="article-card">
+    <h2 class="article-head">
+      <a href="/2019/05/22/分布式权限服务/接口鉴权设计/">
+        
+        方案一：RESTful ...
+        
+      </a>
+    </h2>
+    <p class="article-date">2019-05-22</p>
+    
+    <div class="article-summary">
+      
+      方案一：RESTful 登录设计（基于 Spring 及 Redis 的 Token 鉴权）http://www.scienjus.com/restful-token-authorization/
+方案二：简单签权设计：
+客户端：Url 中每次请求携带参数 accessToken=dqwrw ...
+      
+    </div>
+    <a class="more" href="/2019/05/22/分布式权限服务/接口鉴权设计/">详细</a>
+  </article>
+  
+  <article class="article-card">
+    <h2 class="article-head">
+      <a href="/2019/05/22/分布式权限服务/单点登录原理/">
+        
+        一、简单实现方式应用与 ...
+        
+      </a>
+    </h2>
+    <p class="article-date">2019-05-22</p>
+    
+    <div class="article-summary">
+      
+      一、简单实现方式应用与应用之间有一个定义好的 key。从应用 1 直接登录到应用 2
+
+之前需要把用户 username,password,key 同时放到 Cookie 里，
+然后在另一个应用里专门有一个 Servlet 去验证 key 是否和这个应用的 key 相等（key 是加密的 k ...
+      
+    </div>
+    <a class="more" href="/2019/05/22/分布式权限服务/单点登录原理/">详细</a>
+  </article>
+  
+  <article class="article-card">
+    <h2 class="article-head">
+      <a href="/2019/05/22/CI&CD/jenkins构建完成后执行shell脚本/">
+        
+        12345678910 ...
+        
+      </a>
+    </h2>
+    <p class="article-date">2019-05-22</p>
+    
+    <div class="article-summary">
+      
+      123456789101112#!/bin/shcd /opt/uniskzhongchou/tomcat/sh bin/shutdown.shsleep 10unzip -oq ../backup/ZCSystem.war -d webapps/ZCSystemmv ../backup/Z ...
+      
+    </div>
+    <a class="more" href="/2019/05/22/CI&CD/jenkins构建完成后执行shell脚本/">详细</a>
+  </article>
+  
+
+  
+  <div class="guide-pager">
+  
+    <a href="/page/6/"><span class="page-arrow">← </span>Prev</a>
+  
+  
+    <a href="/page/8/">Next<span class="page-arrow"> →</span></a>
+  
+</div>
+  
+</main>
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019
+  </p>
+</footer>
+
+<script>
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async ("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function () {
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async ("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function () {
+    $('figure pre').each(function (i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

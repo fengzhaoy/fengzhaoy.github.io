@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="fengzhaoyang&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+  <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+    java8 Lambda Stream 常用详细实例 | fzy-blog
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  <script src="/js/qrious.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>fzy-blog</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>java8 Lambda Stream 常用详细实例</h2>
+  <p class="post-date">2019-05-24</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>在集合转换和遍历的时候，你还在使用 for 循环吗？<br>for 循环缺点： 1.复杂转换 转换时赋值极易出现错误和 bug 2.遍历时，要写很多冗余代码。</p>
+<p>综上所述： 1.是时候使用 java8 Lambda 表达式，Stream，Collect, Collectors 了 2.流式编程，函数编程是 java 未来的趋势，最新的 Spring5 WebFlux 异步（响应式）流编程</p>
+<p>java8 Lambda Stream collect Collectors 常用详细实例<br><a href="https://blog.csdn.net/fzy629442466/article/details/84629422" target="_blank" rel="noopener">https://blog.csdn.net/fzy629442466/article/details/84629422</a><br>java 集合遍历<br><a href="https://blog.csdn.net/fzy629442466/article/details/84622757" target="_blank" rel="noopener">https://blog.csdn.net/fzy629442466/article/details/84622757</a></p>
+<p>Stream 的使用分为两种类型：<br>Intermediate,一个 Stream 可以调用 0 到多个 Intermediate 类型操作，每次调用会对 Stream 做一定的处理，返回一个新的 Stream，这类操作都是惰性化的（lazy），就是说，并没有真正开始流的遍历。<br>常用操作：map (mapToInt, flatMap 等)、 filter、 distinct、 sorted、 peek、 limit、 skip、 parallel</p>
+<p>Terminal,一个 Stream 只能执行一次 terminal 操作，而且只能是最后一个操作，执行 terminal 操作之后，Stream 就被消费掉了，并且产生一个结果。<br>常用操作：forEach、 forEachOrdered、 toArray、 reduce、 collect、 min、 max、 count、 anyMatch、 allMatch、 noneMatch、 findFirst、 findAny</p>
+<p>实例：<br>任何集合都可以转换为 Stream：<br>数组 转 Stream</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String[] strArr = <span class="keyword">new</span> String[]&#123;<span class="string">"aa"</span>,<span class="string">"bb"</span>,<span class="string">"cc"</span>&#125;;</span><br><span class="line">Stream&lt;String&gt; streamArr = Stream.of(strArr);</span><br><span class="line">Stream&lt;String&gt; streamArr2 = Arrays.stream(strArr);</span><br></pre></td></tr></table></figure>
+<p>List 集合 转 Stream</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">Stream&lt;String&gt; streamList = list.stream();</span><br></pre></td></tr></table></figure>
+<p>Map 集合 转 Stream</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Stream stream = map.entrySet().stream();</span><br></pre></td></tr></table></figure>
+<p>List 集合 转并行 Stream</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;String&gt; streamList2 = list.parallelStream();</span><br></pre></td></tr></table></figure>
+<p>/*<strong>*****</strong> Intermediate *<strong>*****</strong>/<br>filter 过滤操作</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">streamArr.filter(str -&gt; str.startsWith(<span class="string">"a"</span>));</span><br><span class="line"></span><br><span class="line">list.stream().filter(student -&gt; student.getSex().equals(<span class="string">"G"</span>)).forEach(student -&gt; System.out.println(student.toString()));</span><br><span class="line"></span><br><span class="line">List nums = Arrays.asList(<span class="number">1</span>, <span class="number">3</span>, <span class="keyword">null</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">13</span>, <span class="number">10</span>);</span><br><span class="line">nums.stream().filter(num -&gt; num != <span class="keyword">null</span>).distinct().forEach(System.out::println);</span><br><span class="line"></span><br><span class="line">Stream.of(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>).filter(item -&gt; item &gt; <span class="number">3</span>).forEach(System.out::println);</span><br><span class="line"><span class="comment">// 打印结果：4，5</span></span><br><span class="line"></span><br><span class="line">list.stream().filter(TestObject::isLeader).collect(Collectors.toList());</span><br><span class="line"></span><br><span class="line"><span class="comment">//Java 8 Map Filter 过滤示例</span></span><br><span class="line"><span class="comment">//Java 8之前：</span></span><br><span class="line">String result = <span class="string">""</span>;</span><br><span class="line"><span class="keyword">for</span> (Map.Entry&lt;Integer, String&gt; entry : maps.entrySet()) &#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="string">"something"</span>.equals(entry.getValue()))&#123;</span><br><span class="line">		result = entry.getValue();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//在Java 8中，您可以转换Map.entrySet()到stream由遵循filter()和collect()它。</span></span><br><span class="line"><span class="comment">//Map -&gt; Stream -&gt; Filter -&gt; String</span></span><br><span class="line">String result = maps.entrySet().stream()</span><br><span class="line">	.filter(map -&gt; <span class="string">"something"</span>.equals(map.getValue()))</span><br><span class="line">	.map(map-&gt;map.getValue())</span><br><span class="line">	.collect(Collectors.joining());</span><br><span class="line"><span class="comment">//Map -&gt; Stream -&gt; Filter -&gt; MAP</span></span><br><span class="line">Map&lt;Integer, String&gt; collect = maps.entrySet().stream()</span><br><span class="line">	.filter(map -&gt; map.getKey() == <span class="number">2</span>)</span><br><span class="line">	.collect(Collectors.toMap(p -&gt; p.getKey(), p -&gt; p.getValue()));</span><br></pre></td></tr></table></figure>
+<p>map 遍历和转换操作<br>还有提供：mapToDouble，mapToInt，mapToLong</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">streamArr.map(String::toLowerCase);</span><br><span class="line"></span><br><span class="line">list.stream().map(TestObject::getName).collect(Collectors.toList()).forEach(System.out::println);</span><br><span class="line"></span><br><span class="line">list.stream().map(TestObject::getName).map(String::length).collect(Collectors.toList()).forEach(System.out::println);</span><br><span class="line"></span><br><span class="line">Stream.of(<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"hello"</span>).map(item-&gt; item.toUpperCase()).forEach(System.out::println);</span><br><span class="line"><span class="comment">// 打印结果 A, B, HELLO</span></span><br><span class="line"></span><br><span class="line">List&lt;Integer&gt; nums = Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line">List&lt;Integer&gt; squareNums = nums.stream().map(n -&gt; n * n).collect(Collectors.toList());</span><br></pre></td></tr></table></figure>
+<p>flatMap 将流展开</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">List&lt;String&gt; list1 = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">list1.add(<span class="string">"aa"</span>);</span><br><span class="line">list1.add(<span class="string">"bb"</span>);</span><br><span class="line">List&lt;String&gt; list2 = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">list2.add(<span class="string">"cc"</span>);</span><br><span class="line">list2.add(<span class="string">"dd"</span>);</span><br><span class="line">Stream.of(list1,list2).flatMap(str -&gt; str.stream()).collect(Collectors.toList());</span><br><span class="line"></span><br><span class="line">Stream&lt;List&lt;Integer&gt;&gt; inputStream = Stream.of(</span><br><span class="line"> Arrays.asList(<span class="number">1</span>),</span><br><span class="line"> Arrays.asList(<span class="number">2</span>, <span class="number">3</span>),</span><br><span class="line"> Arrays.asList(<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)</span><br><span class="line"> );</span><br><span class="line">Stream&lt;Integer&gt; outputStream = inputStream.flatMap((childList) -&gt; childList.stream());</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取 foo</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Outer</span> </span>&#123;</span><br><span class="line">    Nested nested;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Nested</span> </span>&#123;</span><br><span class="line">    Inner inner;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Inner</span> </span>&#123;</span><br><span class="line">    String foo;</span><br><span class="line">&#125;</span><br><span class="line">Optional.of(<span class="keyword">new</span> Outer())</span><br><span class="line">    .flatMap(o -&gt; Optional.ofNullable(o.nested))</span><br><span class="line">    .flatMap(n -&gt; Optional.ofNullable(n.inner))</span><br><span class="line">    .flatMap(i -&gt; Optional.ofNullable(i.foo))</span><br><span class="line">    .ifPresent(System.out::println);</span><br></pre></td></tr></table></figure>
+<p>limit 提取子流 最大长度限制</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">streamArr.limit(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">Stream.of(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>).limit(<span class="number">2</span>).forEach(System.out::println);</span><br><span class="line"><span class="comment">// 打印结果 1,2</span></span><br></pre></td></tr></table></figure>
+<p>skip 跳过</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">streamArr.skip(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">Stream.of(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>).skip(<span class="number">2</span>).forEach(System.out::println);</span><br><span class="line"><span class="comment">// 打印结果 3,4,5</span></span><br></pre></td></tr></table></figure>
+<p>peek 产生相同的流，支持每个元素调用一个函数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">streamArr.peek(str -&gt; System.out.println(<span class="string">"item:"</span>+str));</span><br><span class="line"></span><br><span class="line">Stream.of(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>).peek(integer -&gt; System.out.println(<span class="string">"accept:"</span> + integer)).forEach(System.out::println);</span><br><span class="line"><span class="comment">// 打印结果: accept:1</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// accept:2</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// accept:3</span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="comment">// accept:4</span></span><br><span class="line"><span class="comment">// 4</span></span><br><span class="line"><span class="comment">// accept:5</span></span><br><span class="line"><span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+<p>distinct 去重</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Stream.of(<span class="string">"aa"</span>,<span class="string">"bb"</span>,<span class="string">"aa"</span>).distinct();</span><br><span class="line">Stream.of(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>).distinct().forEach(System.out::println);</span><br><span class="line"><span class="comment">// 打印结果：1，2，3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 根据id去重</span></span><br><span class="line">List&lt;Person&gt; unique = appleList.stream().collect(collectingAndThen(toCollection(() -&gt; <span class="keyword">new</span> TreeSet&lt;&gt;(comparingLong(Apple::getId))), ArrayList::<span class="keyword">new</span>));</span><br></pre></td></tr></table></figure>
+<p>sorted()，sorted(Comparator) 排序：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Human&gt; humans = Lists.newArrayList(<span class="keyword">new</span> Human(<span class="string">"Sarah"</span>, <span class="number">10</span>), <span class="keyword">new</span> Human(<span class="string">"Jack"</span>, <span class="number">12</span>));</span><br><span class="line">Collections.sort(humans, Comparator.comparing(Human::getName));</span><br><span class="line">Assert.assertThat(humans.get(<span class="number">0</span>), equalTo(<span class="keyword">new</span> Human(<span class="string">"Jack"</span>, <span class="number">12</span>)));</span><br><span class="line">humans.sort((h1, h2) -&gt; h1.getName().compareTo(h2.getName()));</span><br></pre></td></tr></table></figure>
+<p>反转排序</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Comparator&lt;Human&gt; comparator = (h1, h2) -&gt; h1.getName().compareTo(h2.getName());</span><br><span class="line">humans.sort(comparator.reversed());</span><br></pre></td></tr></table></figure>
+<p>多条件排序</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">humans.sort((lhs, rhs) -&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (lhs.getName().equals(rhs.getName())) &#123;</span><br><span class="line">        <span class="keyword">return</span> lhs.getAge() - rhs.getAge();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> lhs.getName().compareTo(rhs.getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">Assert.assertThat(humans.get(<span class="number">0</span>), equalTo(<span class="keyword">new</span> Human(<span class="string">"Sarah"</span>, <span class="number">10</span>)));</span><br></pre></td></tr></table></figure>
+<p>多条件组合排序</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">humans.sort(Comparator.comparing(Human::getName).thenComparing(Human::getAge));</span><br><span class="line">Assert.assertThat(humans.get(<span class="number">0</span>), equalTo(<span class="keyword">new</span> Human(<span class="string">"Sarah"</span>, <span class="number">10</span>)));</span><br><span class="line"></span><br><span class="line">students.sort((Student s1, Student s2) -&gt; &#123;<span class="keyword">return</span> Integer.compare(s1.getHeight(), s2.getHeight());&#125;);</span><br><span class="line">students.sort((s1, s2) -&gt; Integer.compare(s1.getHeight(), s2.getHeight()));</span><br><span class="line">students.sort(Comparator.comparingDouble(Student::getScore));</span><br><span class="line">Stream.of(<span class="string">"aaa"</span>,<span class="string">"bb"</span>,<span class="string">"c"</span>).sorted(Comparator.comparing(String::length).reversed());</span><br><span class="line"></span><br><span class="line">Stream.of(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>).sorted().forEach(System.out::println);</span><br><span class="line"><span class="comment">// 打印结果 5, 4, 3, 2, 1</span></span><br></pre></td></tr></table></figure>
+<p>parallel 转为并行流,谨慎使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">streamArr.parallel();</span><br></pre></td></tr></table></figure>
+<p>/*<strong>*****</strong> Terminal *<strong>*****</strong>/<br>forEach</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">streamArr.forEach(System.out::println);</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> ids[] = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;;</span><br><span class="line">Arrays.stream(ids).forEach(System.out::println);</span><br></pre></td></tr></table></figure>
+<p>forEachOrdered 如果希望顺序执行并行流，请使用该方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">streamArr.parallel().forEachOrdered(System.out::println);</span><br><span class="line"></span><br><span class="line">Stream.of(<span class="number">5</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">4</span>,<span class="number">3</span>).forEachOrdered(integer -&gt; &#123; System.out.println(<span class="string">"integer:"</span>+integer);&#125;);</span><br><span class="line"><span class="comment">// 打印结果 integer:5</span></span><br><span class="line"><span class="comment">// integer:2</span></span><br><span class="line"><span class="comment">// integer:1</span></span><br><span class="line"><span class="comment">// integer:4</span></span><br><span class="line"><span class="comment">// integer:3</span></span><br></pre></td></tr></table></figure>
+<p>toArray 收集到数组中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">streamArr.filter(str -&gt; str.startsWith(<span class="string">"a"</span>)).toArray(String[]::<span class="keyword">new</span>);</span><br></pre></td></tr></table></figure>
+<p>min 取最小值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">IntStream.of(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>).min();</span><br><span class="line">Stream.of(arr).min(String::compareTo);</span><br><span class="line"></span><br><span class="line">Optional&lt;Integer&gt; min = Stream.of(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>).min((o1, o2) -&gt; o1 - o2);</span><br><span class="line">System.out.println(<span class="string">"min:"</span> + min.get());</span><br><span class="line"><span class="comment">// 打印结果：min:5</span></span><br></pre></td></tr></table></figure>
+<p>reduce 聚合操作</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">streamArr.reduce((str1,str2) -&gt; str1+str2);</span><br><span class="line"><span class="keyword">int</span> sum2 = numbers.stream().reduce(<span class="number">0</span>, (a,b) -&gt; a + b);</span><br><span class="line"><span class="comment">//reduce 求最大值</span></span><br><span class="line">Optional&lt;Integer&gt; max = numbers.stream().reduce(Integer::max);</span><br><span class="line"><span class="comment">//reduce 求最小值</span></span><br><span class="line">Optional&lt;Integer&gt; min = numbers.stream().reduce(Integer::min);</span><br></pre></td></tr></table></figure>
+<p>max 取最大值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">IntStream.of(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>).max();</span><br><span class="line">Stream.of(arr).max(String::compareTo);</span><br><span class="line"></span><br><span class="line">Optional&lt;Integer&gt; max = Stream.of(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>).max((o1, o2) -&gt; o2 - o1);</span><br><span class="line">System.out.println(<span class="string">"max:"</span> + max.get());</span><br><span class="line"><span class="comment">// 打印结果：max:1</span></span><br></pre></td></tr></table></figure>
+<p>count 计算总量</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">streamArr.count();</span><br><span class="line"></span><br><span class="line"><span class="keyword">long</span> count = Stream.of(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>).count();</span><br><span class="line">System.out.println(<span class="string">"count:"</span> + count);</span><br><span class="line"><span class="comment">// 打印结果：count:5</span></span><br></pre></td></tr></table></figure>
+<p>anyMatch 匹配 判断流中是否含有匹配元素</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> hasMatch = streamArr.anyMatch(str -&gt; str.startsWith(<span class="string">"a"</span>));</span><br><span class="line"><span class="keyword">boolean</span> anyMatch = Stream.of(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>).anyMatch(integer -&gt; integer &gt; <span class="number">3</span>);</span><br><span class="line">System.out.println(<span class="string">"anyMatch: "</span> + anyMatch);</span><br><span class="line"><span class="comment">// 打印结果：anyMatch: true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(list.stream().anyMatch(u -&gt; u.getName().equals(<span class="string">"Ron"</span>)))&#123;</span><br><span class="line">    System.out.println(<span class="string">"Ron已经到了"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>allMatch 匹配 判断流中是否全部匹配</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> hasMatch = streamArr.allMatch(str -&gt; str.startsWith(<span class="string">"a"</span>));</span><br><span class="line"></span><br><span class="line"><span class="keyword">boolean</span> allMatch = Stream.of(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>).allMatch(integer -&gt; integer &gt; <span class="number">0</span>);</span><br><span class="line">System.out.println(<span class="string">"allMatch: "</span> + allMatch);</span><br><span class="line"><span class="comment">// 打印结果：allMatch: true</span></span><br></pre></td></tr></table></figure>
+<p>noneMatch 判断流中是否全部不匹配</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> hasMatch = streamArr.noneMatch(str -&gt; str.startsWith(<span class="string">"a"</span>));</span><br><span class="line"></span><br><span class="line"><span class="keyword">boolean</span> noneMatch = Stream.of(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>).noneMatch(integer -&gt; integer &gt; <span class="number">10</span>);</span><br><span class="line">System.out.println(<span class="string">"noneMatch:"</span> + noneMatch);</span><br><span class="line"><span class="comment">// 打印结果 noneMatch:true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">boolean</span> noneMatch_ = Stream.of(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>).noneMatch(integer -&gt; integer &lt; <span class="number">3</span>);</span><br><span class="line">System.out.println(<span class="string">"noneMatch_:"</span> + noneMatch_);</span><br><span class="line"><span class="comment">// 打印结果 noneMatch_:false</span></span><br></pre></td></tr></table></figure>
+<p>findFirst 找到第一个就返回</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">streamArr.filter(str -&gt; str.startsWith(<span class="string">"a"</span>)).findFirst();</span><br><span class="line"></span><br><span class="line"><span class="comment">//需要找到第一个isLeader为ture的对象并打印其名字，就可以按照如下的代码操作。</span></span><br><span class="line">list.stream().filter(u-&gt;u.isLeader()).findFirst().ifPresent(u-&gt;System.out.println(u.getName()));</span><br></pre></td></tr></table></figure>
+<p>findAny 找到任意一个就返回</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">streamArr.filter(str -&gt; str.startsWith(<span class="string">"a"</span>)).findAny();</span><br><span class="line"></span><br><span class="line">list.stream().filter(u -&gt; u.getName().equals(<span class="string">"Ron"</span>)).findAny().ifPresent(u -&gt; System.out.println(u.getName()));</span><br></pre></td></tr></table></figure>
+<p>Concat 联接两个 Stream:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Stream.concat(Stream.of(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>), Stream.of(<span class="number">4</span>, <span class="number">5</span>)).forEach(integer -&gt; System.out.print(integer + <span class="string">""</span>));</span><br><span class="line"><span class="comment">// 打印结果: 1 2 3 4 5</span></span><br></pre></td></tr></table></figure>
+<p>Stream 流复用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Supplier&lt;Stream&lt;String&gt;&gt; streamSupplier = () -&gt; Stream.of(<span class="string">"d2"</span>, <span class="string">"a2"</span>, <span class="string">"b1"</span>, <span class="string">"b3"</span>, <span class="string">"c"</span>).filter(s -&gt; s.startsWith(<span class="string">"a"</span>));</span><br><span class="line"></span><br><span class="line">streamSupplier.get().anyMatch(s -&gt; <span class="keyword">true</span>);   <span class="comment">// ok</span></span><br><span class="line">streamSupplier.get().noneMatch(s -&gt; <span class="keyword">true</span>);  <span class="comment">// ok</span></span><br></pre></td></tr></table></figure>
+<p>文件 Stream<br>把单词挑出来</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; output =reader.lines().</span><br><span class="line"> flatMap(line -&gt;Stream.of(line.split(REGEXP))).</span><br><span class="line"> filter(word -&gt; word.length() &gt; <span class="number">0</span>).</span><br><span class="line"> collect(Collectors.toList());</span><br></pre></td></tr></table></figure>
+<p>异步编排 CompletableFuture 和 Stream 结合用法：<br>单条流水线</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">findPricesFutureOnePipeline</span><span class="params">(String product)</span> </span>&#123;</span><br><span class="line">    List&lt;String&gt; result = shops.stream()</span><br><span class="line">        .map(shop -&gt; CompletableFuture.supplyAsync(() -&gt; shop.getName() + <span class="string">" price is "</span></span><br><span class="line">            + shop.getPrice(product), executor))</span><br><span class="line">        .map(CompletableFuture::join)</span><br><span class="line">        .collect(Collectors.toList());</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 单条流水线执行结果．</span></span><br><span class="line">[BestPrice price is <span class="number">227.53480147033423</span>, LetsSaveBig price is <span class="number">200.89398407500244</span>, MyFavoriteShop price is <span class="number">161.14747297059597</span>, BuyItAll price is <span class="number">155.9041805933185</span>]</span><br><span class="line">one pipeline composed CompletableFuture done in <span class="number">4004</span> msecs</span><br></pre></td></tr></table></figure>
+<p>组合两条流水线</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">findPricesFuture</span><span class="params">(String product)</span> </span>&#123;</span><br><span class="line">    List&lt;CompletableFuture&lt;String&gt;&gt; priceFutures =</span><br><span class="line">        shops.stream()</span><br><span class="line">            .map(shop -&gt; CompletableFuture.supplyAsync(() -&gt; shop.getName() + <span class="string">" price is "</span></span><br><span class="line">                + shop.getPrice(product), executor)) <span class="comment">// 指定线程池执行生产者方法，如果不配置此选项，</span></span><br><span class="line">            .collect(Collectors.toList());  <span class="comment">// 得到一个List&lt;CompletableFuture&lt;String&gt;&gt;，列表中的每个CompletableFuture对象在计算完成后都包含商店的String类型的名称。</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 要得到List&lt;String&gt;,需要等待所有的future执行完毕，将其包含的值抽取出来，填充到列表中才能返回。使用join方法获取CompletableFuture包含的值．</span></span><br><span class="line">    List&lt;String&gt; prices = priceFutures.stream()</span><br><span class="line">        .map(CompletableFuture::join) <span class="comment">// 等待所有异步操作结束</span></span><br><span class="line">        .collect(Collectors.toList());</span><br><span class="line">    <span class="keyword">return</span> prices;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 组合两条流水线执行结果</span></span><br><span class="line">  [BestPrice price is <span class="number">171.10524235618578</span>, LetsSaveBig price is <span class="number">168.59369176671822</span>, MyFavoriteShop price is <span class="number">174.79155890558252</span>, BuyItAll price is <span class="number">154.82955565763797</span>]</span><br><span class="line">    <span class="comment">//　书上显示是2000ms左右，这里貌似跟直接并行流差不多．</span></span><br><span class="line">composed CompletableFuture done in <span class="number">1006</span> msecs</span><br></pre></td></tr></table></figure>
+<p>多条流水线组合异步+同步+Stream 组合</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">findPricesFuture</span><span class="params">(String product)</span> </span>&#123;</span><br><span class="line">        List&lt;CompletableFuture&lt;String&gt;&gt; priceFutures = findPricesStream(product)</span><br><span class="line">                .collect(Collectors.&lt;CompletableFuture&lt;String&gt;&gt;toList());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> priceFutures.stream()</span><br><span class="line">                <span class="comment">// 等待流中的所有Future执行完毕，并提取各自的返回值</span></span><br><span class="line">                .map(CompletableFuture::join)</span><br><span class="line">                .collect(Collectors.toList());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> Stream&lt;CompletableFuture&lt;String&gt;&gt; findPricesStream(String product) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> shops.stream()</span><br><span class="line">            <span class="comment">// 以异步方式取得每个shop中指定产品的原始价格, 返回值　Stream&lt;CompletableFuture&lt;String&gt;&gt;</span></span><br><span class="line">                .map(shop -&gt; CompletableFuture.supplyAsync(() -&gt; shop.getPrice(product), executor))</span><br><span class="line">                <span class="comment">// 不需要异步, 因为只是price+折扣字符串-&gt;Quota对象，返回　Stream&lt;CompletableFuture&lt;Quote&gt;&gt;</span></span><br><span class="line">                .map(future -&gt; future.thenApply(Quote::parse)) <span class="comment">// 取future中的string进行解析.</span></span><br><span class="line">                <span class="comment">// 使用另一个异步任务构造期望的Future，申请折扣</span></span><br><span class="line">                .map(future -&gt; future.thenCompose(quote -&gt; CompletableFuture.supplyAsync(() -&gt; Discount.applyDiscount(quote), executor)));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行时间</span></span><br><span class="line">[BestPrice price is <span class="number">204.78</span>, LetsSaveBig price is <span class="number">190.85</span>, MyFavoriteShop price is <span class="number">128.92</span>, BuyItAll price is <span class="number">140.31</span>, ShopEasy price is <span class="number">166.1</span>]</span><br><span class="line">composed CompletableFuture done in <span class="number">2009</span> msecs</span><br></pre></td></tr></table></figure>
+<p>Predicate 合并<br>甚至可以用 and()、or()和 xor()逻辑函数来合并 Predicate，<br>例如要找到所有以 J 开始，长度为四个字母的名字，你可以合并两个 Predicate 并传入</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Predicate&lt;String&gt; startsWithJ = (n) -&gt; n.startsWith(<span class="string">"J"</span>);</span><br><span class="line">Predicate&lt;String&gt; fourLetterLong = (n) -&gt; n.length() == <span class="number">4</span>;</span><br><span class="line">names.stream()</span><br><span class="line">    .filter(startsWithJ.and(fourLetterLong))</span><br></pre></td></tr></table></figure>
+<p>自定义 filter</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">filter</span><span class="params">(List names, Predicate condition)</span> </span>&#123;</span><br><span class="line">    names.stream().filter((name) -&gt; (condition.test(name))).forEach((name) -&gt; &#123;</span><br><span class="line">        System.out.println(name + <span class="string">" "</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>文档：<br>java8-tutorial<br><a href="http://blog.didispace.com/books/java8-tutorial/ch1.html" target="_blank" rel="noopener">http://blog.didispace.com/books/java8-tutorial/ch1.html</a><br>30 seconds of java8<br><a href="https://github.com/biezhi/30-seconds-of-java8#chunk" target="_blank" rel="noopener">https://github.com/biezhi/30-seconds-of-java8#chunk</a></p>
+</section>
+    <!-- Tags START -->
+    
+    <div class="tags">
+      <span>Tags:</span>
+      
+  <a href="/tags#Java8">
+    <span class="tag-code">Java8</span>
+  </a>
+
+    </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/05/23/SpringBoot2/spring@Async异步任务/">
+        <span class="nav-arrow">← </span>
+        
+          (untitled)
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/05/24/Java开源/Github最热门开源项目整理持续更新20190507/">
+        
+          Github 最热门开源项目整理持续更新 20190508
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <div class="money-like">
+      <div class="reward-btn">
+        赏
+        <span class="money-code">
+          <span class="alipay-code">
+            <div class="code-image"></div>
+            <b>使用支付宝打赏</b>
+          </span>
+          <span class="wechat-code">
+            <div class="code-image"></div>
+            <b>使用微信打赏</b>
+          </span>
+        </span>
+      </div>
+      <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+    </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <div class="qrcode">
+      <canvas id="share-qrcode"></canvas>
+      <p class="notice">扫描二维码，分享此文章</p>
+    </div>
+    
+    <!-- 二维码 END -->
+    
+    <!-- No Comment -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+  <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="nav">none</ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://fengzhaoy.gitee.io/2019/05/24/Java8/java8LambdaStream常用详细实例/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function () {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function () {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="' + src +
+          '" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function () {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+<script>
+  var qr = new QRious({
+    element: document.getElementById('share-qrcode'),
+    value: document.location.href
+  });
+</script>
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019
+  </p>
+</footer>
+
+<script>
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async ("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function () {
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async ("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function () {
+    $('figure pre').each(function (i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

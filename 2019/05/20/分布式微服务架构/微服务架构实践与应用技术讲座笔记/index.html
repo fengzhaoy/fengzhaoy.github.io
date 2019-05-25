@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="fengzhaoyang&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+  <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+    fzy-blog
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  <script src="/js/qrious.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>fzy-blog</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2></h2>
+  <p class="post-date">2019-05-20</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h2 id="主题一：-微服务架构深度解析与最佳实践"><a href="#主题一：-微服务架构深度解析与最佳实践" class="headerlink" title="主题一： 微服务架构深度解析与最佳实践"></a>主题一： 微服务架构深度解析与最佳实践</h2><blockquote>
+<p>分享人：秦金卫 火币网高级技术总监 / Apache Dubbo PMC<br>PPT 在线阅读： <a href="https://www.fenggit.com/#/docs/%E6%8A%80%E6%9C%AF%E5%8D%9A%E6%96%87/gitchat%E8%AE%B2%E5%BA%A7PPT" target="_blank" rel="noopener">https://www.fenggit.com/#/docs/%E6%8A%80%E6%9C%AF%E5%8D%9A%E6%96%87/gitchat%E8%AE%B2%E5%BA%A7PPT</a></p>
+</blockquote>
+<h3 id="微服务架构概述"><a href="#微服务架构概述" class="headerlink" title="微服务架构概述"></a>微服务架构概述</h3><p>2014 年 3 月 Martin Flowler<br>2016 响应式微服务架构</p>
+<h3 id="微服务架构技术热度"><a href="#微服务架构技术热度" class="headerlink" title="微服务架构技术热度"></a>微服务架构技术热度</h3><h3 id="发展历程"><a href="#发展历程" class="headerlink" title="发展历程"></a>发展历程</h3><p>单体架构–&gt;垂直架构–&gt;SOA 架构–&gt;微服务架构</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ol>
+<li>恰当拆分 按照业务和一定的粒度进行拆分服务 DDD</li>
+<li>独立部署 每个服务独立部署，挺有自己的数据和状态</li>
+<li>自动化管理 使用自动化的方式测试、运维、做好监控</li>
+<li>统一治理 进行统一的注册、发现、路由、降级等。</li>
+</ol>
+<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><p>服务发现<br>负载均衡<br>分布式配置</p>
+<h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><p>只要服务间接口不变 方便接口内部优化 变化不影响其他服务 独立演进<br>服务简单 灵活扩展 便于维护 混合开发 持续交付</p>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>维护过于复杂 必须要用自动化<br>服务延迟 有可能比单个服务性能差 解决优化性能，有些不能拆分。</p>
+<h3 id="1-Vert-x-响应式编程"><a href="#1-Vert-x-响应式编程" class="headerlink" title="1.Vert.x 响应式编程"></a>1.Vert.x 响应式编程</h3><p>EventLoop EventBus</p>
+<p>通过 MQ 队列 排序 优势 没有锁和并发 排队比多线程锁性能好很多<br>可以知道 排队数 吞吐能力清楚 对系统有预期</p>
+<p>数据流+异步编程</p>
+<h3 id="2-响应式微服务"><a href="#2-响应式微服务" class="headerlink" title="2.响应式微服务"></a>2.响应式微服务</h3><p>自治——》异步性——》伸缩性——》弹性<br>微服务框架 Vert.x</p>
+<h3 id="3-如何扩展微服务系统"><a href="#3-如何扩展微服务系统" class="headerlink" title="3.如何扩展微服务系统"></a>3.如何扩展微服务系统</h3><ol>
+<li>水平复制：复制系统</li>
+<li>功能解耦：拆分业务</li>
+<li>数据分区：切分数据</li>
+<li>特性开关+容错设计</li>
+</ol>
+<h3 id="4-如何提升研发效率"><a href="#4-如何提升研发效率" class="headerlink" title="4.如何提升研发效率"></a>4.如何提升研发效率</h3><ol>
+<li>自动化测试</li>
+<li>自动化部署</li>
+<li>自动化运维</li>
+</ol>
+<h3 id="5-分布式事务"><a href="#5-分布式事务" class="headerlink" title="5.分布式事务"></a>5.分布式事务</h3><p>幂等、去重、补偿<br>最好的办法是不用分布式事务<br>MQ 配置最少一次 去重</p>
+<h3 id="6-监控与运维"><a href="#6-监控与运维" class="headerlink" title="6.监控与运维"></a>6.监控与运维</h3><ol>
+<li>业务监控</li>
+<li>系统监控</li>
+<li>容量规划</li>
+<li>报警预警</li>
+<li>运维流程</li>
+<li>故障处理</li>
+</ol>
+<p>数据报表问题？<br>当微服务 分了很多库之后，如何进行实时统计报表查询 单库的话通过 join 多表连接就可以实现实时查询。</p>
+<h2 id="主题二：如何利用微服务编排建设-APasS-平台"><a href="#主题二：如何利用微服务编排建设-APasS-平台" class="headerlink" title="主题二：如何利用微服务编排建设 APasS 平台"></a>主题二：如何利用微服务编排建设 APasS 平台</h2><blockquote>
+<p>分享人：陈超 高经架构师<br>PPT 在线阅读： <a href="https://www.fenggit.com/#/docs/%E6%8A%80%E6%9C%AF%E5%8D%9A%E6%96%87/gitchat%E8%AE%B2%E5%BA%A7PPT" target="_blank" rel="noopener">https://www.fenggit.com/#/docs/%E6%8A%80%E6%9C%AF%E5%8D%9A%E6%96%87/gitchat%E8%AE%B2%E5%BA%A7PPT</a></p>
+</blockquote>
+<h3 id="DDD-没有统一的标准"><a href="#DDD-没有统一的标准" class="headerlink" title="DDD 没有统一的标准"></a>DDD 没有统一的标准</h3><p>Galileo APM</p>
+<h3 id="Netflix-Conductor-分布式工作流"><a href="#Netflix-Conductor-分布式工作流" class="headerlink" title="Netflix Conductor 分布式工作流"></a>Netflix Conductor 分布式工作流</h3><h2 id="主题三：微服务架构下的监控实践"><a href="#主题三：微服务架构下的监控实践" class="headerlink" title="主题三：微服务架构下的监控实践"></a>主题三：微服务架构下的监控实践</h2><blockquote>
+<p>分享人：冯天豪 阿里云高级技术专家<br>PPT 在线阅读： <a href="https://www.fenggit.com/#/docs/%E6%8A%80%E6%9C%AF%E5%8D%9A%E6%96%87/gitchat%E8%AE%B2%E5%BA%A7PPT" target="_blank" rel="noopener">https://www.fenggit.com/#/docs/%E6%8A%80%E6%9C%AF%E5%8D%9A%E6%96%87/gitchat%E8%AE%B2%E5%BA%A7PPT</a></p>
+</blockquote>
+<h3 id="微服务带来的挑战"><a href="#微服务带来的挑战" class="headerlink" title="微服务带来的挑战"></a>微服务带来的挑战</h3><h3 id="阿里云-APM"><a href="#阿里云-APM" class="headerlink" title="阿里云 APM"></a>阿里云 APM</h3></section>
+    <!-- Tags START -->
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/05/20/分布式微服务架构/Java8RxJavaReactor比较/">
+        <span class="nav-arrow">← </span>
+        
+          (untitled)
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/05/20/分布式微服务架构/中间件系统架构设计实现/">
+        
+          (untitled)
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <div class="money-like">
+      <div class="reward-btn">
+        赏
+        <span class="money-code">
+          <span class="alipay-code">
+            <div class="code-image"></div>
+            <b>使用支付宝打赏</b>
+          </span>
+          <span class="wechat-code">
+            <div class="code-image"></div>
+            <b>使用微信打赏</b>
+          </span>
+        </span>
+      </div>
+      <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+    </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <div class="qrcode">
+      <canvas id="share-qrcode"></canvas>
+      <p class="notice">扫描二维码，分享此文章</p>
+    </div>
+    
+    <!-- 二维码 END -->
+    
+    <!-- No Comment -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+  <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#主题一：-微服务架构深度解析与最佳实践"><span class="toc-nav-text">主题一： 微服务架构深度解析与最佳实践</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#微服务架构概述"><span class="toc-nav-text">微服务架构概述</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#微服务架构技术热度"><span class="toc-nav-text">微服务架构技术热度</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#发展历程"><span class="toc-nav-text">发展历程</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#特点"><span class="toc-nav-text">特点</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#特性"><span class="toc-nav-text">特性</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#优势"><span class="toc-nav-text">优势</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#问题"><span class="toc-nav-text">问题</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-Vert-x-响应式编程"><span class="toc-nav-text">1.Vert.x 响应式编程</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#2-响应式微服务"><span class="toc-nav-text">2.响应式微服务</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#3-如何扩展微服务系统"><span class="toc-nav-text">3.如何扩展微服务系统</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#4-如何提升研发效率"><span class="toc-nav-text">4.如何提升研发效率</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#5-分布式事务"><span class="toc-nav-text">5.分布式事务</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#6-监控与运维"><span class="toc-nav-text">6.监控与运维</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#主题二：如何利用微服务编排建设-APasS-平台"><span class="toc-nav-text">主题二：如何利用微服务编排建设 APasS 平台</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#DDD-没有统一的标准"><span class="toc-nav-text">DDD 没有统一的标准</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Netflix-Conductor-分布式工作流"><span class="toc-nav-text">Netflix Conductor 分布式工作流</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#主题三：微服务架构下的监控实践"><span class="toc-nav-text">主题三：微服务架构下的监控实践</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#微服务带来的挑战"><span class="toc-nav-text">微服务带来的挑战</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#阿里云-APM"><span class="toc-nav-text">阿里云 APM</span></a></li></ol></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://fengzhaoy.gitee.io/2019/05/20/分布式微服务架构/微服务架构实践与应用技术讲座笔记/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function () {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function () {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="' + src +
+          '" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function () {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+<script>
+  var qr = new QRious({
+    element: document.getElementById('share-qrcode'),
+    value: document.location.href
+  });
+</script>
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019
+  </p>
+</footer>
+
+<script>
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async ("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function () {
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async ("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function () {
+    $('figure pre').each(function (i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

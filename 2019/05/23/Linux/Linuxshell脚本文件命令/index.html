@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="fengzhaoyang&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+  <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+    fzy-blog
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  <script src="/js/qrious.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>fzy-blog</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2></h2>
+  <p class="post-date">2019-05-23</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h1 id="Linux-shell-脚本文件命令"><a href="#Linux-shell-脚本文件命令" class="headerlink" title="Linux shell 脚本文件命令"></a>Linux shell 脚本文件命令</h1><h5 id="shell-脚本文件开头"><a href="#shell-脚本文件开头" class="headerlink" title="shell 脚本文件开头"></a>shell 脚本文件开头</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>! /bin/bash</span><br></pre></td></tr></table></figure>
+<h5 id="注释格式"><a href="#注释格式" class="headerlink" title="注释格式"></a>注释格式</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>单行注释 用#</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>多行注释</span><br><span class="line">:&lt;&lt;!</span><br><span class="line"><span class="meta">#</span> 被注释的内容</span><br><span class="line">!</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>#### echo 输出文字内容</span><br><span class="line">```shell</span><br><span class="line">echo "hello world !"</span><br></pre></td></tr></table></figure>
+<p>#作为可执行程序</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x ./test.sh  #使脚本具有执行权限</span><br><span class="line">./test.sh  #执行脚本</span><br></pre></td></tr></table></figure>
+<h5 id="变量和字符串拼接"><a href="#变量和字符串拼接" class="headerlink" title="变量和字符串拼接"></a>变量和字符串拼接</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit $&#123;name&#125; $&#123;name&#125;-backup</span><br></pre></td></tr></table></figure>
+<h5 id="获取上一条命令的执行结果"><a href="#获取上一条命令的执行结果" class="headerlink" title="获取上一条命令的执行结果"></a>获取上一条命令的执行结果</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var=`ps -ef | grep java`</span><br><span class="line">或</span><br><span class="line">var=$(ps -ef | grep java)</span><br><span class="line">echo "var = $var"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>输出docker image id 并赋值给var变量</span><br><span class="line">var=`docker images -q bop-fms-gateway-backup`; echo "id=$var"</span><br></pre></td></tr></table></figure>
+<h5 id="shell-数组"><a href="#shell-数组" class="headerlink" title="shell 数组"></a>shell 数组</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>使用@ 或 * 可以获取数组中的所有元素</span><br><span class="line">my_array=(A B "C" D)</span><br><span class="line">echo "第1个元素为: $&#123;my_array[0]&#125;"</span><br><span class="line">echo "第2个元素为: $&#123;my_array[1]&#125;"</span><br><span class="line">echo "第3个元素为: $&#123;my_array[2]&#125;"</span><br><span class="line">echo "第4个元素为: $&#123;my_array[3]&#125;"</span><br><span class="line">echo "数组的元素为: $&#123;my_array[*]&#125;"</span><br><span class="line">echo "数组元素个数为: $&#123;#my_array[*]&#125;"</span><br></pre></td></tr></table></figure>
+<h5 id="shell-传递参数"><a href="#shell-传递参数" class="headerlink" title="shell 传递参数"></a>shell 传递参数</h5><p><a href="https://www.runoob.com/linux/linux-shell-passing-arguments.html" target="_blank" rel="noopener">https://www.runoob.com/linux/linux-shell-passing-arguments.html</a></p>
+<h5 id="shell-日期变量"><a href="#shell-日期变量" class="headerlink" title="shell 日期变量"></a>shell 日期变量</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>将时间  时 分 秒 赋给变量curTime，注意 date 和 双引号之间有空格</span><br><span class="line">curTime=$(date "+%H%M%S")</span><br><span class="line"><span class="meta">#</span>将时间  年 月 日 赋给变量curDate</span><br><span class="line">curDate=$(date "+%Y%m%d")</span><br><span class="line">var=`date "+%Y-%m-%d %H:%M:%S"`</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>创建以当前时间为文件名的文件夹</span><br><span class="line">mkdir `date +%Y%m%d`</span><br><span class="line"><span class="meta">#</span>备份以时间做为文件名的文件</span><br><span class="line">tar cvf ./htdocs`date +%Y%m%d`.tar ./*</span><br></pre></td></tr></table></figure>
+<h5 id="if-else"><a href="#if-else" class="headerlink" title="if else"></a>if else</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if [ $(ps -ef | grep -c "ssh") -gt 1 ]; then echo "true"; fi</span><br></pre></td></tr></table></figure>
+<h5 id="shell-test-命令"><a href="#shell-test-命令" class="headerlink" title="shell test 命令"></a>shell test 命令</h5><p><a href="https://www.runoob.com/linux/linux-shell-test.html" target="_blank" rel="noopener">https://www.runoob.com/linux/linux-shell-test.html</a></p>
+<h5 id="shell-输入-输出重定向"><a href="#shell-输入-输出重定向" class="headerlink" title="shell 输入/输出重定向"></a>shell 输入/输出重定向</h5><p><a href="https://www.runoob.com/linux/linux-shell-io-redirections.html" target="_blank" rel="noopener">https://www.runoob.com/linux/linux-shell-io-redirections.html</a></p>
+<h5 id="shell-文件包含"><a href="#shell-文件包含" class="headerlink" title="shell 文件包含"></a>shell 文件包含</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>创建两个 shell 脚本文件。</span><br><span class="line"><span class="meta">#</span>test1.sh 代码如下：</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line">url="http://www.runoob.com"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>test2.sh 代码如下：</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span>使用 . 号来引用test1.sh 文件</span><br><span class="line">. ./test1.sh</span><br><span class="line"><span class="meta">#</span> 或者使用以下包含文件代码</span><br><span class="line"><span class="meta">#</span> source ./test1.sh</span><br><span class="line">echo "菜鸟教程官网地址：$url"</span><br><span class="line"><span class="meta">#</span>接下来，我们为 test2.sh 添加可执行权限并执行：</span><br><span class="line">chmod +x test2.sh</span><br><span class="line">./test2.sh</span><br><span class="line"><span class="meta">#</span>输出： 菜鸟教程官网地址：http://www.runoob.com</span><br></pre></td></tr></table></figure>
+</section>
+    <!-- Tags START -->
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/05/23/Linux/linuxvi命令/">
+        <span class="nav-arrow">← </span>
+        
+          (untitled)
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/05/23/Linux/linuxmysql常用脚本/">
+        
+          (untitled)
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <div class="money-like">
+      <div class="reward-btn">
+        赏
+        <span class="money-code">
+          <span class="alipay-code">
+            <div class="code-image"></div>
+            <b>使用支付宝打赏</b>
+          </span>
+          <span class="wechat-code">
+            <div class="code-image"></div>
+            <b>使用微信打赏</b>
+          </span>
+        </span>
+      </div>
+      <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+    </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <div class="qrcode">
+      <canvas id="share-qrcode"></canvas>
+      <p class="notice">扫描二维码，分享此文章</p>
+    </div>
+    
+    <!-- 二维码 END -->
+    
+    <!-- No Comment -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+  <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Linux-shell-脚本文件命令"><span class="toc-nav-text">Linux shell 脚本文件命令</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#shell-脚本文件开头"><span class="toc-nav-text">shell 脚本文件开头</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#注释格式"><span class="toc-nav-text">注释格式</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#变量和字符串拼接"><span class="toc-nav-text">变量和字符串拼接</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#获取上一条命令的执行结果"><span class="toc-nav-text">获取上一条命令的执行结果</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#shell-数组"><span class="toc-nav-text">shell 数组</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#shell-传递参数"><span class="toc-nav-text">shell 传递参数</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#shell-日期变量"><span class="toc-nav-text">shell 日期变量</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#if-else"><span class="toc-nav-text">if else</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#shell-test-命令"><span class="toc-nav-text">shell test 命令</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#shell-输入-输出重定向"><span class="toc-nav-text">shell 输入/输出重定向</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#shell-文件包含"><span class="toc-nav-text">shell 文件包含</span></a></li></ol></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://fengzhaoy.gitee.io/2019/05/23/Linux/Linuxshell脚本文件命令/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function () {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function () {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="' + src +
+          '" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function () {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+<script>
+  var qr = new QRious({
+    element: document.getElementById('share-qrcode'),
+    value: document.location.href
+  });
+</script>
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019
+  </p>
+</footer>
+
+<script>
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async ("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function () {
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async ("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function () {
+    $('figure pre').each(function (i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

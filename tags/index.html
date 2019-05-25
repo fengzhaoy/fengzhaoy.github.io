@@ -147,6 +147,8 @@
     
       <a class="tag2" data-name="tag-Java开源">Java开源</a>
     
+      <a class="tag3" data-name="tag-Java8">Java8</a>
+    
   </div>
   
     <div class="tag-list">
@@ -154,13 +156,24 @@
       
         <ul class="tag-preview">
           <li>
-            <a href="/2019/05/24/Java开源/蚂蚁金服技术架构/">蚂蚁金服技术架构</a>
+            <a href="/2019/05/24/Java开源/Github最热门开源项目整理持续更新20190507/">Github 最热门开源项目整理持续更新 20190508</a>
           </li>
         </ul>
         
         <ul class="tag-preview">
           <li>
-            <a href="/2019/05/24/Java开源/Github最热门开源项目整理持续更新20190507/">Github 最热门开源项目整理持续更新 20190508</a>
+            <a href="/2019/05/24/Java开源/蚂蚁金服技术架构/">蚂蚁金服技术架构</a>
+          </li>
+        </ul>
+        
+    </div>
+    
+    <div class="tag-list">
+      <h3 class="tag-name" id="tag-Java8">Java8</h3>
+      
+        <ul class="tag-preview">
+          <li>
+            <a href="/2019/05/24/Java8/java8LambdaStream常用详细实例/">java8 Lambda Stream 常用详细实例</a>
           </li>
         </ul>
         
@@ -188,32 +201,35 @@
 </div>
     <footer class="app-footer">
   <p class="copyright">
-    &copy; 2019 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
-    <br>
-    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+    &copy; 2019
   </p>
 </footer>
 
 <script>
-  function async(u, c) {
-    var d = document, t = 'script',
+  function async (u, c) {
+    var d = document,
+      t = 'script',
       o = d.createElement(t),
       s = d.getElementsByTagName(t)[0];
     o.src = u;
-    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
     s.parentNode.insertBefore(o, s);
   }
 </script>
 <script>
-  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+  async ("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function () {
     FastClick.attach(document.body);
   })
 </script>
 
 <script>
   var hasLine = 'true';
-  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
-    $('figure pre').each(function(i, block) {
+  async ("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function () {
+    $('figure pre').each(function (i, block) {
       var figure = $(this).parents('figure');
       if (hasLine === 'false') {
         figure.find('.gutter').hide();

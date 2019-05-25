@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="fengzhaoyang&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+  <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+    fzy-blog
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  <script src="/js/qrious.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>fzy-blog</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2></h2>
+  <p class="post-date">2019-05-20</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> cms_article (</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span> AUTO_INCREMENT,</span><br><span class="line">	category_id <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'栏目编号'</span>,</span><br><span class="line">	title <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'标题'</span>,</span><br><span class="line">	<span class="keyword">link</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">COMMENT</span> <span class="string">'文章链接'</span>,</span><br><span class="line">	color <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="keyword">COMMENT</span> <span class="string">'标题颜色'</span>,</span><br><span class="line">	image <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">COMMENT</span> <span class="string">'文章图片'</span>,</span><br><span class="line">	keywords <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">COMMENT</span> <span class="string">'关键字'</span>,</span><br><span class="line">	description <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">COMMENT</span> <span class="string">'描述、摘要'</span>,</span><br><span class="line">	weight <span class="built_in">int</span> <span class="keyword">DEFAULT</span> <span class="number">0</span> <span class="keyword">COMMENT</span> <span class="string">'权重，越大越靠前'</span>,</span><br><span class="line">	weight_date datetime <span class="keyword">COMMENT</span> <span class="string">'权重期限'</span>,</span><br><span class="line">	hits <span class="built_in">int</span> <span class="keyword">DEFAULT</span> <span class="number">0</span> <span class="keyword">COMMENT</span> <span class="string">'点击数'</span>,</span><br><span class="line">	posid <span class="built_in">varchar</span>(<span class="number">10</span>) <span class="keyword">COMMENT</span> <span class="string">'推荐位，多选'</span>,</span><br><span class="line">	custom_content_view <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">COMMENT</span> <span class="string">'自定义内容视图'</span>,</span><br><span class="line">	view_config <span class="built_in">text</span> <span class="keyword">COMMENT</span> <span class="string">'视图配置'</span>,</span><br><span class="line">	create_by <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">COMMENT</span> <span class="string">'创建者'</span>,</span><br><span class="line">	create_date datetime <span class="keyword">COMMENT</span> <span class="string">'创建时间'</span>,</span><br><span class="line">	update_by <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">COMMENT</span> <span class="string">'更新者'</span>,</span><br><span class="line">	update_date datetime <span class="keyword">COMMENT</span> <span class="string">'更新时间'</span>,</span><br><span class="line">	remarks <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">COMMENT</span> <span class="string">'备注信息'</span>,</span><br><span class="line">	del_flag <span class="built_in">char</span>(<span class="number">1</span>) <span class="keyword">DEFAULT</span> <span class="string">'0'</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'删除标记'</span>,</span><br><span class="line">	PRIMARY <span class="keyword">KEY</span> (<span class="keyword">id</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8 <span class="keyword">COLLATE</span>=utf8_unicode_ci <span class="keyword">COMMENT</span> = <span class="string">'文章表'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> cms_article_data (</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span> AUTO_INCREMENT,</span><br><span class="line">	<span class="keyword">content</span> <span class="built_in">text</span> <span class="keyword">COMMENT</span> <span class="string">'文章内容'</span>,</span><br><span class="line">	copyfrom <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">COMMENT</span> <span class="string">'文章来源'</span>,</span><br><span class="line">	relation <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">COMMENT</span> <span class="string">'相关文章'</span>,</span><br><span class="line">	allow_comment <span class="built_in">char</span>(<span class="number">1</span>) <span class="keyword">COMMENT</span> <span class="string">'是否允许评论'</span>,</span><br><span class="line">	PRIMARY <span class="keyword">KEY</span> (<span class="keyword">id</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8 <span class="keyword">COLLATE</span>=utf8_unicode_ci <span class="keyword">COMMENT</span> = <span class="string">'文章详表'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> cms_category</span><br><span class="line">(</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span> AUTO_INCREMENT,</span><br><span class="line">	parent_id <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'父级编号'</span>,</span><br><span class="line">	parent_ids <span class="built_in">varchar</span>(<span class="number">2000</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'所有父级编号'</span>,</span><br><span class="line">	site_id <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">DEFAULT</span> <span class="string">'1'</span> <span class="keyword">COMMENT</span> <span class="string">'站点编号'</span>,</span><br><span class="line">	office_id <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">COMMENT</span> <span class="string">'归属机构'</span>,</span><br><span class="line">	<span class="keyword">module</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">COMMENT</span> <span class="string">'栏目模块'</span>,</span><br><span class="line">	<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">100</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'栏目名称'</span>,</span><br><span class="line">	image <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">COMMENT</span> <span class="string">'栏目图片'</span>,</span><br><span class="line">	href <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">COMMENT</span> <span class="string">'链接'</span>,</span><br><span class="line">	target <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">COMMENT</span> <span class="string">'目标'</span>,</span><br><span class="line">	description <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">COMMENT</span> <span class="string">'描述'</span>,</span><br><span class="line">	keywords <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">COMMENT</span> <span class="string">'关键字'</span>,</span><br><span class="line">	<span class="keyword">sort</span> <span class="built_in">int</span> <span class="keyword">DEFAULT</span> <span class="number">30</span> <span class="keyword">COMMENT</span> <span class="string">'排序（升序）'</span>,</span><br><span class="line">	in_menu <span class="built_in">char</span>(<span class="number">1</span>) <span class="keyword">DEFAULT</span> <span class="string">'1'</span> <span class="keyword">COMMENT</span> <span class="string">'是否在导航中显示'</span>,</span><br><span class="line">	in_list <span class="built_in">char</span>(<span class="number">1</span>) <span class="keyword">DEFAULT</span> <span class="string">'1'</span> <span class="keyword">COMMENT</span> <span class="string">'是否在分类页中显示列表'</span>,</span><br><span class="line">	show_modes <span class="built_in">char</span>(<span class="number">1</span>) <span class="keyword">DEFAULT</span> <span class="string">'0'</span> <span class="keyword">COMMENT</span> <span class="string">'展现方式'</span>,</span><br><span class="line">	allow_comment <span class="built_in">char</span>(<span class="number">1</span>) <span class="keyword">COMMENT</span> <span class="string">'是否允许评论'</span>,</span><br><span class="line">	is_audit <span class="built_in">char</span>(<span class="number">1</span>) <span class="keyword">COMMENT</span> <span class="string">'是否需要审核'</span>,</span><br><span class="line">	custom_list_view <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">COMMENT</span> <span class="string">'自定义列表视图'</span>,</span><br><span class="line">	custom_content_view <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">COMMENT</span> <span class="string">'自定义内容视图'</span>,</span><br><span class="line">	view_config <span class="built_in">text</span> <span class="keyword">COMMENT</span> <span class="string">'视图配置'</span>,</span><br><span class="line">	create_by <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">COMMENT</span> <span class="string">'创建者'</span>,</span><br><span class="line">	create_date datetime <span class="keyword">COMMENT</span> <span class="string">'创建时间'</span>,</span><br><span class="line">	update_by <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">COMMENT</span> <span class="string">'更新者'</span>,</span><br><span class="line">	update_date datetime <span class="keyword">COMMENT</span> <span class="string">'更新时间'</span>,</span><br><span class="line">	remarks <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">COMMENT</span> <span class="string">'备注信息'</span>,</span><br><span class="line">	del_flag <span class="built_in">char</span>(<span class="number">1</span>) <span class="keyword">DEFAULT</span> <span class="string">'0'</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'删除标记'</span>,</span><br><span class="line">	PRIMARY <span class="keyword">KEY</span> (<span class="keyword">id</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8 <span class="keyword">COLLATE</span>=utf8_unicode_ci <span class="keyword">COMMENT</span> = <span class="string">'栏目表'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> cms_comment</span><br><span class="line">(</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span> AUTO_INCREMENT,</span><br><span class="line">	category_id <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'栏目编号'</span>,</span><br><span class="line">	content_id <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'栏目内容的编号'</span>,</span><br><span class="line">	title <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">COMMENT</span> <span class="string">'栏目内容的标题'</span>,</span><br><span class="line">	<span class="keyword">content</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">COMMENT</span> <span class="string">'评论内容'</span>,</span><br><span class="line">	<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">100</span>) <span class="keyword">COMMENT</span> <span class="string">'评论姓名'</span>,</span><br><span class="line">	ip <span class="built_in">varchar</span>(<span class="number">100</span>) <span class="keyword">COMMENT</span> <span class="string">'评论IP'</span>,</span><br><span class="line">	create_date datetime <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'评论时间'</span>,</span><br><span class="line">	audit_user_id <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">COMMENT</span> <span class="string">'审核人'</span>,</span><br><span class="line">	audit_date datetime <span class="keyword">COMMENT</span> <span class="string">'审核时间'</span>,</span><br><span class="line">	del_flag <span class="built_in">char</span>(<span class="number">1</span>) <span class="keyword">DEFAULT</span> <span class="string">'0'</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'删除标记'</span>,</span><br><span class="line">	PRIMARY <span class="keyword">KEY</span> (<span class="keyword">id</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8 <span class="keyword">COLLATE</span>=utf8_unicode_ci <span class="keyword">COMMENT</span> = <span class="string">'评论表'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> cms_guestbook</span><br><span class="line">(</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span> AUTO_INCREMENT,</span><br><span class="line">	<span class="keyword">type</span> <span class="built_in">char</span>(<span class="number">1</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'留言分类'</span>,</span><br><span class="line">	<span class="keyword">content</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'留言内容'</span>,</span><br><span class="line">	<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">100</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'姓名'</span>,</span><br><span class="line">	email <span class="built_in">varchar</span>(<span class="number">100</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'邮箱'</span>,</span><br><span class="line">	phone <span class="built_in">varchar</span>(<span class="number">100</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'电话'</span>,</span><br><span class="line">	workunit <span class="built_in">varchar</span>(<span class="number">100</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'单位'</span>,</span><br><span class="line">	ip <span class="built_in">varchar</span>(<span class="number">100</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'IP'</span>,</span><br><span class="line">	create_date datetime <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'留言时间'</span>,</span><br><span class="line">	re_user_id <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">COMMENT</span> <span class="string">'回复人'</span>,</span><br><span class="line">	re_date datetime <span class="keyword">COMMENT</span> <span class="string">'回复时间'</span>,</span><br><span class="line">	re_content <span class="built_in">varchar</span>(<span class="number">100</span>) <span class="keyword">COMMENT</span> <span class="string">'回复内容'</span>,</span><br><span class="line">	del_flag <span class="built_in">char</span>(<span class="number">1</span>) <span class="keyword">DEFAULT</span> <span class="string">'0'</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'删除标记'</span>,</span><br><span class="line">	PRIMARY <span class="keyword">KEY</span> (<span class="keyword">id</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8 <span class="keyword">COLLATE</span>=utf8_unicode_ci <span class="keyword">COMMENT</span> = <span class="string">'留言板'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> cms_link</span><br><span class="line">(</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span> AUTO_INCREMENT,</span><br><span class="line">	category_id <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'栏目编号'</span>,</span><br><span class="line">	title <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'链接名称'</span>,</span><br><span class="line">	color <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="keyword">COMMENT</span> <span class="string">'标题颜色'</span>,</span><br><span class="line">	image <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">COMMENT</span> <span class="string">'链接图片'</span>,</span><br><span class="line">	href <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">COMMENT</span> <span class="string">'链接地址'</span>,</span><br><span class="line">	weight <span class="built_in">int</span> <span class="keyword">DEFAULT</span> <span class="number">0</span> <span class="keyword">COMMENT</span> <span class="string">'权重，越大越靠前'</span>,</span><br><span class="line">	weight_date datetime <span class="keyword">COMMENT</span> <span class="string">'权重期限'</span>,</span><br><span class="line">	create_by <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">COMMENT</span> <span class="string">'创建者'</span>,</span><br><span class="line">	create_date datetime <span class="keyword">COMMENT</span> <span class="string">'创建时间'</span>,</span><br><span class="line">	update_by <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">COMMENT</span> <span class="string">'更新者'</span>,</span><br><span class="line">	update_date datetime <span class="keyword">COMMENT</span> <span class="string">'更新时间'</span>,</span><br><span class="line">	remarks <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">COMMENT</span> <span class="string">'备注信息'</span>,</span><br><span class="line">	del_flag <span class="built_in">char</span>(<span class="number">1</span>) <span class="keyword">DEFAULT</span> <span class="string">'0'</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'删除标记'</span>,</span><br><span class="line">	PRIMARY <span class="keyword">KEY</span> (<span class="keyword">id</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8 <span class="keyword">COLLATE</span>=utf8_unicode_ci <span class="keyword">COMMENT</span> = <span class="string">'友情链接'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> cms_site</span><br><span class="line">(</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span> AUTO_INCREMENT,</span><br><span class="line">	<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">100</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'站点名称'</span>,</span><br><span class="line">	title <span class="built_in">varchar</span>(<span class="number">100</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'站点标题'</span>,</span><br><span class="line">	logo <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">COMMENT</span> <span class="string">'站点Logo'</span>,</span><br><span class="line">	<span class="keyword">domain</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">COMMENT</span> <span class="string">'站点域名'</span>,</span><br><span class="line">	description <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">COMMENT</span> <span class="string">'描述'</span>,</span><br><span class="line">	keywords <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">COMMENT</span> <span class="string">'关键字'</span>,</span><br><span class="line">	theme <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="string">'default'</span> <span class="keyword">COMMENT</span> <span class="string">'主题'</span>,</span><br><span class="line">	copyright <span class="built_in">text</span> <span class="keyword">COMMENT</span> <span class="string">'版权信息'</span>,</span><br><span class="line">	custom_index_view <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">COMMENT</span> <span class="string">'自定义站点首页视图'</span>,</span><br><span class="line">	create_by <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">COMMENT</span> <span class="string">'创建者'</span>,</span><br><span class="line">	create_date datetime <span class="keyword">COMMENT</span> <span class="string">'创建时间'</span>,</span><br><span class="line">	update_by <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">COMMENT</span> <span class="string">'更新者'</span>,</span><br><span class="line">	update_date datetime <span class="keyword">COMMENT</span> <span class="string">'更新时间'</span>,</span><br><span class="line">	remarks <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">COMMENT</span> <span class="string">'备注信息'</span>,</span><br><span class="line">	del_flag <span class="built_in">char</span>(<span class="number">1</span>) <span class="keyword">DEFAULT</span> <span class="string">'0'</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'删除标记'</span>,</span><br><span class="line">	PRIMARY <span class="keyword">KEY</span> (<span class="keyword">id</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8 <span class="keyword">COLLATE</span>=utf8_unicode_ci <span class="keyword">COMMENT</span> = <span class="string">'站点表'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> t_news (</span><br><span class="line">  <span class="keyword">id</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span> AUTO_INCREMENT,</span><br><span class="line">  news_title <span class="built_in">varchar</span>(<span class="number">64</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'新闻标题'</span>,</span><br><span class="line">  news_type <span class="built_in">varchar</span>(<span class="number">8</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'新闻类型'</span>,</span><br><span class="line">  send_time datetime <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'发布时间'</span>,</span><br><span class="line">  author <span class="built_in">varchar</span>(<span class="number">32</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'作者'</span>,</span><br><span class="line">  editor <span class="built_in">varchar</span>(<span class="number">32</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'编辑'</span>,</span><br><span class="line">  tags <span class="built_in">varchar</span>(<span class="number">128</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'Tag标签'</span>,</span><br><span class="line">  <span class="keyword">keys</span> <span class="built_in">varchar</span>(<span class="number">128</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span> <span class="keyword">COMMENT</span> <span class="string">'关键字'</span>,</span><br><span class="line">  <span class="keyword">content</span> <span class="built_in">text</span> <span class="keyword">COMMENT</span> <span class="string">'内容'</span>,</span><br><span class="line">  reader_times <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">'0'</span> <span class="keyword">COMMENT</span> <span class="string">'阅读次数'</span>,</span><br><span class="line">  <span class="keyword">status</span> <span class="built_in">varchar</span>(<span class="number">2</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">'1'</span> <span class="keyword">COMMENT</span> <span class="string">'发布状态'</span>,</span><br><span class="line">  remark <span class="built_in">varchar</span>(<span class="number">500</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="keyword">enable</span> <span class="built_in">tinyint</span>(<span class="number">1</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">'1'</span>,</span><br><span class="line">  create_by <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  create_time datetime <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  update_by <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  update_time datetime <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="keyword">id</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8 <span class="keyword">COLLATE</span>=utf8_unicode_ci <span class="keyword">COMMENT</span>=<span class="string">'新闻表'</span>;</span><br></pre></td></tr></table></figure>
+</section>
+    <!-- Tags START -->
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/05/20/分布式微服务架构/电子商务平台表设计/">
+        <span class="nav-arrow">← </span>
+        
+          (untitled)
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/05/20/分布式微服务架构/系统管理平台表设计/">
+        
+          (untitled)
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <div class="money-like">
+      <div class="reward-btn">
+        赏
+        <span class="money-code">
+          <span class="alipay-code">
+            <div class="code-image"></div>
+            <b>使用支付宝打赏</b>
+          </span>
+          <span class="wechat-code">
+            <div class="code-image"></div>
+            <b>使用微信打赏</b>
+          </span>
+        </span>
+      </div>
+      <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+    </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <div class="qrcode">
+      <canvas id="share-qrcode"></canvas>
+      <p class="notice">扫描二维码，分享此文章</p>
+    </div>
+    
+    <!-- 二维码 END -->
+    
+    <!-- No Comment -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+  <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="nav">none</ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://fengzhaoy.gitee.io/2019/05/20/分布式微服务架构/CMS平台表设计/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function () {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function () {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="' + src +
+          '" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function () {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+<script>
+  var qr = new QRious({
+    element: document.getElementById('share-qrcode'),
+    value: document.location.href
+  });
+</script>
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019
+  </p>
+</footer>
+
+<script>
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async ("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function () {
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async ("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function () {
+    $('figure pre').each(function (i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

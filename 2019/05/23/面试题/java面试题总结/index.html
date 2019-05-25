@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="fengzhaoyang&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+  <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+    fzy-blog
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  <script src="/js/qrious.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>fzy-blog</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2></h2>
+  <p class="post-date">2019-05-23</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h1 id="java-面试题总结"><a href="#java-面试题总结" class="headerlink" title="java 面试题总结"></a>java 面试题总结</h1><p>2018 面试题：<br><a href="https://zhuanlan.zhihu.com/p/57229297" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/57229297</a> 20190227 记录<br><a href="https://blog.csdn.net/hzp666/article/details/69511637" target="_blank" rel="noopener">https://blog.csdn.net/hzp666/article/details/69511637</a><br><a href="https://blog.csdn.net/xzp_12345/article/details/80082408" target="_blank" rel="noopener">https://blog.csdn.net/xzp_12345/article/details/80082408</a></p>
+<p>面试问题记录：</p>
+<p>Jvm 内存模型</p>
+<p>动态代理底层原理</p>
+<p>CurrentHashmap</p>
+<p>高并发数据库设计</p>
+<p>为什么不用 select *</p>
+<p>分布式 session 共享</p>
+<p>流行的分布式架构</p>
+<p>Spring cloud 各个模块的名称和作用</p>
+<p>MQ 系统的优缺点 Conection Session 创建生产者，消费者 Destination 目的地 一对一模式 一对多发布订阅模式</p>
+<p>Dubbo 底层实现机制</p>
+<p>如何设计高并发订单系统？</p>
+<p>说说自己擅长的技术方面？</p>
+<p>生产者消费者 如果生产者太多会产生什么问题？</p>
+<p>面试主要考点：</p>
+<p>集合：</p>
+<p>ArrayList LinkedList Vector 的区别</p>
+<p>LinkedList,ArrayList,HashSet HashMap 非线程安全</p>
+<p>HashTable Vector 线程安全</p>
+<p>StringBuilder 非线程安全，StringBuffer 线程安全</p>
+<p>ArrayList Vector 都是数组结构 LinkedList 是基于双向链表结构</p>
+<p>ArrayList 查询快，插入慢，查询快是因为有索引所以查询快，插入慢是因为要移动元素的索引位置，还要进行数组复制操作，把添加前索引后面的元素追加到新元素的后面 LinkedList 插入快，查询慢，插入快是因为插入时，只需要移动元素的前后两个元素建立关系就可以实现插入操作，查询慢 因为 LinkedList 中的 get 方法是按照顺序访问从列表的一端开始检查，直到另外一端，要移动指针</p>
+<p>ArrayList 数据结构图</p>
+<p>LinkedList 数据结构图</p>
+<p>LinkedList 遍历</p>
+<p>LinkedList<string> link = new LinkedList<string>();</string></string></p>
+<p>Iterator<string> iter = link.iterator();</string></p>
+<p>while(iter.hasNext()){</p>
+<pre><code>String str = iter.next();
+</code></pre><p>}</p>
+<p>HashMap HashTable 区别</p>
+<p>HashMap 底层实现的机制：哈希表 链表散列=数组+单向链表 key value 都允许为 null hashMap 线程不安全 hashMap 无序</p>
+<p>通过 hash(key)方法计算 hash 值，然后通过 indexFor(hash,length)求该 key-value 对的 index 索引位置，然后迭代链表，put 方法 判断 key 是否存在链表中，如果不存在，则把这个 key-value 对插入链表头，如果存在则覆盖之前的 value 值，get 方法迭代链表，返回匹配的 key 对应的 value，找不到则返回 null</p>
+<p>HashMap 数据结构图</p>
+<p>HashTable 线程安全 HashTable key-value 都不允许为 null 不允许重复，HashTable 直接使用 key 对象的 hashCode()，HashMap 重新计算 hash 值</p>
+<p>HashSet 底层是用 hashMap 实现的 key 为对象 +一个不变的 Object 常量， hashSet 实现了 Set 接口 hashSet 仅仅存储对象 hashSet 比 hashMap 慢</p>
+<p>LinkedHashMap 是有序的 底层使用哈希表和双向链表来保存所有元素</p>
+<p>LinkedHashMap 数据结构图</p>
+<p>LinkedHashSet 和 HashSet 不同之处</p>
+<p>ConcurrentHashMap</p>
+<p>底层实现：包含了一个 Segment 数组，Segment 类上包含了一个 HashEntry 的数组，HashEntry 包含了 key 和 value 以及 next 指针，HashEntry 构成了一个链表</p>
+<p>数据结构图：</p>
+<p>List Set 区别<br>List,Set 都继承 Collection 接口，Map 不是</p>
+<p>List 特点：元素有序，可重复，支持 for 循环遍历，通过数组下标来遍历，也可用迭代器遍历</p>
+<p>Set 特点：无素无序，不可重复，重复的会被覆盖掉，set 只能用迭代，因为无序，无法用下标取得想要的值 （元素在 set 中的位置是有该元素的 hashCode 决定的，加入 set 的 object 对象必须定义 equals()方法）</p>
+<p>set 和 List 对比：</p>
+<p>List: 底层数组实现，可以动态增长，查找元素效率高，插入删除效率低，因为会引起其他位置改变。</p>
+<p>Set: 检索元素效率低下，删除和插入效率高，插入和删除不会引起元素位置改变。</p>
+<p>数据结构：<br>堆 类似一棵树 如：堆排序 在程序运行时，而不是在编译时，申请某个大小的内存空间</p>
+<p>栈 就是一个桶先进后出 只能在栈顶做插入和删除操作 LIFO</p>
+<p>Queue 队列 先进先出 FIFO 队头做删除，队尾做插入</p>
+<p>JVM：</p>
+<p>JVM 调优</p>
+<p>JAVA_OPTS 参数说明：</p>
+<p>-server 启用 jdk 的 server 版</p>
+<p>-Xms java 虚拟机初始化时的最小内存 默认物理内存的 1/64</p>
+<p>-Xmx java 虚拟机可使用的最大内存 默认物理内存的 1/4 最小内存和最大内存可以设置相同，以避免垃圾回收完成重新分配内存大小</p>
+<p>-Xmn 年轻代大小 占整个堆内存的 3/8</p>
+<p>-Xss1m 每个线程的栈大小</p>
+<p>-XX:PermSize 内存永久代大小</p>
+<p>-XX:MaxPermSize 内存最大永久代大小</p>
+<p>-XX:NewSize 设置年轻代初始化大小</p>
+<p>-XX:MaxNewSize 设置年轻代最大值</p>
+<p>-XX:NewRatio=4 设置年轻代与年老代的比值 年轻代包括一个 Eden 区和两个 Survivor 区 from Survivor, to Survivor</p>
+<p>-XX:SurvivorRatio=4 设置年轻代中 Eden 与 Suvivor 区的大小比值</p>
+<p>垃圾回收 GC<br>jvm 中，程序计数器、虚拟机栈、本地方法栈都是随线程而生随线程而灭，栈帧随着方法的进入和退出做入栈和出栈操作，实现了自动的内存清理，因此，我们的内存垃圾回收主要集中于 java 堆和方法区中，在程序运行期间，这部分内存的分配和使用都是动态的.<br>整个 JVM 内存大小=年轻代大小 (复制回收算法 叫 minor GC) + 年老代大小 (标记-整理回收算法 叫 major GC) + 持久代大小</p>
+<p>当触发 minor GC 时，会先把 Eden 区存活的对象复制到 to Survivor 区</p>
+<p>然后再看 from Survivor,如果次数达到年老代的标准，就复制到年老代中，如果没有达到则复制到 to Survivor 中，如果 to Survivor 满了，则复制到年老代中。</p>
+<p>然后调换 from Survivor 和 to Survivor 的名字，保证每次 to Survivor 都是空的等待对象</p>
+<p>判断对象是否存活有两种方式：<br>有两种方式：<br>一种是引用计数 ，每一个对象有一个引用计数属性，新增一个引用计数加 1，释放一个引用计数减 1，计数为 0 可以回收。但无法解决循环引用的问题<br>另一种是可达性分析 从 GC roots 开始向下搜索，当一个对象到 GC Roots 没有任何引用链相连时，则证明对象是不可用的<br>判断对象可以回收的情况：<br>显式的把某个引用置为 NULL 或指向别的对象<br>局部引用指向的对象<br>弱引用关联的对象<br>垃圾回收的方法：<br>标记-清除算法 优点减少停顿时间，缺点是会造成内存碎片<br>复制算法 这种方法不涉及对象的删除，只是把可用的对象从一个地方拷贝到另一个地方，适合大量对象回收的场景，比如新生代的回收。<br>标记-整理算法 优点可以解决内存碎片问题，但是会增加停顿时间<br>分代收集思想是把 JVM 分成不同的区域，每种区域使用不同的垃圾回收方法</p>
+<p>GC 策略：<br>G1 收集器：<br>优点：空间整合 标记-整理算法，可预测停顿 Gegion 独立区域概念 分 4 步：初始标记、Root Region Scanning，Concurrent Marking，重新标记, Copy/Clean up 复制/清除<br>参数设置：<br>-XX:+UnlockExperimentalVMOptions -XX:+UseG1GC #开启<br>-XX:MaxGCPauseMillis =50 #暂停时间目标<br>-XX:GCPauseIntervalMillis =200 #暂停间隔目标<br>-XX:+G1YoungGenSize=512m #年轻代大小<br>-XX:SurvivorRatio=6 #幸存区比例</p>
+<p>CMS 收集器：Concurrent Mark Sweep<br>优点：并发收集、低停顿 保证系统的响应时间，减少垃圾收集时的停顿时间 基于标记-清除算法实现，分 4 步：初始标记、并发标记，重新标记，并发清除。<br>缺点：产生大量空间碎片，并发阶段会降低吞吐量<br>参数设置：<br>-XX:+UseConcMarkSweepGC 设置年老代为并发收集</p>
+<p>-XX:+UseCMSCompactAtFullCollection：使用并发收集器时，开启对年老代的压缩。</p>
+<p>-XX:CMSFullGCsBeforeCompaction=5 设置运行多少次垃圾收集之后对内存空间进行压缩整理</p>
+<p>-XX:ParallelGCThreads=n 设置并发收集器年轻代收集方式为并行收集时，使用的 CPU 数。并行收集线程数。</p>
+<p>Parallel 收集器：<br>参数设置：<br>-XX:+UseParallelGC 设置并行收集器+年老代串行</p>
+<p>Parallel Old 收集器(java 1.6 之后提供)：<br>优点：吞吐量优先并行收集器</p>
+<p>参数设置：</p>
+<p>-XX:+UseParallelOldGC 设置年老代为并行收集+年老代并行 多线程+”标记-整理算法”</p>
+<p>-XX:ParallelGCThreads=20 并行收集时线程数</p>
+<p>-XX:MaxGCPauseMillis=n:设置并行收集最大暂停时间</p>
+<p>-XX:GCTimeRatio=n:设置垃圾回收时间占程序运行时间的百分比。公式为 1/(1+n)</p>
+<p>Serial 收集器：</p>
+<p>特点：新生代，老年代都串行收集，新生代复制算法，年老代标记-压缩算法 会 Stop the world 服务暂停</p>
+<p>参数设置：</p>
+<p>-XX:+UseSerialGC 设置串行收集器</p>
+<p>ParNew 收集器：</p>
+<p>特点：新生代并行，年老代串行 新生代复制算法，年老代标记-压缩算法</p>
+<p>参数设置：</p>
+<p>-XX:+UseParNewGC ParNew 收集器</p>
+<p>-XX:+ParallelGCThreads 限制线程数量</p>
+<p>垃圾回收统计信息</p>
+<p>-XX:+PrintGC</p>
+<p>-XX:+PrintGCDetails</p>
+<p>年轻代大小选择</p>
+<p>响应时间优先的应用：尽可能设大，直到接近系统的最低响应时间限制（根据实际情况选择）。在此种情况下，年轻代收集发生的频率也是最小的。同时，减少到达年老代的对象。</p>
+<p>吞吐量优先的应用：尽可能的设置大，可能到达 Gbit 的程度。因为对响应时间没有要求，垃圾收集可以并行进行，一般适合 8CPU 以上的应用。</p>
+<p>年老代大小选择</p>
+<p>响应时间优先的应用：年老代使用并发收集器，所以其大小需要小心设置，一般要考虑并发会话率和会话持续时间等一些参数。如果堆设置小了，可以会造成内存碎片、高回收频率以及应用暂停而使用传统的标记清除方式；如果堆大了，则需要较长的收集时间。最优化的方案，一般需要参考以下数据获得：</p>
+<p>并发垃圾收集信息</p>
+<p>持久代并发收集次数</p>
+<p>传统 GC 信息</p>
+<p>花在年轻代和年老代回收上的时间比例</p>
+<p>减少年轻代和年老代花费的时间，一般会提高应用的效率</p>
+<p>吞吐量优先的应用：一般吞吐量优先的应用都有一个很大的年轻代和一个较小的年老代。原因是，这样可以尽可能回收掉大部分短期对象，减少中期的对象，而年老代尽存放长期存活对象。</p>
+<p>minor GC/full GC 触发条件 OOM 触发条件 降低 GC 的调优策略？</p>
+<p>eden 区满了触发 minorGC ,升到老年代的对象大于老年代剩余空间触发 full GC, 连续大内存的对象，会直接进入老年代，而老年代虽然有很大的剩余空间，但是无法找到足够大的连续空间来分配给当前对象，此种情况会触发 full GC</p>
+<p>GC 与非 GC 时间耗时超过了 GCTimeRatio 的限制引发 OOM</p>
+<p>调优通过 NewRate 控制新生代与老年代的比例，通过 MaxTenuringThreshold 控制进入老年前生存次数</p>
+<p>JVM 内存模型：<br>运行时数据区 包括 （方法区 虚拟机栈 本地方法栈 堆 程序计数器）</p>
+<p>堆和栈中存的是什么？</p>
+<p>堆里面存放各种对象实例数据：堆最小内存由-Xms 指定 最大内存由-Xmx 指定</p>
+<p>栈里面放的是基本的数据类型和对象的引用，</p>
+<p>默认空余的堆内存小于 40%时，就会增大，直到-Xmx 设置的内存，具体的比例可以由-XX:MinHeapFreeRatio 指定</p>
+<p>空余的内存大于 70%，就会减少内存，直到-Xms 设置的内存，具体由-XX:MaxHeapFreeRatio 指定</p>
+<p>一般建议两者设置一样大，避免 JVM 在不断调整大小</p>
+<p>程序计数器</p>
+<pre><code>这里记录了线程执行字节码的行号，在分支，循环，跳转，异常、线程恢复都依赖这个计数器
+</code></pre><p>Perm Space 永久代又称为方法区 Method Area</p>
+<p>存放类信息，字段信息，方法信息、其他信息，字符串，static 修饰的变量存在方法区， 数据量大也会引起内存溢出：字符串过多。</p>
+<p>内存溢出<br>有哪几种情况会引起内存溢出？</p>
+<p>堆满 栈满 方法区运行时常量溢出</p>
+<p>内存泄漏<br>对象可达但不可用，是指程序在申请内存后，无法释放己申请的内存空间，一次内存泄漏危害可以忽略，但内存泄漏堆积后果很严重，无论多少内存，迟早会被占光。</p>
+<p>ThreadLocal 内存泄漏的根源是：由于 ThreadLocalMap 的生命周期跟 Thread 一样长，如果没有手动删除对应 key 就会导致内存泄漏，而不是因为弱引用。</p>
+<p>如何指定一个线程的栈大小？ jvm 参数 -Xss 可以设置 ，new Thread()可以设置栈大小。</p>
+<p>栈溢出 StackOverFlow</p>
+<p>一般是在递归情况下会出现此错误。</p>
+<p>如何避免内存泄漏和溢出？</p>
+<p>1.尽早释放无用对象的引用， 好的办法是使用临时变量的时候，让引用变量退出活动域时自动设置为 null，暗示垃圾收集器来收集该对象，防止发生内存泄漏。</p>
+<p>2.程序进行字符串处理时，尽量避免使用 String,而应该使用 StringBuffer.因为 String 是不可变的，每一个 String 对象都会独立占用内存一块区域</p>
+<p>3.尽量少用静态变量，因为静态变量是全局的，存在方法区，GC 不会回收，（用永久代实现的方法区，垃圾回收行为在这个区域是很少出现的，垃圾回收器的主要目标是针对常量池和类型的卸载）</p>
+<p>4.避免集中创建对象，尤其是大对象。JVM 会突然需要大量内存，这时会触发 GC 优化内存环境。</p>
+<ol>
+<li><p>String.substring 存在内存泄漏的危险。</p>
+</li>
+<li><p>采用新建字符串和 String.intern()的方法可以优化直接调用 String.substring。</p>
+</li>
+</ol>
+<p>首先选择的是新建字符串。其次才是选择通过 intern()方法。intern()方法使用有其局限性。这个只有在从大字符串中截取比较小的子字符串，并且原来的字符串不需要再继续使用的场景下有较好的作用。</p>
+<p>JVM 性能调优监控工具<br>terminal 输入 jconsole 会打开 java gui 监视和管理控制台分析<br>jps 显示 jvm 中运行的进程状态信息 jps -q -m -l -v</p>
+<p>jstat 显示各个区内存和 gc 的情况 jstat -gc pid</p>
+<p>jinfo 显示 jvm 配置信息</p>
+<p>jmap 用来查看进程堆内存使用情况（GC 算法，堆配置参数，各代中堆内存使用情况）： jmap -heap pid</p>
+<p>查看堆内存中的对象数量、大小统计 jmap -histo[:live 只查活对象] pid</p>
+<p>jmap -dump:format=b,file=/home/dump.dat pid</p>
+<p>jstack 显示进程内的线程堆栈信息 jstack -F -l -m pid</p>
+<p>jhat 用于分析堆内存文件，它会建立一个 HTTP/HTML 服务器，让用户可以在浏览器上查看分析结果</p>
+<p>多线程：</p>
+<p>一个线程的生命周期图</p>
+<p>三种创建线程的方法：<br>继承 Thread 类 实现 Runnable 接口 通过 Callable call()方法和 Futrue 创建有返回值的线程</p>
+<p>线程同步<br>synchronized 称为重量级的锁<br>对于普通方法同步，锁是当前实例对象<br>对于静态方法同步，锁是当前类的 Class 对象<br>对于方法块同步，锁是 Synchronized 括号里的对象<br>同步代码块 非静态方法用 synchronized(this) 静态方法用 synchronized(类.class)进行同步<br>synchronized 又叫内置锁，其实是通过锁对象的 monitor 的取用与释放来实现的，互斥锁 mutex 的机制 ，monitor 内置与每一个 Object 中，synchronized 通过 Monitor 来实现加锁解锁。synchronized 底层是由 Monitor 先获得许可，然后执行同步代码块，然后释放许可。<br>Monitor 同步机制<br>为了达到同步，java 在一个监视器上（Monitor）的基础上实现了一个巧妙的方案。<br>监控器是一个控制机制，可以认为是一个很小的，只能容纳一个线程的盒子。一旦一个线程进入监视器，其他线路必须等待，直到那个线程退出监控为止，通过这种方式，一个监控器可以保证共享资源在同一时刻只能被一个线程使用，这种方法称为同步。一旦一个线程进入实例的任何一个同步方法，别的线程不能进入该同一实例的其他同步方法，该实例的其他非同步方法可以被使用。</p>
+<p>线程间通信 方法：条件判断 wait 生产者通知消费者、消费者通知生产者用 notify/notifyAll 这些方法必须放在 synchronized 块中使用<br>synchronized,Object.wait(),Object.notify()/Object.notifyAll()实现线程同步时，用到两种机制：线程互斥锁 mutex 和条件变量 condition</p>
+<p>DCL 失效解决办法<br>方法一：关于单例模式的 DCL 机制 Singleton 静态变量前加 volatile, 方法内要加 synchronized(Singleton.class）两次 if(instance==null)判断<br>public class Singleton {<br>private static volatile Singleton instance = null;<br>private Singleton(){}<br>public static Singleton getInstance(){<br>if(instance == null){<br>synchronized (Singleton.class){<br>if(instance == null){<br>instance = new Singleton();<br>}<br>}<br>}<br>returninstance ;<br>}<br>}<br>方法二：最简单而且安全的解决方法是使用 static 内部类的思想，它利用的思想是：一个类直到被使用时才被初始化，而类初始化的过程是非并行的，这些都有 JLS 保证。 如下：<br>public class Singleton {<br>private Singleton() {}<br>private static class InstanceHolder {<br>private static final Singleton instance = new Singleton();<br>}<br>public static Singleton getInstance() {<br>return InstanceHolder.instance;<br>}<br>}</p>
+<p>volatile 机制<br>底层是通过内存屏障实现的 比 Synchronized 轻量，常用场景：状态标记、double check 双重检查<br>允许线程访问共享变量，为了确保共享变量能够准确和一致地更新，线程应该确保排他锁单独获得这个共享变量，<br>volatile 保证多线程下的可见线、顺序性、一致性（数据缓存一致性）</p>
+<p>happen-before 原则<br>指令重排序会影响多线程的执行正确性，happen-before 可以保证程序的有序性，它规定如果两个操作的执行顺序无法从 Happen-before 中推导出来，那么它就不能保证有序性，可以随意进行重排序。其定义如下： 1.同一个线程中 前面的操作 happen-before 后面的操作 2.监视器 monitor 上的解锁操作 happen-before 其后续的加锁操作，(Synchronized 规则) 3.对 volatile 的写操作 happen-before 后续的读操作 (volatile 规则) 4.线程的 start()方法 happen-before 该线程的后续操作 (线程启动规则) 5.线程所有的操作 happen-before 其他线程在该线程上调用 join 返回成功后操作 6.如果 a happen-before b, b happen-before c,则 a happen-before c （传递性）</p>
+<p>高级多线程控制类：<br>容器类<br>CurrentHashMap 原理<br>CopyOnWriteArrayList 原理<br>add remove 方法 内部都有重入锁 ReentrantLock</p>
+<p>ThreadLocal 类<br>保存线程的独立变量，ThreadLocal 为每个使用该变量的线程提供独立的副本，所以每一个线程都可以独立地改变自己的副本，而不会影响其他线程的副本。<br>线程+ThreadLocalMap 常用于数据库连接和 Session 管理<br>原子类<br>AtomicInteger,AtomicBoolean<br>Lock 类<br>ReentrantLock<br>ReentrantReadWriteLock lock 可重入读写锁 写写，写读互斥；读读不互斥，可以实现并发读的高效线程安全代码。<br>ReadLock r = lock.readLock(); WriteLock w = lock.writeLock();<br>Lock 和 synchronized 的区别是什么?</p>
+<p>lock 锁的多条件（condition）阻塞控制。</p>
+<p>阻塞队列<br>大体实现一个阻塞队列？</p>
+<p>阻塞队列常用方法：</p>
+<p>add 增加一个元素 队列满 则抛出 IIIegalSlabExceiption 异常</p>
+<p>remove 移除并返回队列头部的元素 队列为空 则抛出 NoSuchElementException 异常</p>
+<p>element 返回队列头部的元素 队列为空 则抛出 NoSuchElementException 异常</p>
+<p>offer 添加一个元素并返回 true 队列满 则返回 false</p>
+<p>poll 移除并返回队列头部的元素 队列空，则返回 null</p>
+<p>peek 返回队列头部的元素 如果队列空，则返回 null</p>
+<p>put 添加一个元素 队列满 则阻塞</p>
+<p>take 取出队列头部的元素 队列空 则阻塞</p>
+<p>BlockingQueue 阻塞队列 queue 是单向队列，可以在队列头部加入元素和在队列尾部删除或取出元素，先进先出策略。<br>queue 队列</p>
+<p>阻塞队列：用于实现生产者，消费者队列。</p>
+<p>ArrayBlockingQueue 基于数组实现的有界队列，必须设置容量</p>
+<p>LinkedBlockingQueue 基于链表实现的阻塞队列，容量不设置 是一个无边界阻塞队列。</p>
+<p>PriorityBlockingQueue 无界阻塞</p>
+<p>DelayQueue</p>
+<p>SynchronousQueue</p>
+<p>ConcurrentHashMap<br>非阻塞队列<br>PriorityQueue ConcurrentLinkedQueue</p>
+<p>线程池<br>ThreadPoolExecutor</p>
+<p>ThreadPoolExecutor 最核心的构造方法参数:</p>
+<p>corePoolSize 核心线程池大小</p>
+<p>maximumPoolSize 最大线程池大小</p>
+<p>keepAliveTime 线程池中超过 corePoolSzie 数目的空闲线程最大存活时间，</p>
+<p>TimeUnit keepAliveTime 时间单位</p>
+<p>workQueue 阻塞任务队列</p>
+<p>threadFactory 新建线程工厂</p>
+<p>RejectedExecutionHandler 当提交任务数超过 maxnumPoolSize+workQueue 之和时，任务会交给 RejectedExcecutionHandler 来处理</p>
+<p>ExecutorService newFixedThreadPool(int nThreads){</p>
+<pre><code>return new ThreadPoolExcecutor(nThreads,nThreads,0L,TimeUnit.MILISECONDS, new LinkedBlockingQueue&lt;Runnable&gt;());
+</code></pre><p>}</p>
+<p>ExecutorService newCacheThreadPool(){</p>
+<pre><code>return new ThreadPoolExcecutor(0,Integer.MAX_VALUE,60L,TimeUnit.MILISECONDS, new SynchonousQueue&lt;Runnable&gt;());
+</code></pre><p>}</p>
+<p>ExecutorService newSingleThreadExecutor(){</p>
+<pre><code>return new ThreadPoolExcecutor(1,1,0L,TimeUnit.MILISECONDS, new LinkedBlockingQueue&lt;Runnable&gt;());
+</code></pre><p>}</p>
+<p>定时器线程池: ScheduledExecutorService、大规模定时器 TimerWheel</p>
+<p>ExecutorCompletionService</p>
+<p>实现了 CompletionService,将执行完成的任务放到阻塞队列中，通过 take/put 获得执行结果</p>
+<p>用线程池创建 n 个固定数量的线程，如何保证所有线程执行完，才能执行下下一步操作？</p>
+<p>并发流程控制手段:CountDownlatch、用于多个线程，CyclcBarrier 可以重复调用，用于多个线程</p>
+<p>线程间如何通信？</p>
+<p>线程间的协调手段:lock、condition、wait、notify、notifyAll</p>
+<p>synchronized/wait()实现生产者，消费者模式 wait() notifyAll()</p>
+<p>lock / condition 实现生产者，消费者模式 new ReentrantLock() lock.newCondition() lock() await() signalAll()</p>
+<p>AQS 原理：<br>什么是 AQS?</p>
+<p>全称 AbastractQueuedSynchronizer 抽象队列式同步器</p>
+<p>许多同步类的实现都依赖它，如常用的 ReentrantLock/ Semaphore / CountDownLatch</p>
+<p>实现是依赖一个 volatile int state（共享资源）和一个 FIFO 的双向队列（多线程争用资源被阻塞时会进入此队列）来完成同步状态的管理</p>
+<p>当前线程获取同步状态失败时，同步器 AQS 会将当前线程和等待状态等信息构造成一个节点加入到同步队列，同时阻塞当前线程。</p>
+<p>当同步状态释放的时候，会把首节点的线程唤醒，使首节点的线程再次尝试获取同步状态。</p>
+<p>AQS 是独占锁和共享锁的实现的父类。</p>
+<p>AQS 定义两种资源共享方式：</p>
+<p>Exclusive 独占锁，锁在一个时间点只能一个线程占有，如 ReentrantLock，ReentrantReadWriteLock.writeLock 是独占锁，</p>
+<p>锁的获取机制可分为：公平锁和非公平锁</p>
+<p>Share 共享锁，多个线程可以同时获取的锁，如 ReentrantReadWriteLock.readLock,CyclicBarrier,CountDownLatch,Semapoore</p>
+<p>JUC(lock)和 Object( Synchronized monitor)机制区别是什么</p>
+<p>CAS 原理：<br>什么是 CAS？</p>
+<p>全称是 CompareAndSwap 内存值 预期值和新值比较 当切仅当预期值和内存值相同时，将内存值修改为新值，否则什么都不做</p>
+<p>Atomic 实现了 CAS 算法</p>
+<p>CAS 算法 ABA 问题解决：</p>
+<p>AtomicStampedReference 支持在两个变量上进行原子的条件更新，可以使用该类进行更新操作。</p>
+<p>Lock-Free 算法的三个组成部分是什么?</p>
+<p>使用线程的经验:设置名称、响应中断、使用 ThreadLocal</p>
+<p>Executor :ExecutorService 和 Future ThreadPoolExecutor</p>
+<p>Lock-free: atomic、concurrentMap.putIfAbsent、CopyOnWriteArrayList</p>
+<p>关于锁使用的经验介绍</p>
+<p>并发三大定律:Amdahl、Gustafson、Sun-Ni</p>
+<p>java 死锁产生原因及如何解锁 ？</p>
+<p>锁未释放，解锁方式：超时判断，设置有效期</p>
+<p>动态代理原理<br>spring aop 动态代理模式实现原理？</p>
+<p>Spring AOP 面向切面编程原理 动态代理模式实现思想</p>
+<p>如果被代理对象是接口形式：</p>
+<p>则使用 jdk 动态代理机制 Proxy.newProxyInstance() 获取代表对象 ，反射机制 Class.forName() 获取被代理类 InvocationHandler.invoke(target,args) 执行代理对象的切面方法</p>
+<p>非接口形式：</p>
+<p>则使用 cglib 动态代理机制 是通过动态生成代理类的子类方式，实现的代理，其中 代理类要继承 MethodInterceptor 类中的重写 Intercept()方法</p>
+<p>调用 methodProxy.invokeSuper(o,objects); Enhancer setSuperClass() setCallBack() enhancer.create()</p>
+<p>创建代理对象的步骤：</p>
+<p>生成代理类的二进制字节码文件</p>
+<p>加载二进制字节码，生成 Class 对象 使用 Class.forName()方法</p>
+<p>通过反射机制获得实例构造，并创建代理类对象。</p>
+<p>设计模式：</p>
+<p>常用的设计模式有哪些？开源框架常用的设计模式有哪些？</p>
+<p>工厂方法模式，单例模式，适配器模式，包装器模式，代理模式（AOP 面向切面编程），观察者模式，策略模式，模板方法模式（HttpServlet）</p>
+<p>设计一个商品定时抢购的业务流程图，保障保证用户能正常购买，防止商品被机器人刷走，同时减少对应用服务器的压力？</p>
+<p>框架组件：</p>
+<p>（spring springmvc redis task tomcat quartz mycat nginx lvs keepalived druid)</p>
+<p>如何实现单点登录，以及单点登录各服务对 session 的管理</p>
+<p>分布式开发框架</p>
+<p>分布式框架原理 dubbo<br>容错机制<br>分布式统一管理 Zookeeper</p>
+<p>分布式锁实现方式和原理<br>分布式锁是为了解决数据一致性问题<br>分布式的 CAP 理论：任何一个分布式系统都无法同时满足 一致性、可用性、分区容错性，最多只能同时满足两项<br>解决方案：<br>基于缓存实现分布式锁<br>redis 分布式锁 setnx 方法</p>
+<p>缓存问题<br>redis 缓存失效及热点 key 解决方案：<br>缓存击穿的解决方案：<br>当通过某一个 key 去查询数据时，如果对应在数据库中的数据都不存在，我们将此 key 对应的 value 设置一个默认的值，比如 null,并设置一个缓存的失效时间，这时在缓存失效之前，所有通过此 key 的访问都被挡住了，后面如果此 key 对应的数据在 DB 中存在时，缓存失效之后，通过此 key 再去访问数据库，就能拿到新的 value 了。<br>缓存雪崩的解决方案：<br>保证缓存的高可用性 Redis Sentinel Redis Cluster 都实现了高可用<br>赖隔离组件为后端限流并降级<br>对重要的资源（如：redids,mysql, hbase,外部接口）都进行隔离，让每种资源都单独运行在自己的线程池中<br>Hystrix 是解决依赖隔离的利器<br>缓存失效的解决方案：<br>将系统中 key 的缓存失效时间均匀地铺开，防止同一时间有大量的 key 对应的缓存失效。<br>重新设计缓存的使用方式，当我们通过 key 去查询数据时，首先查询缓存，如果此时缓存中查不到，就通过分布式锁进行加锁，取得锁的进程查 DB 并设置缓存，然后解锁，其他进程如果发现有锁就等待，然后等解锁后返回缓存数据或者再次查询 DB<br>redis 代码：<br>String get(String key){<br>String value = redis.get(key);<br>if(value==null){<br>if(redis.setnx(key_mutex,”1”){<br>redis.expire(key_mutex,3*60)<br>value = db.get(key);<br>redis.set(key,value);<br>redis.delete(key_mutex);<br>}else{<br>Thread.sleep(50);<br>get(key);<br>}<br>}<br>}<br>热点 key 的解决方案：<br>解决方案 优点 缺点<br>简单分布式锁(Tim yang)</p>
+<ol>
+<li><p>思路简单</p>
+</li>
+<li><p>保证一致性</p>
+</li>
+<li><p>代码复杂度增大</p>
+</li>
+<li><p>存在死锁的风险</p>
+</li>
+<li><p>存在线程池阻塞的风险</p>
+</li>
+</ol>
+<p>加另外一个过期时间(Tim yang) 1. 保证一致性 同上<br>不过期(本文)</p>
+<ol>
+<li><p>异步构建缓存，不会阻塞线程池</p>
+</li>
+<li><p>不保证一致性。</p>
+</li>
+<li><p>代码复杂度增大(每个 value 都要维护一个 timekey)。</p>
+</li>
+<li><p>占用一定的内存空间(每个 value 都要维护一个 timekey)。</p>
+</li>
+</ol>
+<p>资源隔离组件 hystrix(本文)</p>
+<ol>
+<li><p>hystrix 技术成熟，有效保证后端。</p>
+</li>
+<li><p>hystrix 监控强大。</p>
+</li>
+<li><p>部分访问存在降级策略。</p>
+</li>
+</ol>
+<p>客户端热点 key 缓存：将热点 key 和 value 缓存到客户端本地，并且设置一个失效时间，对于每次请求首先检查 key 是否存在与本地缓存中，如果存在则直接返回，如果不存在则访问分布式缓存的机器。<br>将热点 key 分散为多个子 key，然后存储到缓存集群的不同机器上，这些子 key 对应的 value 和热点 key 是一样的，当通过热点 key 去查询数据时，通过某种 hash 算法随机选择一个子 key，然后再去访问机器，将热点 key 分散到多个子 key 上。<br>永远不过期：<br>为每个 value 设置一个逻辑过期时间，当发现超过逻辑过期时间后，会使用单独的线程去构建缓存。缺点：构建缓存时，可能访问的还是老数据。<br>String get(final String key){<br>V v = redis.get(key);<br>String value = v.getValue();<br>long timeout = v.getTimeout();<br>if(v.timeout &lt;= System.currentTimeMillis()){<br>threadPool.execute(new Runable(){<br>public void run(){<br>String keyMutex = “mutex”+key;<br>if(redis.setnx(keyMutex,”1”){<br>redis.expire(keyMutex,3*60);<br>String dbValue = db.get(key);<br>redis.set(key,dbValue);<br>redis.delete(keyMutex);<br>}<br>}<br>});<br>}<br>}<br>缓存预热：</p>
+<p>直接写个缓存刷新页面，上线时刷新一下</p>
+<p>数据量不大，可以在 web 启动时加载</p>
+<p>定时刷新缓存</p>
+<p>缓存更新：</p>
+<p>定时去清理过期的缓存</p>
+<p>当有用户请求时，先判断缓存是否过期，过期的话就去底层系统获得数据并更新缓存。</p>
+<p>分布式消息通信实现机制和原理</p>
+<p>kafka RocketMQ ActiveMQ</p>
+<p>Spring 原理</p>
+<p>Spring IOC 控制反转原理</p>
+<p>Spring DI 依赖注入原理</p>
+<p>Mybatis 原理</p>
+<p>mybatis 配置了 xml 过后是如何完成数据库操作的？</p>
+<p>工作流原理 Activiti5</p>
+<p>Shiro 工作原理</p>
+<p>认证流程：</p>
+<p>授权流程：</p>
+<p>token 携带请求的用户信息</p>
+<p>Subject 是 shiro 管理的用户,</p>
+<p>Principal 与用户信息，权限控制相关的信息配置</p>
+<p>SecurityManager 安全控制器 管理多个 Realm,</p>
+<p>Realm 身份验证（登录），授权（访问控制） 与数据库用户，菜单，权限查询</p>
+<p>Filter 配置 url 权限控制。</p>
+<p>四种权限方式：</p>
+<p>在程序中，通过 Subject 以编程方式进行权限控制。</p>
+<p>通过配置 Filter，实现 URL 级别粗粒度的权限控制 。</p>
+<p>通过配置代理，基于注解实现细粒度的权限控制。</p>
+<p>在页面中使用 shiro 自定义标签实现页面显示的权限控制</p>
+<p>服务器：</p>
+<p>Tomcat 调优</p>
+<p>Nginx 负载均衡方式：1.轮询 2.随机 3.最小响应时间 4.最小并发数 5.IP 哈希</p>
+<p>设计一个分页式负载均衡缓冲系统，如何快速定位到哪个服务器 （使用 key 分段，一致性 hash）</p>
+<p>如何保证缓冲区和数据库之间的强一致性 （加锁）</p>
+<p>Linux 下如何查看网络端口状态（netstat）如何查看内存使用情况（top）</p>
+<p>tomcat 与 Nginx 的区别</p>
+<p>Nginx 主要做代理服务器，负载均衡，处理静态资源</p>
+<p>反向代理：以代理服务器来接受 internet 上的连接请求，然后将请求转发给内部网络上的服务器，</p>
+<p>Tomcat 是支持运行 Servlet/JSP 应用程序的容器，支持动态处理 http 请求</p>
+<p>动静分离 运用 Nginx 的反向代理功能分发请求，所有动态资源请求交给 tomcat,而静态资源的请求（图片，视频，css，js）则直接由 Nginx 返回到浏览器，这样能大大减轻 tomcat 的压力</p>
+<p>负载均衡，当业务压力增大时，一个 tomcat 并发量有限，可以启动多个 tomcat 实例进行水平扩展，而 Nginx 的负载均衡功能可以把请求通过算法分发到各个不同的实例进行处理。</p>
+<p>数据库：</p>
+<p>Mysql 调优<br>查询大量数据的慢查询问题的优化？ 加索引，尽量避免全表扫描，多表联合查询时，优先查询数据量少的表，避免使用 or 用 union all ，字段值默认值尽量不为 null</p>
+<p>分库分表 分表可以分为水平切分 和 纵向切分，常用查询字段建索引。尽量使用 exist not exist ,</p>
+<p>数据库内存优化配置</p>
+<p>如何防止 SQL 注入机制 ibtis 如何防止 SQL 注入 前端检验，后台检验，sql 语句为预编译模式，用# 尽量不用\$</p>
+<p>Mysql 执行计划：</p>
+<p>id：select 查询的索引号</p>
+<p>select_type： select 查询的类型，主要区别：</p>
+<p>SIMPLE 查询中不包含子查询和 union</p>
+<p>查询中若包含任何复杂的子部分，最外层查询被标记为：PRIMARY</p>
+<p>在 select 和 where 列表中包含子查询 该子查询被标记为 SUBQUERY</p>
+<p>在 from 列表中包含的子查询，被标记为：DERIVED （衍生）</p>
+<p>从 union 获取结果的 select 被标记为 UNION RESULT</p>
+<p>table：输出所引用的表</p>
+<p>type：联合查询所使用的类型 又称访问类型</p>
+<p>NULL&gt;system&gt;const&gt;eq_ref&gt;ref&gt;range&gt;index&gt;ALL 一般来说，得保证查询至少达到 range 级别，最好能达到 ref</p>
+<p>possible_keys： 指出 mysql 哪个索引在该表中找到行</p>
+<p>key：显示 mysql 实际决定使用的键，如果没有索引被选择，则是 NULL</p>
+<p>key_len：表示索引中的字节数 索引长度</p>
+<p>ref： 显示哪个字段或常数与 key 一起被使用</p>
+<p>rows：表示 mysql 要遍历多少数据才能找到</p>
+<p>extra：额外信息 only index Using where impossible where Using filesort Using temporary</p>
+<p>Redis<br>五种数据类型</p>
+<p>String 字符串 hash 键值对 List set 无序集合 zset 有序集合</p>
+<p>cache 机制</p>
+<p>基础：</p>
+<p>内部类：</p>
+<p>静态内部类：<br>可以有静态成员（方法，属性），只能够访问外部类的静态成员</p>
+<p>实例化一个静态内部类的方法：不依赖外部类的实例，直接实例化内部类对象。</p>
+<p>非静态内部类：<br>不能有静态成员（方法，属性），可以自由访问外部类的所有方法</p>
+<p>实例化一个非静态内部类的方法：先生成一个外部类对象实例，通过外部类的对象实例生成内部类对象</p>
+<p>定时器类：</p>
+<p>Timer TimerTask 有缺陷，是单线程的，一个 Timer 执行多个 timerTask 时，当上一任务执行时间间隔超过了两个任务间的间隔，就必须等到上一个完成之后，才能执行下一个。</p>
+<p>new Timer().schedule(new TImerTask(){</p>
+<pre><code>@Overrride
+
+public voi run(){
+
+
+
+}
+</code></pre><p>},long delay,long period);</p>
+<p>最好使用 ScheduleExecutorService 支持并发执行。</p>
+<p>ScheduleExecutorService newScheduledThreadPool = Executors.newScheduleThreadPool(2);</p>
+<p>TimerTask task = new TImerTask(){</p>
+<pre><code>@Overrride
+
+public voi run(){
+
+
+
+}
+</code></pre><p>newScheduledThreadPool.schedule(task,1000,Timunit.MILISECONDS);</p>
+<p>NIO 原理:<br>IO:</p>
+<p>阻塞 / 非阻塞描述的是函数，指访问某个函数时是否会阻塞线程(block，线程进入阻塞状态)。</p>
+<p>同步 / 异步描述的是执行 IO 操作的主体是谁，同步是由用户进程自己去执行最终的 IO 操作。异步是用户进程自己不关系实际 IO 操作的过程，只需要由内核在 IO 完成后通知它既可，由内核进程来执行最终的 IO 操作。</p>
+<p>这两组概念交集在一起参生的非阻塞同步 IO 和非阻塞异步 IO 的概念就不难理解。</p>
+<p>非阻塞同步 IO 指的是用户调用读写方法是不阻塞的，立刻返回的，而且需要用户线程来检查 IO 状态。需要注意的是，如果发现有可以操作的 IO，那么实际用户进程还是会阻塞等待内核复制数据到用户进程，它与同步阻塞 IO 的区别是后者全程等待。</p>
+<p>非阻塞异步 IO 指的是用户调用读写方法是不阻塞的，立刻返回，而且用户不需要关注读写，只需要提供回调操作，内核线程在完成读写后回调用户提供的 callback。</p>
+<p>高性能 NIO 框架 netty 实现方式和原理？</p>
+<p>普通 I/O 为阻塞式同步 IO<br>有通道流 Chanel 和缓冲区 Buffer 组成 非阻塞式异步 I/O</p>
+<p>非阻塞的原理：</p>
+<p>把整个过程切分成小的任务，通过任务间协作完成。</p>
+<p>Reactor 反应器模式 单线程模拟多线程</p>
+<p>来处理所有的 IO 事件，并负责分发。</p>
+<p>事件驱动机制：事件到的时候触发，而不是同步的去监视事件。</p>
+<p>线程通讯：线程间通过 wait,notify 等方式通讯。</p>
+<p>异步 IO 核心 API</p>
+<p>Selector 选择器</p>
+<p>相当于一个观察者，用来监听通道感兴趣的事件，一个选择器可以绑定多个通道。</p>
+<p>它能检测一个或多个通道上的事件，并将事件分发出去。</p>
+<p>SelectionKey 包含了事件的状态信息和时间对应的通道的绑定。</p>
+<p>类加载机制<br>类加载过程图</p>
+<p>类加载器的双亲委派机制：<br>当一个类收到了类加载请求，他首先不会尝试自己去加载这个类，而是把这个请求委派给父类去完成，每一个层次类加载器都是如此，因此所有的加载请求都应该传送到启动类加载其中，只有当父类加载器反馈无法完成这个请求的时候（在它的加载路径下没有找到所需加载的 class），子类才会尝试去加载。<br>类加载器为什么要使用双亲委派机制？<br>如果不采用此机制，如果用户自定义编写了一个 java.lang.Object 类，多个类加载器把这个类加载到内存中，则系统中将会出现多个不同的 Object 类，那么类之间的比较结果及类的唯一性就无法保证，也会给虚拟机带来安全隐患</p>
+<p>类初始化顺序：<br>非继承关系<br>非继承关系初始化顺序</p>
+<p>继承关系<br>继承关系初始化顺序</p>
+<p>基础：<br>运行时异常如果不处理会怎么样？应该怎么处理运行时异常？</p>
+<p>空指针异常 数组越界异常 非法参数异常 数字格式化异常</p>
+<p>算法：<br>Hash 算法</p>
+<p>一致性 Hash 算法</p>
+<p>Spring Cloud 组件介绍：<br>Spring Cloud 技术应用从场景上可以分为两大类：润物无声类和独挑大梁类。</p>
+<p>Eureka，服务注册中心，特性有失效剔除、服务保护。</p>
+<p>Zuul，API 服务网关，功能有路由分发和过滤。</p>
+<p>Config，分布式配置中心，支持本地仓库、SVN、Git、Jar 包内配置等模式。</p>
+<p>Ribbon，客户端负载均衡，特性有区域亲和、重试机制。</p>
+<p>Hystrix，客户端容错保护，特性有服务降级、服务熔断、请求缓存、请求合并、依赖隔离。</p>
+<p>Feign，声明式服务调用，本质上就是 Ribbon+Hystrix。</p>
+<p>Stream，消息驱动，有 Sink、Source、Processor 三种通道，特性有订阅发布、消费组、消息分区。</p>
+<p>Bus，消息总线，配合 Config 仓库修改的一种 Stream 实现。</p>
+<p>Sleuth，分布式服务追踪，需要搞清楚 TraceID 和 SpanID 以及抽样，如何与 ELK 整合。</p>
+<p>Dashboard，Hystrix 仪表盘，监控集群模式和单点模式，其中集群模式需要收集器 Turbine 配合。</p>
+<p>每个组件都不是平白无故的产生的，是为了解决某一特定的问题而存在。</p>
+<p>Eureka 和 Ribbon，是最基础的组件，一个注册服务，一个消费服务。</p>
+<p>Hystrix 为了优化 Ribbon、防止整个微服务架构因为某个服务节点的问题导致崩溃，是个保险丝的作用。</p>
+<p>Dashboard 给 Hystrix 统计和展示用的，而且监控服务节点的整体压力和健康情况。</p>
+<p>Turbine 是集群收集器，服务于 Dashboard 的。</p>
+<p>Feign 是方便我们程序员些更优美的代码的。</p>
+<p>Zuul 是加在整个微服务最前沿的防火墙和代理器，隐藏微服务结点 IP 端口信息，加强安全保护的。</p>
+<p>Config 是为了解决所有微服务各自维护各自的配置，设置一个统一的配置中心，方便修改配置的。</p>
+<p>Bus 是因为 config 修改完配置后各个结点都要 refresh 才能生效实在太麻烦，所以交给 bus 来通知服务节点刷新配置的。</p>
+<p>Stream 是为了简化研发人员对 MQ 使用的复杂度，弱化 MQ 的差异性，达到程序和 MQ 松耦合。</p>
+<p>Sleuth+Zipkin 是因为单次请求在微服务节点中跳转无法追溯，解决任务链日志追踪问题的。</p>
+<p>特殊成员 Zipkin，之所以特殊是因为从 jar 包和包名来看它不属于 Spring Cloud 的一员，但是它与 Spring Cloud Sleuth 的抽样日志结合的天衣无缝。乍一看它与 Hystrix 的 Dashboard 作用有重叠的部分，但是他们的侧重点完全不同。Dashboard 侧重的是单个服务的统计和是否可用，Zipkin 侧重的监控环节时长。简言之，Dashboard 侧重故障诊断，Ziokin 侧重性能优化。</p>
+<p>Spring 事务传播机制：</p>
+<p><a href="https://blog.csdn.net/yuanlaishini2010/article/details/45792069" target="_blank" rel="noopener">https://blog.csdn.net/yuanlaishini2010/article/details/45792069</a></p>
+<p>事务传播行为类型</p>
+<p>说明</p>
+<p>PROPAGATION_REQUIRED</p>
+<p>如果当前没有事务，就新建一个事务，如果已经存在一个事务中，加入到这个事务中。这是 最常见的选择。</p>
+<p>PROPAGATION_SUPPORTS</p>
+<p>支持当前事务，如果当前没有事务，就以非事务方式执行。</p>
+<p>PROPAGATION_MANDATORY</p>
+<p>使用当前的事务，如果当前没有事务，就抛出异常。</p>
+<p>PROPAGATION_REQUIRES_NEW</p>
+<p>新建事务，如果当前存在事务，把当前事务挂起。</p>
+<p>PROPAGATION_NOT_SUPPORTED</p>
+<p>以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。</p>
+<p>PROPAGATION_NEVER</p>
+<p>以非事务方式执行，如果当前存在事务，则抛出异常。</p>
+<p>PROPAGATION_NESTED</p>
+<p>如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则执行与 PROPAGATION_REQUIRED 类似的操作。</p>
+<p>当使用 PROPAGATION_NESTED 时， 底层的数据源必须基于 JDBC 3.0 ，并且实现者需要支持保存点事务机制。</p>
+</section>
+    <!-- Tags START -->
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/05/23/面试题/javabreak和continue用法/">
+        <span class="nav-arrow">← </span>
+        
+          (untitled)
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/05/23/面试题/JVM调优总结/">
+        
+          (untitled)
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <div class="money-like">
+      <div class="reward-btn">
+        赏
+        <span class="money-code">
+          <span class="alipay-code">
+            <div class="code-image"></div>
+            <b>使用支付宝打赏</b>
+          </span>
+          <span class="wechat-code">
+            <div class="code-image"></div>
+            <b>使用微信打赏</b>
+          </span>
+        </span>
+      </div>
+      <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+    </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <div class="qrcode">
+      <canvas id="share-qrcode"></canvas>
+      <p class="notice">扫描二维码，分享此文章</p>
+    </div>
+    
+    <!-- 二维码 END -->
+    
+    <!-- No Comment -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+  <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#java-面试题总结"><span class="toc-nav-text">java 面试题总结</span></a></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://fengzhaoy.gitee.io/2019/05/23/面试题/java面试题总结/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function () {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function () {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="' + src +
+          '" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function () {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+<script>
+  var qr = new QRious({
+    element: document.getElementById('share-qrcode'),
+    value: document.location.href
+  });
+</script>
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019
+  </p>
+</footer>
+
+<script>
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async ("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function () {
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async ("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function () {
+    $('figure pre').each(function (i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

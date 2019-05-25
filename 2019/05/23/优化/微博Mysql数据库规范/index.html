@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="fengzhaoyang&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+  <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+    fzy-blog
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  <script src="/js/qrious.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>fzy-blog</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2></h2>
+  <p class="post-date">2019-05-23</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>MySQL 开发规范</p>
+<p>库名、表名、字段名必须使用小写字母，“_”分割。</p>
+<p>库名、表名、字段名必须不超过 12 个字符。</p>
+<p>库名、表名、字段名见名知意,建议使用名词而不是动词。</p>
+<p>建议使用 InnoDB 存储引擎。</p>
+<p>存储精确浮点数必须使用 DECIMAL 替代 FLOAT 和 DOUBLE。</p>
+<p>建议使用 UNSIGNED 存储非负数值。</p>
+<p>建议使用 INT UNSIGNED 存储 IPV4。</p>
+<p>整形定义中不添加长度，比如使用 INT，而不是 INT(4)。</p>
+<p>使用短数据类型，比如取值范围为 0-80 时，使用 TINYINT UNSIGNED。</p>
+<p>不建议使用 ENUM 类型，使用 TINYINT 来代替。</p>
+<p>尽可能不使用 TEXT、BLOB 类型。</p>
+<p>VARCHAR(N)，N 表示的是字符数不是字节数，比如 VARCHAR(255)，可以最大可存</p>
+<p>储 255 个汉字，需要根据实际的宽度来选择 N。</p>
+<p>VARCHAR(N)，N 尽可能小，因为 MySQL 一个表中所有的 VARCHAR 字段最大长度</p>
+<p>是 65535 个字节，进行排序和创建临时表一类的内存操作时，会使用 N 的长度申请内存。</p>
+<p>表字符集选择 UTF8。</p>
+<p>使用 VARBINARY 存储变长字符串。</p>
+<p>存储年使用 YEAR 类型。</p>
+<p>存储日期使用 DATE 类型。</p>
+<p>存储时间(精确到秒)建议使用 TIMESTAMP 类型，因为 TIMESTAMP 使用 4 字节， DATETIME 使用 8 个字节。</p>
+<p>建议字段定义为 NOT NULL。</p>
+<p>将过大字段拆分到其他表中。</p>
+<p>禁止在数据库中使用 VARBINARY、BLOB 存储图片、文件等。</p>
+<p>表结构变更需要通知 DBA 审核。</p>
+<p>二、 索引</p>
+<p>非唯一索引必须按照“idx<em>字段名称</em>字段名称[_字段名]”进行命名。</p>
+<p>唯一索引必须按照“uniq<em>字段名称</em>字段名称[_字段名]”进行命名。</p>
+<p>索引名称必须使用小写。</p>
+<p>索引中的字段数建议不超过 5 个。</p>
+<p>单张表的索引数量控制在 5 个以内。</p>
+<p>唯一键由 3 个以下字段组成，并且字段都是整形时，使用唯一键作为主键。</p>
+<p>没有唯一键或者唯一键不符合 5 中的条件时，使用自增(或者通过发号器获取)id 作为</p>
+<p>主键。</p>
+<p>唯一键不和主键重复。</p>
+<p>索引字段的顺序需要考虑字段值去重之后的个数，个数多的放在前面。</p>
+<p>ORDER BY，GROUP BY，DISTINCT 的字段需要添加在索引的后面。</p>
+<p>使用 EXPLAIN 判断 SQL 语句是否合理使用索引，尽量避免 extra 列出现:Using File</p>
+<p>Sort，Using Temporary。</p>
+<p>UPDATE、DELETE 语句需要根据 WHERE 条件添加索引。</p>
+<p>不建议使用%前缀模糊查询，例如 LIKE “%weibo”。</p>
+<p>对长度过长的 VARCHAR 字段建立索引时，添加 crc32 或者 MD5 Hash 字段，对 Hash 字段建立索引。</p>
+<p>合理创建联合索引(避免冗余)，(a,b,c) 相当于 (a) 、(a,b) 、(a,b,c)。 合理利用覆盖索引。<br>SQL 变更需要确认索引是否需要变更并通知 DBA。</p>
+<p>三、 SQL 语句</p>
+<p>使用 prepared statement，可以提供性能并且避免 SQL 注入。<br>SQL 语句中 IN 包含的值不应过多。<br>UPDATE、DELETE 语句不使用 LIMIT。<br>WHERE 条件中必须使用合适的类型，避免 MySQL 进行隐式类型转化。<br>SELECT 语句只获取需要的字段。</p>
+<p>SELECT、INSERT 语句必须显式的指明字段名称，不使用 SELECT *，不使用 INSERT INTO table()。</p>
+<p>使用 SELECT column_name1, column_name2 FROM table WHERE [condition]而 不是 SELECT column_name1 FROM table WHERE [condition]和 SELECT column_name2 FROM table WHERE [condition]。</p>
+<p>WHERE 条件中的非等值条件(IN、BETWEEN、&lt;、&lt;=、&gt;、&gt;=)会导致后面的条件 使用不了索引。</p>
+<p>避免在 SQL 语句进行数学运算或者函数运算，容易将业务逻辑和 DB 耦合在一起。</p>
+<p>10.</p>
+<p>11.</p>
+<ol start="12">
+<li><ol start="13">
+<li><ol start="14">
+<li><ol start="15">
+<li><ol start="16">
+<li>17.</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>3.</li>
+</ol>
+</li>
+</ol>
+<p>1.</p>
+<p>5.</p>
+<p>1.</p>
+<p>INSERT 语句使用 batch 提交(INSERT INTO table VALUES(),(),()……)，values 的个</p>
+<p>数不应过多。<br>避免使用存储过程、触发器、函数等，容易将业务逻辑和 DB 耦合在一起，并且 MySQL</p>
+<p>的存储过程、触发器、函数中存在一定的 bug。 避免使用 JOIN。</p>
+<p>使用合理的 SQL 语句减少与数据库的交互次数。<br>不使用 ORDER BY RAND()，使用其他方法替换。<br>建议使用合理的分页方式以提高分页的效率。<br>统计表中记录数时使用 COUNT(*)，而不是 COUNT(primary_key)和 COUNT(1)。 禁止在从库上执行后台管理和统计类型功能的 QUERY。</p>
+<p>四、 散表</p>
+<p>每张表数据量建议控制在 5000w 以下。<br>可以结合使用 hash、range、lookup table 进行散表。<br>散表如果使用 md5(或者类似的 hash 算法)进行散表，表名后缀使用 16 进制，比如</p>
+<p>user_ff。<br>推荐使用 CRC32 求余(或者类似的算术算法)进行散表，表名后缀使用数字，数字必</p>
+<p>须从 0 开始并等宽，比如散 100 张表，后缀从 00-99。 使用时间散表，表名后缀必须使用特定格式，比如按日散表 user_20110209、按月散表</p>
+<p>user_201102。</p>
+<p>五、 其他</p>
+<p>批量导入、导出数据需要 DBA 进行审查，并在执行过程中观察服务。</p>
+<p>2.</p>
+<p>3.</p>
+<ol start="4">
+<li><ol start="5">
+<li>6.</li>
+</ol>
+</li>
+</ol>
+<p>批量更新数据，如 update,delete 操作，需要 DBA 进行审查，并在执行过程中观察服</p>
+<p>务。</p>
+<p>产品出现非数据库平台运维导致的问题和故障时，如前端被抓站，请及时通知 DBA，便 于维护服务稳定。</p>
+<p>业务部门程序出现 bug 等影响数据库服务的问题,请及时通知 DBA，便于维护服务稳定。 业务部门推广活动，请提前通知 DBA 进行服务和访问评估。 如果出现业务部门人为误操作导致数据丢失，需要恢复数据，请在第一时间通知 DBA，</p>
+<h2 id="并提供准确时间，误操作语句等重要线索。"><a href="#并提供准确时间，误操作语句等重要线索。" class="headerlink" title="并提供准确时间，误操作语句等重要线索。"></a>并提供准确时间，误操作语句等重要线索。</h2><hr>
+<hr>
+<p>FAQ 1-1.库名、表名、字段名必须使用小写字母，“_”分割。</p>
+<p>a) MySQL 有配置参数 lower_case_table_names，不可动态更改，linux 系统默认为 0，即库表名以 实际情况存储，大小写敏感。如果是 1，以小写存储，大小写不敏感。如果是 2，以实际情况存储， 但以小写比较。</p>
+<p>b) 如果大小写混合用，可能存在 abc,Abc,ABC 等多个表共存，容易导致混乱。<br>c) 字段名显示区分大小写，但实际使用不区分，即不可以建立两个名字一样但大小写不一样的字段。</p>
+<p>d) 为了统一规范， 库名、表名、字段名使用小写字母。</p>
+<p>back</p>
+<p>1-2.库名、表名、字段名必须不超过 12 个字符。<br>库名、表名、字段名支持最多 64 个字符，但为了统一规范、易于辨识以及减少传输量，必须不超过</p>
+<p>12 字符。</p>
+<p>back</p>
+<p>1-3.库名、表名、字段名见名知意,建议使用名词而不是动词。</p>
+<p>a) 用户评论可用表名 usercomment 或者 comment。</p>
+<p>b) 库表是一种客观存在的事物，一种对象，所以建议使用名词。</p>
+<p>back</p>
+<p>1-4.建议使用 InnoDB 存储引擎。</p>
+<p>a) 5.5 以后的默认引擘，支持事务，行级锁，更好的恢复性，高并发下性能更好，对多核，大内存， ssd 等硬件支持更好。</p>
+<p>b) 具体比较可见附件的官方白皮书。</p>
+<p>back</p>
+<p>1-5.存储精确浮点数必须使用 DECIMAL 替代 FLOAT 和 DOUBLE。</p>
+<p>a) mysql 中的数值类型(不包括整型):</p>
+<p>IEEE754 浮点数: float (单精度) ， double 或 real (双精度)<br>定点数: decimal 或 numeric<br>单精度浮点数的有效数字二进制是 24 位，按十进制来说，是 8 位;双精度浮点数的有效数字二进</p>
+<p>制是 53 位，按十进制来说，是 16 位<br>一个实数的有效数字超过 8 位，用单精度浮点数来表示的话，就会产生误差!同样，如果一个实</p>
+<p>数的有效数字超过 16 位，用双精度浮点数来表示，也会产生误差<br>b) IEEE754 标准的计算机浮点数，在内部是用二进制表示的，但在将一个十进制数转换为二进制浮 点数时，也会造成误差，原因是不是所有的数都能转换成有限长度的二进制数。</p>
+<p>即一个二进制可以准确转换成十进制，但一个带小数的十进制不一定能够准确地用二进制来表示。</p>
+<p>实例:<br>drop table if exists t;</p>
+<p>create table t(value float(10,2));</p>
+<p>insert into t values(131072.67),(131072.68);</p>
+<p>select value from t; +———–+<br>| value |</p>
+<p>+———–+</p>
+<p>| 131072.67 |<br>| 131072.69 |<br>+———–+<br>back<br>1-6.建议使用 UNSIGNED 存储非负数值。<br>同样的字节数，存储的数值范围更大。如 tinyint 有符号为 -128-127，无符号为 0-255 back</p>
+<p>1-7. 如何使用 INT UNSIGNED 存储 ip?<br>使用 INT UNSIGNED 而不是 char(15)来存储 ipv4 地址，通过 MySQL 函数 inet_ntoa 和 inet_aton</p>
+<p>来进行转化。Ipv6 地址目前没有转化函数，需要使用 DECIMAL 或者两个 bigINT 来存储。例如: SELECT INET_ATON(‘209.207.224.40’);<br>3520061480<br>SELECT INET_NTOA(3520061480);</p>
+<p>209.207.224.40</p>
+<p>back</p>
+<p>1-8. INT[M]，M 值代表什么含义?</p>
+<p>注意数值类型括号后面的数字只是表示宽度而跟存储范围没有关系，比如 INT(3)默认显示 3 位，空 格补齐，超出时正常显示，python、java 客户端等不具备这个功能。</p>
+<p>back</p>
+<p>1-10.不建议使用 ENUM、SET 类型，使用 TINYINT 来代替。</p>
+<p>a) ENUM，有三个问题:添加新的值要做 DDL，默认值问题(将一个非法值插入 ENUM(也就是说， 允许的值列之外的字符串)，将插入空字符串以作为特殊错误值)，索引值问题(插入数字实际是插入 索引对应的值)</p>
+<p>实例:<br>drop table if exists t;<br>create table t(sex enum(‘0’,’1’)); insert into t values(1);<br>insert into t values(‘3’);<br>select * from t;<br>+——+<br>|sex |</p>
+<p>+——+</p>
+<p>|0|</p>
+<p>||</p>
+<p>+——+</p>
+<p>2 rows in set (0.00 sec)</p>
+<p>back</p>
+<p>1-11.尽可能不使用 TEXT、BLOB 类型。</p>
+<p>a) 索引排序问题，只能使用 max_sort_length 的长度或者手工指定 ORDER BY SUBSTRING(column, length)的长度来排序</p>
+<p>b) Memory 引擘不支持 text,blog 类型，会在磁盘上生成临时表 c) 可能浪费更多的空间<br>d) 可能无法使用 adaptive hash index<br>e) 导致使用 where 没有索引的语句变慢</p>
+<p>back</p>
+<p>1-13. VARCHAR 中会产生额外存储吗?</p>
+<p>VARCHAR(M)，如果 M<256 时会使用一个字节来存储长度，如果 m>=256 则使用两个字节来存储</256></p>
+<p>长度。</p>
+<p>back</p>
+<p>1-14.表字符集选择 UTF8。</p>
+<p>a) 使用 utf8 字符集，如果是汉字，占 3 个字节，但 ASCII 码字符还是 1 个字节。<br>b) 统一，不会有转换产生乱码风险<br>c) 其他地区的用户(美国、印度、台湾)无需安装简体中文支持，就能正常看您的文字，并且不会 出现乱码<br>d) ISO-8859-1 编码(latin1)使用了单字节内的所有空间，在支持 ISO-8859-1 的系统中传输和存储 其他任何编码的字节流都不会被抛弃。即把其他任何编码的字节流当作 ISO-8859-1 编码看待都没有 问题，保存的是原封不动的字节流。</p>
+<p>back</p>
+<p>1-15.使用 VARBINARY 存储变长字符串。</p>
+<p>二进制字节流，不存在编码问题<br>back</p>
+<p>1-18. 为什么建议使用 TIMESTAMP 来存储时间而不是 DATETIME?</p>
+<p>DATETIME 和 TIMESTAMP 都是精确到秒，优先选择 TIMESTAMP，因为 TIMESTAMP 只有 4 个字 节，而 DATETIME8 个字节。同时 TIMESTAMP 具有自动赋值以及自动更新的特性。</p>
+<p>如何使用 TIMESTAMP 的自动赋值属性?</p>
+<p>a)</p>
+<p>b)</p>
+<p>将当前时间作为 ts 的默认值:ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP。 当行更新时，更新 ts 的值:ts TIMESTAMP DEFAULT 0 ON UPDATE CURRENT_TIMESTAMP。</p>
+<p>c) CURRENT_TIMESTAMP。</p>
+<p>可以将 1 和 2 结合起来:ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE</p>
+<p>back</p>
+<p>1-19.建议字段定义为 NOT NULL。</p>
+<p>a)如果 null 字段被索引，需要额外的 1 字节 b)使索引，索引统计，值的比较变得更复杂 c)可用 0，’’代替 d)如果是索引字段，一定要定义为 not null back</p>
+<p>1-21.禁止在数据库中使用 VARBINARY、BLOB 存储图片、文件等。 采用分布式文件系统更高效<br>back</p>
+<ol start="2">
+<li>为什么 MySQL 的性能依赖于索引?</li>
+</ol>
+<p>MySQL 的查询速度依赖良好的索引设计，因此索引对于高性能至关重要。合理的索引会加快查询速</p>
+<p>度(包括 UPDATE 和 DELETE 的速度，MySQL 会将包含该行的 page 加载到内存中，然后进行 UPDATE 或者 DELETE 操作)，不合理的索引会降低速度。</p>
+<p>MySQL 索引查找类似于新华字典的拼音和部首查找，当拼音和部首索引不存在时，只能通过一页一 页的翻页来查找。当 MySQL 查询不能使用索引时，MySQL 会进行全表扫描，会消耗大量的 IO。</p>
+<p>back</p>
+<p>2-5. 为什么一张表中不能存在过多的索引?</p>
+<p>InnoDB 的 secondary index 使用 b+tree 来存储，因此在 UPDATE、DELETE、INSERT 的时候需 要对 b+tree 进行调整，过多的索引会减慢更新的速度。</p>
+<p>back</p>
+<p>2-11. EXPLAIN 语句</p>
+<p>EXPLAIN 语句(在 MySQL 客户端中执行)可以获得 MySQL 如何执行 SELECT 语句的信息。通过 对 SELECT 语句执行 EXPLAIN，可以知晓 MySQL 执 行该 SELECT 语句时是否使用了索引、全表扫 描、临时表、排序等信息。尽量避免 MySQL 进行全表扫描、使用临时表、排序等。详见官方文档。</p>
+<p>back</p>
+<p>2-13.不建议使用%前缀模糊查询，例如 LIKE “%weibo”。</p>
+<p>会导致全表扫描</p>
+<p></p>
+<p>2-14. 如何对长度大于 50 的 VARCHAR 字段建立索引?</p>
+<p>下面的表增加一列 url_crc32，然后对 url_crc32 建立索引，减少索引字段的长度，提高效率。</p>
+<p>CREATE TABLE url(</p>
+<p>……</p>
+<p>url VARCHAR(255) NOT NULL DEFAULT 0, url_crc32 INT UNSIGNED NOT NULL DEFAULT 0,</p>
+<p>……</p>
+<p>index idx_url(url_crc32) )</p>
+<p>back</p>
+<p>2-16. 什么是覆盖索引?</p>
+<p>InnoDB 存储引擎中，secondary index(非主键索引)中没有直接存储行地址，存储主键值。如果 用户需要查询 secondary index 中所不包含的数据列时，需要先通过 secondary index 查找到主键 值，然后再通过主键查询到其他数据列，因此需要查询两次。</p>
+<p>覆盖索引的概念就是查询可以通过在一个索引中完成，覆盖索引效率会比较高，主键查询是天然的覆 盖索引。</p>
+<p>合理的创建索引以及合理的使用查询语句，当使用到覆盖索引时可以获得性能提升。<br>比如 SELECT email,uid FROM user_email WHERE uid=xx，如果 uid 不是主键，适当时候可以将</p>
+<p>索引添加为 index(uid,email)，以获得性能提升。</p>
+<p>back</p>
+<p>3-3.UPDATE、DELETE 语句不使用 LIMIT。</p>
+<p>a) 可能导致主从数据不一致</p>
+<p>b) 会记录到错误日志，导致日志占用大量空间</p>
+<p>3-4. 为什么需要避免 MySQL 进行隐式类型转化?</p>
+<p>因为 MySQL 进行隐式类型转化之后，可能会将索引字段类型转化成=号右边值的类型，导致使用不 到索引，原因和避免在索引字段中使用函数是类似的。</p>
+<p>back</p>
+<p>3-6. 为什么不建议使用 SELECT *?</p>
+<p>增加很多不必要的消耗(cpu、io、内存、网络带宽);增加了使用覆盖索引的可能性;当表结构发 生改变时，前段也需要更新。</p>
+<p>back</p>
+<p>3-13. 如何减少与数据库的交互次数?</p>
+<p>使用下面的语句来减少和 db 的交互次数:</p>
+<p>INSERT … ON DUPLICATE KEY UPDATE</p>
+<p>REPLACE</p>
+<p>INSERT IGNORE</p>
+<p>INSERT INTO values(),()如何结合使用多个纬度进行散表散库?</p>
+<p>例如微博 message，先按照 crc32(message_id)%16 将 message 散到 16 个库中，然后针对每个库 中的表，一天生成一张新表。</p>
+<p>back</p>
+<p>3-14. 为什么不能使用 ORDER BY rand()?</p>
+<p>因为 ORDER BY rand()会将数据从磁盘中读取，进行排序，会消耗大量的 IO 和 CPU，可以在程序 中获取一个 rand 值，然后通过在从数据库中获取对应的值。</p>
+<p>back</p>
+<p>3-15. MySQL 中如何进行分页?</p>
+<p>假如有类似下面分页语句:<br>SELECT * FROM table ORDER BY TIME DESC LIMIT 10000,10; 这种分页方式会导致大量的 io，因为 MySQL 使用的是提前读取策略。 推荐分页方式:</p>
+<p>SELECT * FROM table WHERE TIME&lt;last_TIME ORDER BY TIME DESC LIMIT 10.</p>
+<p>SELECT * FROM table inner JOIN(SELECT id FROM table ORDER BY TIME LIMIT 10000,10) as t USING(id)</p>
+<p>back</p>
+<p>3-17.为什么避免使用复杂的 SQL?</p>
+<p>拒绝使用复杂的 SQL，将大的 SQL 拆分成多条简单 SQL 分步执行。原因:简单的 SQL 容易使用到 MySQL 的 query cache;减少锁表时间特别是 MyISAM;可以使用多核 cpu。</p>
+<p>back</p>
+<ol start="2">
+<li>InnoDB 存储引擎为什么避免使用 COUNT(*)?</li>
+</ol>
+<p>InnoDB 表避免使用 COUNT(*)操作，计数统计实时要求较强可以使用 memcache 或者 redis，非实 时统计可以使用单独统计表，定时更新。</p>
+</section>
+    <!-- Tags START -->
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/05/23/项目管理/敏捷开发/">
+        <span class="nav-arrow">← </span>
+        
+          (untitled)
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/05/23/CI&CD/dockerfileJVM配置参考/">
+        
+          (untitled)
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <div class="money-like">
+      <div class="reward-btn">
+        赏
+        <span class="money-code">
+          <span class="alipay-code">
+            <div class="code-image"></div>
+            <b>使用支付宝打赏</b>
+          </span>
+          <span class="wechat-code">
+            <div class="code-image"></div>
+            <b>使用微信打赏</b>
+          </span>
+        </span>
+      </div>
+      <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+    </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <div class="qrcode">
+      <canvas id="share-qrcode"></canvas>
+      <p class="notice">扫描二维码，分享此文章</p>
+    </div>
+    
+    <!-- 二维码 END -->
+    
+    <!-- No Comment -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+  <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#并提供准确时间，误操作语句等重要线索。"><span class="toc-nav-text">并提供准确时间，误操作语句等重要线索。</span></a></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://fengzhaoy.gitee.io/2019/05/23/优化/微博Mysql数据库规范/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function () {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function () {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="' + src +
+          '" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function () {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+<script>
+  var qr = new QRious({
+    element: document.getElementById('share-qrcode'),
+    value: document.location.href
+  });
+</script>
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019
+  </p>
+</footer>
+
+<script>
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async ("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function () {
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async ("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function () {
+    $('figure pre').each(function (i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>
