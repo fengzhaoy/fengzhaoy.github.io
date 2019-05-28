@@ -142,162 +142,218 @@
   
   <article class="article-card">
     <h2 class="article-head">
-      <a href="/2019/05/21/SpringCloud2/SpringCloud下基于OAUTH2认证授权的实现/"></a>
+      <a href="/2019/05/24/多线程异步并发/ThreadPoolExecutor使用和思考（上）-线程池大小设置与BlockingQueue的三种实现区别/">ThreadPoolExecutor使用和思考（上）-线程池大小设置与BlockingQueue的三种实现区别</a>
     </h2>
-    <p class="article-date">2019-05-21</p>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#多线程异步并发">
+    <span class="tag-code">多线程异步并发</span>
+  </a>
+
     
     <div class="article-summary">
       
-      Spring Cloud 下基于 OAUTH2 认证授权的实现http://www.wisely.top/2017/06/14/spring-cloud-oauth2-zuul/
+      前记：jdk 官方文档（javadoc）是学习的最好，最权威的参考。文章分上中下。上篇中主要介绍 ThreadPoolExecutor 接受任务相关的两方面入参的意义和区别，池大小参数 corePoolSize 和 maximumPoolSize，BlockingQueue 选型（Synch ...
+      
+    </div>
+    <a class="more" href="/2019/05/24/多线程异步并发/ThreadPoolExecutor使用和思考（上）-线程池大小设置与BlockingQueue的三种实现区别/">全文...</a>
+  </article>
+  
+  <article class="article-card">
+    <h2 class="article-head">
+      <a href="/2019/05/24/多线程异步并发/java并发处理规范/">java 并发处理 规范</a>
+    </h2>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#多线程异步并发">
+    <span class="tag-code">多线程异步并发</span>
+  </a>
+
+    
+    <div class="article-summary">
+      
+      java 并发处理 规范(九) 并发处理Rule 1. 【强制】创建线程或线程池时请指定有意义的线程名称，方便出错时回溯
+1）创建单条线程时直接指定线程名称
+12Thread t = new Thread();t.setName("cleanup-thread");
+2） 线程池则使用 gu ...
+      
+    </div>
+    <a class="more" href="/2019/05/24/多线程异步并发/java并发处理规范/">全文...</a>
+  </article>
+  
+  <article class="article-card">
+    <h2 class="article-head">
+      <a href="/2019/05/24/多线程异步并发/javajdkconcurrent并发工具包/">java jdk concurrent 并发工具包</a>
+    </h2>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#多线程异步并发">
+    <span class="tag-code">多线程异步并发</span>
+  </a>
+
+    
+    <div class="article-summary">
+      
+      java jdk concurrent 并发工具包java.util.concurrent 并发工具包http://blog.csdn.net/defonds/article/details/44021605
+通俗易懂，JDK 并发容器总结https://juejin.im/post/5c0 ...
+      
+    </div>
+    <a class="more" href="/2019/05/24/多线程异步并发/javajdkconcurrent并发工具包/">全文...</a>
+  </article>
+  
+  <article class="article-card">
+    <h2 class="article-head">
+      <a href="/2019/05/24/多线程异步并发/java并发线程池拒绝策略/">java 并发线程池 拒绝策略</a>
+    </h2>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#多线程异步并发">
+    <span class="tag-code">多线程异步并发</span>
+  </a>
+
+    
+    <div class="article-summary">
+      
+      java 并发线程池 拒绝策略http://blog.sina.com.cn/s/blog_714cb3040102wc6i.html线程池参考：https://github.com/760515805/es_data_export/blob/master/src/main/java/com ...
+      
+    </div>
+    <a class="more" href="/2019/05/24/多线程异步并发/java并发线程池拒绝策略/">全文...</a>
+  </article>
+  
+  <article class="article-card">
+    <h2 class="article-head">
+      <a href="/2019/05/24/多线程异步并发/java异步计算场景应用/">java异步计算场景应用</a>
+    </h2>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#多线程异步并发">
+    <span class="tag-code">多线程异步并发</span>
+  </a>
+
+    
+    <div class="article-summary">
+      
+      最近项目中遇到一个业务场景：将当期数据库中的表迁移到另外一个数据库中，为满足迁移效率需要进行并发数据迁移。对每一数据表可以启动不同的线程同时迁移数据。迁移完成后，同步更新对应该迁移任务的状态字段。最先想到的是使用 java 中并发工具类：同步屏障 CyclicBarrier。CyclicBa ...
+      
+    </div>
+    <a class="more" href="/2019/05/24/多线程异步并发/java异步计算场景应用/">全文...</a>
+  </article>
+  
+  <article class="article-card">
+    <h2 class="article-head">
+      <a href="/2019/05/24/多线程异步并发/java线程池、包括线程的异常处理/">java线程池、包括线程的异常处理</a>
+    </h2>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#多线程异步并发">
+    <span class="tag-code">多线程异步并发</span>
+  </a>
+
+    
+    <div class="article-summary">
+      
+      对于线程池、包括线程的异常处理推荐一下方式:
+1 直接 try/catch，个人 基本都是用这种方式
+2 线程直接重写整个方法:
+1234567891011121314     Thread t = new Thread();     t.setUncaughtExceptionHandle ...
+      
+    </div>
+    <a class="more" href="/2019/05/24/多线程异步并发/java线程池、包括线程的异常处理/">全文...</a>
+  </article>
+  
+  <article class="article-card">
+    <h2 class="article-head">
+      <a href="/2019/05/24/多线程异步并发/spring@Async异步任务/">spring @Async 异步任务</a>
+    </h2>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#多线程异步并发">
+    <span class="tag-code">多线程异步并发</span>
+  </a>
+
+    
+    <div class="article-summary">
+      
+      spring @Async 异步任务https://juejin.im/post/5b27b8366fb9a00e46675879
+https://blog.csdn.net/v2sking/article/details/72795742
+https://www.cnblogs.com/y ...
+      
+    </div>
+    <a class="more" href="/2019/05/24/多线程异步并发/spring@Async异步任务/">全文...</a>
+  </article>
+  
+  <article class="article-card">
+    <h2 class="article-head">
+      <a href="/2019/05/24/多线程异步并发/java高并发系统之异步非阻塞京东技术/">java 高并发系统之异步非阻塞 京东技术</a>
+    </h2>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#多线程异步并发">
+    <span class="tag-code">多线程异步并发</span>
+  </a>
+
+    
+    <div class="article-summary">
+      
+      java 高并发系统之异步非阻塞 京东技术http://wely.iteye.com/blog/2346288http://wely.iteye.com/blog/2346283http://wely.iteye.com/blog/2346153http://wely.iteye.com/b ...
+      
+    </div>
+    <a class="more" href="/2019/05/24/多线程异步并发/java高并发系统之异步非阻塞京东技术/">全文...</a>
+  </article>
+  
+  <article class="article-card">
+    <h2 class="article-head">
+      <a href="/2019/05/24/开发工具/Cron表达式范例/">Cron 表达式范例</a>
+    </h2>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#开发工具">
+    <span class="tag-code">开发工具</span>
+  </a>
+
+    
+    <div class="article-summary">
+      
+      Cron 表达式范例：
+每隔 5 秒执行一次：_/5 _ * * * ?
+每隔 1 分钟执行一次：0 _/1 _ * * ?
+每天 23 点执行一次：0 0 23 * * ?
+每天凌晨 1 点执行一次：0 0 1 * * ?
+每月 1 号凌晨 1 点执行一次：0 0 1 1 * ?
+每月最后 ...
+      
+    </div>
+    <a class="more" href="/2019/05/24/开发工具/Cron表达式范例/">全文...</a>
+  </article>
+  
+  <article class="article-card">
+    <h2 class="article-head">
+      <a href="/2019/05/24/多线程异步并发/队列+线程池实例/">队列+线程池实例</a>
+    </h2>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#多线程异步并发">
+    <span class="tag-code">多线程异步并发</span>
+  </a>
+
+    
+    <div class="article-summary">
+      
+      https://blog.52itstyle.com/archives/1385/
 
       
     </div>
-    <a class="more" href="/2019/05/21/SpringCloud2/SpringCloud下基于OAUTH2认证授权的实现/">全文...</a>
-  </article>
-  
-  <article class="article-card">
-    <h2 class="article-head">
-      <a href="/2019/05/21/SpringCloud2/SpringCloud中Hystrix线程隔离导致ThreadLocal数据丢失/"></a>
-    </h2>
-    <p class="article-date">2019-05-21</p>
-    
-    <div class="article-summary">
-      
-      Spring Cloud 中 Hystrix 线程隔离导致 ThreadLocal 数据丢失http://www.spring4all.com/article/948
-
-      
-    </div>
-    <a class="more" href="/2019/05/21/SpringCloud2/SpringCloud中Hystrix线程隔离导致ThreadLocal数据丢失/">全文...</a>
-  </article>
-  
-  <article class="article-card">
-    <h2 class="article-head">
-      <a href="/2019/05/21/SpringCloud2/springretry重试配置/"></a>
-    </h2>
-    <p class="article-date">2019-05-21</p>
-    
-    <div class="article-summary">
-      
-      spring retry 重试配置https://blog.csdn.net/u011116672/article/details/77823867
-https://blog.csdn.net/u014513883/article/details/52371198
-https://my.os ...
-      
-    </div>
-    <a class="more" href="/2019/05/21/SpringCloud2/springretry重试配置/">全文...</a>
-  </article>
-  
-  <article class="article-card">
-    <h2 class="article-head">
-      <a href="/2019/05/21/SpringCloud2/Feign/"></a>
-    </h2>
-    <p class="article-date">2019-05-21</p>
-    
-    <div class="article-summary">
-      
-      https://blog.csdn.net/neosmith/article/details/52449921
-https://blog.csdn.net/yejingtao703/article/details/77748190
-Feign 工作原理https://juejin.im/po ...
-      
-    </div>
-    <a class="more" href="/2019/05/21/SpringCloud2/Feign/">全文...</a>
-  </article>
-  
-  <article class="article-card">
-    <h2 class="article-head">
-      <a href="/2019/05/21/SpringCloud2/springcloudmac笔记/"></a>
-    </h2>
-    <p class="article-date">2019-05-21</p>
-    
-    <div class="article-summary">
-      
-      springcloud mac 笔记服务注册中心 eureka
-客户端负载均衡 ribbon
-API 网关 zuul
-REST 调用 feign
-容错处理 hystrix
-统一配置中心 config
-服务跟踪 sleuth
-监控系统 zipkin
-消息驱动 stream
-bus 消息总线，配 ...
-      
-    </div>
-    <a class="more" href="/2019/05/21/SpringCloud2/springcloudmac笔记/">全文...</a>
-  </article>
-  
-  <article class="article-card">
-    <h2 class="article-head">
-      <a href="/2019/05/21/SpringCloud2/使用SpringCloud搭建高可用服务注册中心/"></a>
-    </h2>
-    <p class="article-date">2019-05-21</p>
-    
-    <div class="article-summary">
-      
-      使用 Spring Cloud 搭建高可用服务注册中心https://mp.weixin.qq.com/s/ie042Q_h8ppsroEjQ0bdgg
-
-      
-    </div>
-    <a class="more" href="/2019/05/21/SpringCloud2/使用SpringCloud搭建高可用服务注册中心/">全文...</a>
-  </article>
-  
-  <article class="article-card">
-    <h2 class="article-head">
-      <a href="/2019/05/21/SpringCloud2/微服务网关Zuul迁移到SpringCloudGateway/"></a>
-    </h2>
-    <p class="article-date">2019-05-21</p>
-    
-    <div class="article-summary">
-      
-      微服务网关 Zuul 迁移到 Spring Cloud Gatewayhttp://blueskykong.com/2018/09/20/integration-enhanced/
-
-      
-    </div>
-    <a class="more" href="/2019/05/21/SpringCloud2/微服务网关Zuul迁移到SpringCloudGateway/">全文...</a>
-  </article>
-  
-  <article class="article-card">
-    <h2 class="article-head">
-      <a href="/2019/05/21/SpringCloud2/java跨域解决方案/"></a>
-    </h2>
-    <p class="article-date">2019-05-21</p>
-    
-    <div class="article-summary">
-      
-      java 跨域解决方案https://7le.top/2017/07/28/跨域解决方案/
-
-      
-    </div>
-    <a class="more" href="/2019/05/21/SpringCloud2/java跨域解决方案/">全文...</a>
-  </article>
-  
-  <article class="article-card">
-    <h2 class="article-head">
-      <a href="/2019/05/21/SpringCloud2/springcloud同步调用、异步调用、响应式调用/"></a>
-    </h2>
-    <p class="article-date">2019-05-21</p>
-    
-    <div class="article-summary">
-      
-      spring cloud 同步调用、异步调用、响应式调用https://blog.csdn.net/youlangta/article/details/79153439
-
-      
-    </div>
-    <a class="more" href="/2019/05/21/SpringCloud2/springcloud同步调用、异步调用、响应式调用/">全文...</a>
-  </article>
-  
-  <article class="article-card">
-    <h2 class="article-head">
-      <a href="/2019/05/21/SpringCloud2/Feign实现微服务间文件下载/"></a>
-    </h2>
-    <p class="article-date">2019-05-21</p>
-    
-    <div class="article-summary">
-      
-      https://www.jianshu.com/p/eeca093741ef
-
-      
-    </div>
-    <a class="more" href="/2019/05/21/SpringCloud2/Feign实现微服务间文件下载/">全文...</a>
+    <a class="more" href="/2019/05/24/多线程异步并发/队列+线程池实例/">全文...</a>
   </article>
   
 

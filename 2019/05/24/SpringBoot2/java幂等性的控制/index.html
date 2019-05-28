@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="fengzhaoyang&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+  <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+    java幂等性的控制 | fzy-blog
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  <script src="/js/qrious.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>fzy-blog</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>java幂等性的控制</h2>
+  <p class="post-date">2019-05-24</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>我们来谈下高并发和分布式中的幂等处理<br><a href="https://juejin.im/post/5c05f233e51d4524860fc51a" target="_blank" rel="noopener">https://juejin.im/post/5c05f233e51d4524860fc51a</a></p>
+<p>本文是从技术论坛上大家一人一句没有条理的讲解，我整理一下发到 CSDN 上，希望对大家有用。</p>
+<p>什么是幂等性<br>抄用一段数学上的定义：f(f(x)) = f(x)。x 被函数 f 作用一次和作用无限次的结果是一样的。幂等性应用在软件系统中，我把它简单定义为：某个函数或者某个接口使用相同参数调用一次或者无限次，其造成的后果是一样的，在实际应用中一般针对于接口进行幂等性设计。举个栗子，在系统中，调用方 A 调用系统 B 的接口进行用户的扣费操作时，由于网络不稳定，A 重试了 N 次该请求，那么不管 B 是否接收到多少次请求，都应该保证只会扣除该用户一次费用。</p>
+<p>加深对幂等性的了解<br>幂等性一般应用于协议设计，TCP 协议支持幂等吗?答案是肯定的，在网络不稳定时，操作系统可以肆无忌惮的重发 TCP 报文片段。TCP 协议能够保证幂等的核心在于 sequence number 字段，一个序列号的在较长的一段时间内均不会出现重复。对于应用层的协议设计，原理和 TCP 是类似的，我们需要一个不重复的序列号。再简单一点说，在一个业务流程的处理中，我们需要一个不重复的业务流水号，以保证幂等性。<br>举个实际应用场景：用户 A 在网页上发起一笔游戏充值请求，浏览器引导用户去银行支付，支付成功后系统给用户进行充值。<br>协议设计上，我们通过全局唯一的充值订单号贯穿整个业务流程，使该业务支持幂等。<br>我们先从一个简单的程序理解一下幂等性：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"> <span class="comment">//这个方法不具有幂等性，每调用一次，它就会改变 Main 的状态(即改变了 i)</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">idempotent</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> i++;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">//幂等性，无论这个方法调用多少次，它都不会改变 Main 类的状态。</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">simple</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> System.out.println(i);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>看完这些，你似乎对幂等性有了更深的了解。那么幂等性问题会出现在哪些场景呢？<br>电商，第三方支付，抢红包等场景。<br>这些应用场景，你似乎看到了他们的共同特征。对，那就是高并发。<br>幂等控制的实现<br>HTTP 的幂等性<br>幂等表示：请求服务器一次或是多次，返回的结果均是一样的【select 】一般是 GET 请求</p>
+<p>非幂等表示：请求服务器不同的次数，返回的结果将是不一样的[update delete] 一般是 POST 请求</p>
+<p>HTTP 协议本身是一种面向资源的应用层协议，但对 HTTP 协议的使用实际上存在着两种不同的方式：一种是 restful，它把 HTTP 当成应用层协议，另一种是 SOA，它并没有完全把 HTTP 当成应用层协议，而是把 HTTP 协议作为了传输层协议，然后在 HTTP 之上建立了自己的应用层协议。</p>
+<p>restful 风格，想了解的可以去看看 webservice 编程，这里不是本文的主题。</p>
+<p>本文所讨论的 HTTP 幂等性主要针对 RESTful 风格的，不过正如上一节所看到的那样，幂等性并不属于特定的协议，它是分布式系统的一种特性；所以，不论是 SOA 还是 RESTful 的 Web API 设计都应该考虑幂等性。</p>
+<p>重要方法 安全 幂等<br>GET 是 是<br>POST 否 否<br>PUT 否 是<br>DELETE 否 是<br>数据库幂等<br>数据库上的幂等和事务是一体的。</p>
+<ol>
+<li>查询操作<br>查询一次和查询多次，在数据不变的情况下，查询结果是一样的。select 是天然的幂等操作</li>
+<li>删除操作<br>删除操作也是幂等的，删除一次和多次删除都是把数据删除。(注意可能返回结果不一样，删除的数据不存在，返回 0，删除的数据多条，返回结果多个) 3.唯一索引，防止新增脏数据<br>比如：支付宝的资金账户，支付宝也有用户账户，每个用户只能有一个资金账户，怎么防止给用户创建资金账户多个，那么给资金账户表中的用户 ID 加唯一索引，所以一个用户新增成功一个资金账户记录 4.悲观锁<br>获取数据的时候加锁获取<br>select * from table_xxx where id=’xxx’ for update;<br>注意：id 字段一定是主键或者唯一索引，不然是锁表，会死人的<br>悲观锁使用时一般伴随事务一起使用，数据锁定时间可能会很长，根据实际情况选用</li>
+<li>乐观锁<br>乐观锁只是在更新数据那一刻锁表，其他时间不锁表，所以相对于悲观锁，效率更高。<br>客户端幂等控制机制-token<br>业务要求：<br>页面的数据只能被点击提交一次<br>发生原因：<br>由于重复点击或者网络重发，或者 nginx 重发等情况会导致数据被重复提交<br>解决办法：<br>集群环境：采用 token 加 redis（redis 单线程的，处理需要排队）<br>单 JVM 环境：采用 token 加 redis 或 token 加 jvm 内存<br>处理流程：</li>
+<li>数据提交前要向服务的申请 token，token 放到 redis 或 jvm 内存，token 有效时间</li>
+<li>提交后后台校验 token，同时删除 token，生成新的 token 返回<br>token 特点：<br>要申请，一次有效性，可以限流</li>
+</ol>
+<p>后期整理电商案例，直接上图来说一下一个电商网站在幂等控制上的方法。（待续。。。）</p>
+<p>版权声明：本文为博主原创文章，未经博主允许不得转载。 <a href="https://blog.csdn.net/loveblog1314/article/details/72649809" target="_blank" rel="noopener">https://blog.csdn.net/loveblog1314/article/details/72649809</a></p>
+</section>
+    <!-- Tags START -->
+    
+    <div class="tags">
+      <span>Tags:</span>
+      
+  <a href="/tags#SpringBoot2">
+    <span class="tag-code">SpringBoot2</span>
+  </a>
+
+    </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/05/24/SpringBoot2/java-jar后台启动脚本/">
+        <span class="nav-arrow">← </span>
+        
+          java -jar 后台启动脚本
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/05/24/SpringBoot2/Spring用到的设计模式/">
+        
+          Spring 用到的设计模式
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <div class="money-like">
+      <div class="reward-btn">
+        赏
+        <span class="money-code">
+          <span class="alipay-code">
+            <div class="code-image"></div>
+            <b>使用支付宝打赏</b>
+          </span>
+          <span class="wechat-code">
+            <div class="code-image"></div>
+            <b>使用微信打赏</b>
+          </span>
+        </span>
+      </div>
+      <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+    </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <div class="qrcode">
+      <canvas id="share-qrcode"></canvas>
+      <p class="notice">扫描二维码，分享此文章</p>
+    </div>
+    
+    <!-- 二维码 END -->
+    
+    <!-- No Comment -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+  <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="nav">none</ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://fengzhaoy.github.io/2019/05/24/SpringBoot2/java幂等性的控制/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function () {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function () {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="' + src +
+          '" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function () {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+<script>
+  var qr = new QRious({
+    element: document.getElementById('share-qrcode'),
+    value: document.location.href
+  });
+</script>
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019
+  </p>
+</footer>
+
+<script>
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async ("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function () {
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async ("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function () {
+    $('figure pre').each(function (i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

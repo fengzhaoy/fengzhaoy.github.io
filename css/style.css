@@ -863,6 +863,10 @@ h2.article-head {
 .author .share-icons .icon-douban {
   color: #00b51d;
 }
+.author .share-icons .img-gitee {
+  padding-top: 3px;
+  max-width: 36.56px;
+}
 .project-app {
   max-width: 1020px;
   min-width: 300px;

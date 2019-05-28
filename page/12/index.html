@@ -142,148 +142,213 @@
   
   <article class="article-card">
     <h2 class="article-head">
-      <a href="/2019/05/21/多线程异步并发/CompletableFuture实例/"></a>
+      <a href="/2019/05/24/分布式微服务架构/典型数据库架构设计与实践/">典型数据库架构设计与实践</a>
     </h2>
-    <p class="article-date">2019-05-21</p>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#分布式微服务架构">
+    <span class="tag-code">分布式微服务架构</span>
+  </a>
+
     
     <div class="article-summary">
       
-      123456789101112131415161718192021222324252627282930313233343536373839404142434445464748@RequestMapping("/getStudentInfoWithCompletableFuture")publ ...
+      本文，将介绍数据库架构设计中的一些基本概念，常见问题以及对应解决方案，为了便于读者理解，将以“用户中心”数据库为例，讲解数据库架构设计的常见玩法。
+一、用户中心
+用户中心是一个常见业务，主要提供用户注册、登录、信息查询与修改的服务，其核心元数据为：
+User(uid, uname, pass ...
       
     </div>
-    <a class="more" href="/2019/05/21/多线程异步并发/CompletableFuture实例/">全文...</a>
+    <a class="more" href="/2019/05/24/分布式微服务架构/典型数据库架构设计与实践/">全文...</a>
   </article>
   
   <article class="article-card">
     <h2 class="article-head">
-      <a href="/2019/05/21/多线程异步并发/多线程知识图谱/"></a>
+      <a href="/2019/05/24/分布式微服务架构/各大互联网公司架构演进之路汇总/">各大互联网公司架构演进之路汇总</a>
     </h2>
-    <p class="article-date">2019-05-21</p>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#分布式微服务架构">
+    <span class="tag-code">分布式微服务架构</span>
+  </a>
+
     
     <div class="article-summary">
       
-      
-      
-    </div>
-    <a class="more" href="/2019/05/21/多线程异步并发/多线程知识图谱/">全文...</a>
-  </article>
-  
-  <article class="article-card">
-    <h2 class="article-head">
-      <a href="/2019/05/21/多线程异步并发/java异步计算场景应用/"></a>
-    </h2>
-    <p class="article-date">2019-05-21</p>
-    
-    <div class="article-summary">
-      
-      最近项目中遇到一个业务场景：将当期数据库中的表迁移到另外一个数据库中，为满足迁移效率需要进行并发数据迁移。对每一数据表可以启动不同的线程同时迁移数据。迁移完成后，同步更新对应该迁移任务的状态字段。最先想到的是使用 java 中并发工具类：同步屏障 CyclicBarrier。CyclicBa ...
-      
-    </div>
-    <a class="more" href="/2019/05/21/多线程异步并发/java异步计算场景应用/">全文...</a>
-  </article>
-  
-  <article class="article-card">
-    <h2 class="article-head">
-      <a href="/2019/05/21/多线程异步并发/BlockingQueue生产者消费者代码实现/"></a>
-    </h2>
-    <p class="article-date">2019-05-21</p>
-    
-    <div class="article-summary">
-      
-      题目：编写一段生产者/消费者的 Java 代码，其中生产者每次生产 1 个 0 到 1000 之间的随机数，消费者则把该随机数打印出来。如果产生的随机数为 0，则生产者、消费者均退出运行。要求生产者、消费者均使用线程来实现。
-123456789101112131415161718192021 ...
-      
-    </div>
-    <a class="more" href="/2019/05/21/多线程异步并发/BlockingQueue生产者消费者代码实现/">全文...</a>
-  </article>
-  
-  <article class="article-card">
-    <h2 class="article-head">
-      <a href="/2019/05/21/多线程异步并发/javajdkconcurrent并发工具包/"></a>
-    </h2>
-    <p class="article-date">2019-05-21</p>
-    
-    <div class="article-summary">
-      
-      java jdk concurrent 并发工具包java.util.concurrent 并发工具包http://blog.csdn.net/defonds/article/details/44021605
-通俗易懂，JDK 并发容器总结https://juejin.im/post/5c0 ...
-      
-    </div>
-    <a class="more" href="/2019/05/21/多线程异步并发/javajdkconcurrent并发工具包/">全文...</a>
-  </article>
-  
-  <article class="article-card">
-    <h2 class="article-head">
-      <a href="/2019/05/21/多线程异步并发/ThreadLocal在一个线程里存储静态变量/"></a>
-    </h2>
-    <p class="article-date">2019-05-21</p>
-    
-    <div class="article-summary">
-      
-      123456789private static ThreadLocal&lt;RequestHeader&gt; currentRequestHeader = new ThreadLocal&lt;RequestHeader&gt;();public static void setReque ...
-      
-    </div>
-    <a class="more" href="/2019/05/21/多线程异步并发/ThreadLocal在一个线程里存储静态变量/">全文...</a>
-  </article>
-  
-  <article class="article-card">
-    <h2 class="article-head">
-      <a href="/2019/05/21/多线程异步并发/ConcurrentHashMap/"></a>
-    </h2>
-    <p class="article-date">2019-05-21</p>
-    
-    <div class="article-summary">
-      
-      http://www.cnblogs.com/dolphin0520/p/3932905.html
+      https://juejin.im/entry/5c7344e86fb9a049a712733f
 
       
     </div>
-    <a class="more" href="/2019/05/21/多线程异步并发/ConcurrentHashMap/">全文...</a>
+    <a class="more" href="/2019/05/24/分布式微服务架构/各大互联网公司架构演进之路汇总/">全文...</a>
   </article>
   
   <article class="article-card">
     <h2 class="article-head">
-      <a href="/2019/05/21/多线程异步并发/Java并发编程：并发容器之CopyOnWriteArrayList/"></a>
+      <a href="/2019/05/24/分布式微服务架构/后端架构-架构层面/">后端架构-架构层面</a>
     </h2>
-    <p class="article-date">2019-05-21</p>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#分布式微服务架构">
+    <span class="tag-code">分布式微服务架构</span>
+  </a>
+
     
     <div class="article-summary">
       
-      http://www.cnblogs.com/dolphin0520/p/3938914.html
-
+      架构层面：日志集中所谓日志集中就是把程序的所有日志和异常信息的记录都汇总到一起，在只有一台服务器的时候我们记录本地文件问题也不是最大，但是在负载均衡环境下再记录本地日志的话就出现问题了。在想查看网站日志的时候到哪台机器去查都不知道，难道有 100 台机器就 100 台机器逐一远程连上去看？因 ...
       
     </div>
-    <a class="more" href="/2019/05/21/多线程异步并发/Java并发编程：并发容器之CopyOnWriteArrayList/">全文...</a>
+    <a class="more" href="/2019/05/24/分布式微服务架构/后端架构-架构层面/">全文...</a>
   </article>
   
   <article class="article-card">
     <h2 class="article-head">
-      <a href="/2019/05/21/多线程异步并发/Java并发编程：阻塞队列/"></a>
+      <a href="/2019/05/24/分布式微服务架构/基于中台思想的物流系统设计（二）：构建物流订单能力/">基于中台思想的物流系统设计（二）：构建物流订单能力</a>
     </h2>
-    <p class="article-date">2019-05-21</p>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#分布式微服务架构">
+    <span class="tag-code">分布式微服务架构</span>
+  </a>
+
     
     <div class="article-summary">
       
-      http://www.cnblogs.com/dolphin0520/p/3932906.html
+      https://juejin.im/post/5bd429486fb9a05d2659a65f
 
       
     </div>
-    <a class="more" href="/2019/05/21/多线程异步并发/Java并发编程：阻塞队列/">全文...</a>
+    <a class="more" href="/2019/05/24/分布式微服务架构/基于中台思想的物流系统设计（二）：构建物流订单能力/">全文...</a>
   </article>
   
   <article class="article-card">
     <h2 class="article-head">
-      <a href="/2019/05/21/多线程异步并发/Java并发编程：线程池的使用/"></a>
+      <a href="/2019/05/24/分布式微服务架构/基于大中台架构的电商业务中台最佳实践之一：业务中台总体架构介绍/">基于大中台架构的电商业务中台最佳实践之一：业务中台总体架构介绍</a>
     </h2>
-    <p class="article-date">2019-05-21</p>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#分布式微服务架构">
+    <span class="tag-code">分布式微服务架构</span>
+  </a>
+
     
     <div class="article-summary">
       
-      http://www.cnblogs.com/dolphin0520/p/3932921.html
+      https://juejin.im/post/5bc817d3e51d450e9943864f
 
       
     </div>
-    <a class="more" href="/2019/05/21/多线程异步并发/Java并发编程：线程池的使用/">全文...</a>
+    <a class="more" href="/2019/05/24/分布式微服务架构/基于大中台架构的电商业务中台最佳实践之一：业务中台总体架构介绍/">全文...</a>
+  </article>
+  
+  <article class="article-card">
+    <h2 class="article-head">
+      <a href="/2019/05/24/分布式微服务架构/基于大中台架构的电商业务中台最佳实践之三：交易中台技术要点设计之高性能/">基于大中台架构的电商业务中台最佳实践之三：交易中台技术要点设计之高性能</a>
+    </h2>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#分布式微服务架构">
+    <span class="tag-code">分布式微服务架构</span>
+  </a>
+
+    
+    <div class="article-summary">
+      
+      https://juejin.im/post/5be1201551882516d725a838
+
+      
+    </div>
+    <a class="more" href="/2019/05/24/分布式微服务架构/基于大中台架构的电商业务中台最佳实践之三：交易中台技术要点设计之高性能/">全文...</a>
+  </article>
+  
+  <article class="article-card">
+    <h2 class="article-head">
+      <a href="/2019/05/24/分布式微服务架构/基于大中台架构的电商业务中台最佳实践之二：交易业务中台核心设计/">基于大中台架构的电商业务中台最佳实践之二：交易业务中台核心设计</a>
+    </h2>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#分布式微服务架构">
+    <span class="tag-code">分布式微服务架构</span>
+  </a>
+
+    
+    <div class="article-summary">
+      
+      https://juejin.im/post/5bd1edbae51d457a7e4f99ed
+
+      
+    </div>
+    <a class="more" href="/2019/05/24/分布式微服务架构/基于大中台架构的电商业务中台最佳实践之二：交易业务中台核心设计/">全文...</a>
+  </article>
+  
+  <article class="article-card">
+    <h2 class="article-head">
+      <a href="/2019/05/24/分布式微服务架构/基于电商中台架构-商品系统设计（一）/">基于电商中台架构-商品系统设计（一）</a>
+    </h2>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#分布式微服务架构">
+    <span class="tag-code">分布式微服务架构</span>
+  </a>
+
+    
+    <div class="article-summary">
+      
+      https://juejin.im/post/5bed5dcd6fb9a04a0d566bbf
+
+      
+    </div>
+    <a class="more" href="/2019/05/24/分布式微服务架构/基于电商中台架构-商品系统设计（一）/">全文...</a>
+  </article>
+  
+  <article class="article-card">
+    <h2 class="article-head">
+      <a href="/2019/05/24/分布式微服务架构/基于电商中台架构-商品系统设计（二）：类目设计/">基于电商中台架构-商品系统设计（二）：类目设计</a>
+    </h2>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#分布式微服务架构">
+    <span class="tag-code">分布式微服务架构</span>
+  </a>
+
+    
+    <div class="article-summary">
+      
+      https://juejin.im/post/5c0a3c0c5188250b064f51f4
+
+      
+    </div>
+    <a class="more" href="/2019/05/24/分布式微服务架构/基于电商中台架构-商品系统设计（二）：类目设计/">全文...</a>
+  </article>
+  
+  <article class="article-card">
+    <h2 class="article-head">
+      <a href="/2019/05/24/分布式微服务架构/大型分布式电商系统架构是如何从0开始演进/">大型分布式电商系统架构是如何从0开始演进</a>
+    </h2>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#分布式微服务架构">
+    <span class="tag-code">分布式微服务架构</span>
+  </a>
+
+    
+    <div class="article-summary">
+      
+      https://blog.csdn.net/t4i2b10X4c22nF6A/article/details/80429064
+
+      
+    </div>
+    <a class="more" href="/2019/05/24/分布式微服务架构/大型分布式电商系统架构是如何从0开始演进/">全文...</a>
   </article>
   
 

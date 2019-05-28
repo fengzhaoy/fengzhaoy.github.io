@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="fengzhaoyang&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+  <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+    ThreadPoolExecutor使用和思考（上）-线程池大小设置与BlockingQueue的三种实现区别 | fzy-blog
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  <script src="/js/qrious.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>fzy-blog</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>ThreadPoolExecutor使用和思考（上）-线程池大小设置与BlockingQueue的三种实现区别</h2>
+  <p class="post-date">2019-05-24</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>前记：<br>jdk 官方文档（javadoc）是学习的最好，最权威的参考。<br>文章分上中下。上篇中主要介绍 ThreadPoolExecutor 接受任务相关的两方面入参的意义和区别，池大小参数 corePoolSize 和 maximumPoolSize，BlockingQueue 选型（SynchronousQueue，LinkedBlockingQueue，ArrayBlockingQueue）；中篇中主要聊聊与 keepAliveTime 这个参数相关的话题；下片中介绍一下一些比较少用的该类的 API，及他的近亲：ScheduledThreadPoolExecutor。<br>如果理解错误，请直接指出。</p>
+<p>查看 JDK 帮助文档，可以发现该类比较简单，继承自 AbstractExecutorService，而 AbstractExecutorService 实现了 ExecutorService 接口。</p>
+<p>ThreadPoolExecutor 的完整构造方法的签名是：</p>
+<p>ThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue<runnable> workQueue, ThreadFactory threadFactory, RejectedExecutionHandler handler)</runnable></p>
+<p>先记着，后面慢慢解释。</p>
+<p>其实对于 ThreadPoolExecutor 的构造函数网上有 N 多的解释的，大多讲得都很好，不过我想先换个方式，从 Executors 这个类入手。因为他的几个构造工厂构造方法名字取得令人很容易了解有什么特点。但是其实 Executors 类的底层实现便是 ThreadPoolExecutor！</p>
+<p>ThreadPoolExecutor 是 Executors 类的底层实现。</p>
+<p>在 JDK 帮助文档中，有如此一段话：</p>
+<p>“强烈建议程序员使用较为方便的 Executors 工厂方法 Executors.newCachedThreadPool()（无界线程池，可以进行自动线程回收）、Executors.newFixedThreadPool(int)（固定大小线程池）和 Executors.newSingleThreadExecutor()（单个后台线程），它们均为大多数使用场景预定义了设置。”</p>
+<p>可以推断出 ThreadPoolExecutor 与 Executors 类必然关系密切。</p>
+<p>OK，那就来看看源码吧，从 newFixedThreadPool 开始。</p>
+<p>ExecutorService newFixedThreadPool(int nThreads):固定大小线程池。</p>
+<p>可以看到，corePoolSize 和 maximumPoolSize 的大小是一样的（实际上，后面会介绍，如果使用无界 queue 的话 maximumPoolSize 参数是没有意义的），keepAliveTime 和 unit 的设值表名什么？-就是该实现不想 keep alive！最后的 BlockingQueue 选择了 LinkedBlockingQueue，该 queue 有一个特点，他是无界的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ExecutorService <span class="title">newFixedThreadPool</span><span class="params">(<span class="keyword">int</span> nThreads)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ThreadPoolExecutor(nThreads, nThreads,</span><br><span class="line">                                      <span class="number">0L</span>, TimeUnit.MILLISECONDS,</span><br><span class="line">                                      <span class="keyword">new</span> LinkedBlockingQueue&lt;Runnable&gt;());</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>ExecutorService newSingleThreadExecutor()：单线程。</p>
+<p>可以看到，与 fixedThreadPool 很像，只不过 fixedThreadPool 中的入参直接退化为 1</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ExecutorService <span class="title">newSingleThreadExecutor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> FinalizableDelegatedExecutorService</span><br><span class="line">            (<span class="keyword">new</span> ThreadPoolExecutor(<span class="number">1</span>, <span class="number">1</span>,</span><br><span class="line">                                    <span class="number">0L</span>, TimeUnit.MILLISECONDS,</span><br><span class="line">                                    <span class="keyword">new</span> LinkedBlockingQueue&lt;Runnable&gt;()));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>ExecutorService newCachedThreadPool()：无界线程池，可以进行自动线程回收。</p>
+<p>这个实现就有意思了。首先是无界的线程池，所以我们可以发现 maximumPoolSize 为 big big。其次 BlockingQueue 的选择上使用 SynchronousQueue。可能对于该 BlockingQueue 有些陌生，简单说：该 QUEUE 中，每个插入操作必须等待另一个</p>
+<p>线程的对应移除操作。比如，我先添加一个元素，接下来如果继续想尝试添加则会阻塞，直到另一个线程取走一个元素，反之亦然。（想到什么？就是缓冲区为 1 的生产者消费者模式^_^）</p>
+<p>注意到介绍中的自动回收线程的特性吗，为什么呢？先不说，但注意到该实现中 corePoolSize 和 maximumPoolSize 的大小不同。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ExecutorService <span class="title">newCachedThreadPool</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ThreadPoolExecutor(<span class="number">0</span>, Integer.MAX_VALUE,</span><br><span class="line">                                      <span class="number">60L</span>, TimeUnit.SECONDS,</span><br><span class="line">                                      <span class="keyword">new</span> SynchronousQueue&lt;Runnable&gt;());</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>到此如果有很多疑问，那是必然了（除非你也很了解了）</p>
+<p>先从 BlockingQueue<runnable> workQueue 这个入参开始说起。在 JDK 中，其实已经说得很清楚了，一共有三种类型的 queue。以下为引用：（我会稍微修改一下，并用红色突出显示）</runnable></p>
+<p>所有 BlockingQueue 都可用于传输和保持提交的任务。可以使用此队列与池大小进行交互：<br>如果运行的线程少于 corePoolSize，则 Executor 始终首选添加新的线程，而不进行排队。（什么意思？如果当前运行的线程小于 corePoolSize，则任务根本不会存放，添加到 queue 中，而是直接抄家伙（thread）开始运行）<br>如果运行的线程等于或多于 corePoolSize，则 Executor 始终首选将请求加入队列，而不添加新的线程。<br>如果无法将请求加入队列，则创建新的线程，除非创建此线程超出 maximumPoolSize，在这种情况下，任务将被拒绝。<br>先不着急举例子，因为首先需要知道 queue 上的三种类型。</p>
+<p>排队有三种通用策略：<br>直接提交。工作队列的默认选项是 SynchronousQueue，它将任务直接提交给线程而不保持它们。在此，如果不存在可用于立即运行任务的线程，则试图把任务加入队列将失败，因此会构造一个新的线程。此策略可以避免在处理可能具有内部依赖性的请求集时出现锁。直接提交通常要求无界 maximumPoolSizes 以避免拒绝新提交的任务。当命令以超过队列所能处理的平均数连续到达时，此策略允许无界线程具有增长的可能性。<br>无界队列。使用无界队列（例如，不具有预定义容量的 LinkedBlockingQueue）将导致在所有 corePoolSize 线程都忙时新任务在队列中等待。这样，创建的线程就不会超过 corePoolSize。（因此，maximumPoolSize 的值也就无效了。）当每个任务完全独立于其他任务，即任务执行互不影响时，适合于使用无界队列；例如，在 Web 页服务器中。这种排队可用于处理瞬态突发请求，当命令以超过队列所能处理的平均数连续到达时，此策略允许无界线程具有增长的可能性。<br>有界队列。当使用有限的 maximumPoolSizes 时，有界队列（如 ArrayBlockingQueue）有助于防止资源耗尽，但是可能较难调整和控制。队列大小和最大池大小可能需要相互折衷：使用大型队列和小型池可以最大限度地降低 CPU 使用率、操作系统资源和上下文切换开销，但是可能导致人工降低吞吐量。如果任务频繁阻塞（例如，如果它们是 I/O 边界），则系统可能为超过您许可的更多线程安排时间。使用小型队列通常要求较大的池大小，CPU 使用率较高，但是可能遇到不可接受的调度开销，这样也会降低吞吐量。</p>
+<p>到这里，该了解的理论已经够多了，可以调节的就是 corePoolSize 和 maximumPoolSizes 这对参数还有就是 BlockingQueue 的选择。</p>
+<p>例子一：使用直接提交策略，也即 SynchronousQueue。</p>
+<p>首先 SynchronousQueue 是无界的，也就是说他存数任务的能力是没有限制的，但是由于该 Queue 本身的特性，在某次添加元素后必须等待其他线程取走后才能继续添加。在这里不是核心线程便是新创建的线程，但是我们试想一样下，下面的场景。</p>
+<p>我们使用一下参数构造 ThreadPoolExecutor：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> ThreadPoolExecutor(</span><br><span class="line">            <span class="number">2</span>, <span class="number">3</span>, <span class="number">30</span>, TimeUnit.SECONDS,</span><br><span class="line">            new &lt;span style="white-space: normal;"&gt;SynchronousQueue&lt;/span&gt;&lt;Runnable&gt;(),</span><br><span class="line">            <span class="keyword">new</span> RecorderThreadFactory(<span class="string">"CookieRecorderPool"</span>),</span><br><span class="line">            <span class="keyword">new</span> ThreadPoolExecutor.CallerRunsPolicy());</span><br></pre></td></tr></table></figure>
+<p>当核心线程已经有 2 个正在运行.</p>
+<p>此时继续来了一个任务（A），根据前面介绍的“如果运行的线程等于或多于 corePoolSize，则 Executor 始终首选将请求加入队列，而不添加新的线程。”,所以 A 被添加到 queue 中。<br>又来了一个任务（B），且核心 2 个线程还没有忙完，OK，接下来首先尝试 1 中描述，但是由于使用的 SynchronousQueue，所以一定无法加入进去。<br>此时便满足了上面提到的“如果无法将请求加入队列，则创建新的线程，除非创建此线程超出 maximumPoolSize，在这种情况下，任务将被拒绝。”，所以必然会新建一个线程来运行这个任务。<br>暂时还可以，但是如果这三个任务都还没完成，连续来了两个任务，第一个添加入 queue 中，后一个呢？queue 中无法插入，而线程数达到了 maximumPoolSize，所以只好执行异常策略了。<br>所以在使用 SynchronousQueue 通常要求 maximumPoolSize 是无界的，这样就可以避免上述情况发生（如果希望限制就直接使用有界队列）。对于使用 SynchronousQueue 的作用 jdk 中写的很清楚：此策略可以避免在处理可能具有内部依赖性的请求集时出现锁。</p>
+<p>什么意思？如果你的任务 A1，A2 有内部关联，A1 需要先运行，那么先提交 A1，再提交 A2，当使用 SynchronousQueue 我们可以保证，A1 必定先被执行，在 A1 么有被执行前，A2 不可能添加入 queue 中</p>
+<p>例子二：使用无界队列策略，即 LinkedBlockingQueue</p>
+<p>这个就拿 newFixedThreadPool 来说，根据前文提到的规则：<br>写道<br>如果运行的线程少于 corePoolSize，则 Executor 始终首选添加新的线程，而不进行排队。<br>那么当任务继续增加，会发生什么呢？<br>写道</p>
+<p>如果运行的线程等于或多于 corePoolSize，则 Executor 始终首选将请求加入队列，而不添加新的线程。<br>OK，此时任务变加入队列之中了，那什么时候才会添加新线程呢？</p>
+<p>写道<br>如果无法将请求加入队列，则创建新的线程，除非创建此线程超出 maximumPoolSize，在这种情况下，任务将被拒绝。<br>这里就很有意思了，可能会出现无法加入队列吗？不像 SynchronousQueue 那样有其自身的特点，对于无界队列来说，总是可以加入的（资源耗尽，当然另当别论）。换句说，永远也不会触发产生新的线程！corePoolSize 大小的线程数会一直运行，忙完当前的，就从队列中拿任务开始运行。所以要防止任务疯长，比如任务运行的实行比较长，而添加任务的速度远远超过处理任务的时间，而且还不断增加，如果任务内存大一些，不一会儿就爆了，呵呵。</p>
+<p>可以仔细想想哈。</p>
+<p>例子三：有界队列，使用 ArrayBlockingQueue。</p>
+<p>这个是最为复杂的使用，所以 JDK 不推荐使用也有些道理。与上面的相比，最大的特点便是可以防止资源耗尽的情况发生。</p>
+<p>举例来说，请看如下构造方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> ThreadPoolExecutor(</span><br><span class="line">            <span class="number">2</span>, <span class="number">4</span>, <span class="number">30</span>, TimeUnit.SECONDS,</span><br><span class="line">            <span class="keyword">new</span> ArrayBlockingQueue&lt;Runnable&gt;(<span class="number">2</span>),</span><br><span class="line">            <span class="keyword">new</span> RecorderThreadFactory(<span class="string">"CookieRecorderPool"</span>),</span><br><span class="line">            <span class="keyword">new</span> ThreadPoolExecutor.CallerRunsPolicy());</span><br></pre></td></tr></table></figure>
+<p>假设，所有的任务都永远无法执行完。</p>
+<p>对于首先来的 A,B 来说直接运行，接下来，如果来了 C,D，他们会被放到 queu 中，如果接下来再来 E,F，则增加线程运行 E，F。但是如果再来任务，队列无法再接受了，线程数也到达最大的限制了，所以就会使用拒绝策略来处理。</p>
+<p>总结：</p>
+<p>ThreadPoolExecutor 的使用还是很有技巧的。<br>使用无界 queue 可能会耗尽系统资源。<br>使用有界 queue 可能不能很好的满足性能，需要调节线程数和 queue 大小<br>线程数自然也有开销，所以需要根据不同应用进行调节。<br>通常来说对于静态任务可以归为：<br>数量大，但是执行时间很短<br>数量小，但是执行时间较长<br>数量又大执行时间又长<br>除了以上特点外，任务间还有些内在关系<br>看完这篇问文章后，希望能够可以选择合适的类型了</p>
+<p>来源： <a href="http://dongxuan.iteye.com/blog/901689" target="_blank" rel="noopener">http://dongxuan.iteye.com/blog/901689</a></p>
+</section>
+    <!-- Tags START -->
+    
+    <div class="tags">
+      <span>Tags:</span>
+      
+  <a href="/tags#多线程异步并发">
+    <span class="tag-code">多线程异步并发</span>
+  </a>
+
+    </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/05/24/多线程异步并发/java并发处理规范/">
+        <span class="nav-arrow">← </span>
+        
+          java 并发处理 规范
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/05/24/多线程异步并发/javaAtomic原子唯一操作/">
+        
+          java Atomic原子唯一操作
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <div class="money-like">
+      <div class="reward-btn">
+        赏
+        <span class="money-code">
+          <span class="alipay-code">
+            <div class="code-image"></div>
+            <b>使用支付宝打赏</b>
+          </span>
+          <span class="wechat-code">
+            <div class="code-image"></div>
+            <b>使用微信打赏</b>
+          </span>
+        </span>
+      </div>
+      <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+    </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <div class="qrcode">
+      <canvas id="share-qrcode"></canvas>
+      <p class="notice">扫描二维码，分享此文章</p>
+    </div>
+    
+    <!-- 二维码 END -->
+    
+    <!-- No Comment -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+  <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="nav">none</ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://fengzhaoy.github.io/2019/05/24/多线程异步并发/ThreadPoolExecutor使用和思考（上）-线程池大小设置与BlockingQueue的三种实现区别/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function () {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function () {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="' + src +
+          '" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function () {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+<script>
+  var qr = new QRious({
+    element: document.getElementById('share-qrcode'),
+    value: document.location.href
+  });
+</script>
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019
+  </p>
+</footer>
+
+<script>
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async ("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function () {
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async ("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function () {
+    $('figure pre').each(function (i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="fengzhaoyang&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+  <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+    springcloud mac 笔记 | fzy-blog
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  <script src="/js/qrious.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>fzy-blog</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>springcloud mac 笔记</h2>
+  <p class="post-date">2019-05-24</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h1 id="springcloud-mac-笔记"><a href="#springcloud-mac-笔记" class="headerlink" title="springcloud mac 笔记"></a>springcloud mac 笔记</h1><p>服务注册中心 eureka</p>
+<p>客户端负载均衡 ribbon</p>
+<p>API 网关 zuul</p>
+<p>REST 调用 feign</p>
+<p>容错处理 hystrix</p>
+<p>统一配置中心 config</p>
+<p>服务跟踪 sleuth</p>
+<p>监控系统 zipkin</p>
+<p>消息驱动 stream</p>
+<p>bus 消息总线，配合 Config 仓库修改的一种 Stream 实现。</p>
+<p>是集群收集器 turbine</p>
+<p>dashboard hystrix 仪表盘，监控集群模式和单点模式，其中集群模式需要收集器 Turbine 配合。</p>
+<p>1.启动 redis 4.0.9</p>
+<p>To have launchd start redis now and restart at login:</p>
+<p>brew services start redis</p>
+<p>Or, if you don’t want/need a background service you can just run:</p>
+<p>redis-server /usr/local/etc/redis.conf</p>
+<p>2.启动 kafka kafka1.1.0 依赖 zookeeper 3.4.12</p>
+<p>To have launchd start kafka now and restart at login:</p>
+<p>brew services start kafka</p>
+<p>Or, if you don’t want/need a background service you can just run:</p>
+<p>zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties &amp; kafka-server-start /usr/local/etc/kafka/server.properties</p>
+<p>3.启动 rabbitmq</p>
+<p>To have launchd start rabbitmq now and restart at login:</p>
+<p>brew services start rabbitmq</p>
+<p>Or, if you don’t want/need a background service you can just run:</p>
+<p>rabbitmq-server</p>
+<p>4.启动 elasticsearch</p>
+<p>To have launchd start elasticsearch now and restart at login:</p>
+<p>brew services start elasticsearch</p>
+<p>Or, if you don’t want/need a background service you can just run:</p>
+<p>elasticsearch</p>
+<p>5.重启 zookeeper</p>
+<p>6.brew services start logstash</p>
+<p>git 配置</p>
+<p>git config –global user.name “zhaoyang10”</p>
+<p>git config –global user.email “<a href="mailto:zhaoyang10@staff.weibo.com" target="_blank" rel="noopener">zhaoyang10@staff.weibo.com</a>“</p>
+<p>ssh-keygen -t rsa -C “<a href="mailto:zhaoyang10@staff.weibo.com" target="_blank" rel="noopener">zhaoyang10@staff.weibo.com</a>“</p>
+<p>git clone ssh:<a href="mailto://git@git.intra.weibo.com" target="_blank" rel="noopener">//git@git.intra.weibo.com</a>:2222/bop/bop-springcloud.git /Users/fzy/Documents/git/bop-springcloud</p>
+<p>git clone -b feature-fzy ssh:<a href="mailto://git@git.intra.weibo.com" target="_blank" rel="noopener">//git@git.intra.weibo.com</a>:2222/bop/bop-springcloud.git /Users/fzy/Documents/git/feature-fzy</p>
+<p>每个组件都不是平白无故的产生的，是为了解决某一特定的问题而存在。</p>
+<p>Eureka 和 Ribbon，是最基础的组件，一个注册服务，一个消费服务。</p>
+<p>Sleuth zipkin</p>
+<p>Config 配置中心</p>
+<p>Hystrix 熔断限流</p>
+<p>Turbine 是集群收集器，服务于 Dashboard 的。</p>
+<p>Feign 是方便我们程序员些更优美的代码的。</p>
+<p>Zuul 是加在整个微服务最前沿的防火墙和代理器，隐藏微服务结点 IP 端口信息，加强安全保护的。</p>
+<p>Config 是为了解决所有微服务各自维护各自的配置，设置一个统一的配置中心，方便修改配置的。</p>
+<p>Bus 是因为 config 修改完配置后各个结点都要 refresh 才能生效实在太麻烦，所以交给 bus 来通知服务节点刷新配置的。</p>
+<p>Stream 是为了简化研发人员对 MQ 使用的复杂度，弱化 MQ 的差异性，达到程序和 MQ 松耦合。</p>
+<p>Sleuth+Zipkin 是因为单次请求在微服务节点中跳转无法追溯，解决任务链日志追踪问题的。</p>
+<p>技术选型</p>
+<p>1.场景</p>
+<p>2.特征 Feature</p>
+<p>3.对比</p>
+<p>4.结论</p>
+<p>OAuth2 用在使用第三方账号登录的情况(比如使用 weibo, qq, github 登录某个 app)</p>
+<p>JWT 是用在前后端分离, 需要简单的对后台 API 进行保护时使用.(前后端分离无 session, 频繁传用户密码不安全)</p>
+<p>OAuth2 是一个相对复杂的协议, 有 4 种授权模式, 其中的 access code 模式在实现时可以使用 jwt 才生成 code, 也可以不用. 它们之间没有必然的联系.</p>
+<p>20180524</p>
+<p>spring cloud 认证与鉴权 oauth2 jwt 研究学习</p>
+<p>申请内网通道机账号和密码 新建开发库 搭建自动化构建持续集成服务器 安装 jdk1.8、nexus maven 私服、 jenkins</p>
+</section>
+    <!-- Tags START -->
+    
+    <div class="tags">
+      <span>Tags:</span>
+      
+  <a href="/tags#SpringCloud2">
+    <span class="tag-code">SpringCloud2</span>
+  </a>
+
+    </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/05/24/SpringCloud2/springcloudhystrix线程隔离管理线程池/">
+        <span class="nav-arrow">← </span>
+        
+          springcloud hystrix 线程隔离 管理线程池
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/05/24/SpringCloud2/springcouldzuul超时问题解决/">
+        
+          springcouldzuul超时问题解决
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <div class="money-like">
+      <div class="reward-btn">
+        赏
+        <span class="money-code">
+          <span class="alipay-code">
+            <div class="code-image"></div>
+            <b>使用支付宝打赏</b>
+          </span>
+          <span class="wechat-code">
+            <div class="code-image"></div>
+            <b>使用微信打赏</b>
+          </span>
+        </span>
+      </div>
+      <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+    </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <div class="qrcode">
+      <canvas id="share-qrcode"></canvas>
+      <p class="notice">扫描二维码，分享此文章</p>
+    </div>
+    
+    <!-- 二维码 END -->
+    
+    <!-- No Comment -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+  <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#springcloud-mac-笔记"><span class="toc-nav-text">springcloud mac 笔记</span></a></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://fengzhaoy.github.io/2019/05/24/SpringCloud2/springcloudmac笔记/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function () {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function () {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="' + src +
+          '" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function () {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+<script>
+  var qr = new QRious({
+    element: document.getElementById('share-qrcode'),
+    value: document.location.href
+  });
+</script>
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019
+  </p>
+</footer>
+
+<script>
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async ("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function () {
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async ("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function () {
+    $('figure pre').each(function (i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

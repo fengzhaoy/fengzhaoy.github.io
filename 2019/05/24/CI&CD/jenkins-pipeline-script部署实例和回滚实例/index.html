@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="fengzhaoyang&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+  <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+    部署操作 jenkins job 任务 pipeline script 脚本 | fzy-blog
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  <script src="/js/qrious.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>fzy-blog</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>部署操作 jenkins job 任务 pipeline script 脚本</h2>
+  <p class="post-date">2019-05-24</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h3 id="部署操作-jenkins-job-任务-pipeline-script-脚本"><a href="#部署操作-jenkins-job-任务-pipeline-script-脚本" class="headerlink" title="部署操作 jenkins job 任务 pipeline script 脚本"></a>部署操作 jenkins job 任务 pipeline script 脚本</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">env.GIT='ssh://git@git.xxx.com:2222/bop/fms-group/fms.git'</span><br><span class="line">env.name='fms-p'</span><br><span class="line">env.docker_path='fms-p/docker'</span><br><span class="line">env.jar_name='fms-p'</span><br><span class="line">env.dockerfile_jar_name='fms-p'</span><br><span class="line"></span><br><span class="line">env.node1='xxx1.com'</span><br><span class="line">env.node2='xxx2.com'</span><br><span class="line">def timeStamp = Calendar.getInstance().getTime().format('YYYYMMddhhmmss',TimeZone.getTimeZone('Asia/Shanghai'))</span><br><span class="line">env.build_version = timeStamp</span><br><span class="line"></span><br><span class="line">    node("150g")&#123;</span><br><span class="line">          stage('Git Checkout')&#123;</span><br><span class="line">            sh '''</span><br><span class="line">            rm -rf ./*</span><br><span class="line">            '''</span><br><span class="line">            checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'xxxxxxx-xxxx-xxxx',url: env.GIT]]])</span><br><span class="line">          &#125;</span><br><span class="line">          stage('Maven Build')&#123;</span><br><span class="line">            echo "Maven Build..."</span><br><span class="line">            sh '''</span><br><span class="line">            mvn clean install</span><br><span class="line">            '''</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          stage('Build and Push Image')&#123;</span><br><span class="line">              withCredentials([string(credentialsId: 'xxxxxxx-xxxx-xxxx', variable: 'HUB_TOKEN')]) &#123;</span><br><span class="line">                  sh '''</span><br><span class="line"></span><br><span class="line">                  docker login -u bop_mail_alert -p $&#123;HUB_TOKEN&#125; http://registry.api.xxx.com</span><br><span class="line">                  cd $&#123;docker_path&#125;</span><br><span class="line">                  rm -rf ../target/$&#123;jar_name&#125;-1.0*-javadoc.jar ../target/$&#123;jar_name&#125;-1.0*-sources.jar</span><br><span class="line"></span><br><span class="line">                  touch 200.sh .</span><br><span class="line">                  touch 503.sh .</span><br><span class="line"></span><br><span class="line">                  cp ../target/$&#123;jar_name&#125;-1.0*.jar ./$&#123;dockerfile_jar_name&#125;.jar</span><br><span class="line"></span><br><span class="line">                  docker build -t registry.api.xxx.com/bop-k8s/$&#123;name&#125;:$&#123;build_version&#125; .</span><br><span class="line">                  docker push registry.api.xxx.com/bop-k8s/$&#123;name&#125;:$&#123;build_version&#125;</span><br><span class="line">                  '''</span><br><span class="line">              &#125;</span><br><span class="line"></span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    node(env.node1)&#123;</span><br><span class="line"></span><br><span class="line">          stage('Pull Image And Run')&#123;</span><br><span class="line">              withCredentials([string(credentialsId: 'xxxxxxx-xxxx-xxxx', variable: 'HUB_TOKEN')]) &#123;</span><br><span class="line">                  sh '''</span><br><span class="line">                  set +e</span><br><span class="line">                  sleep 5</span><br><span class="line"></span><br><span class="line">                  docker rmi $&#123;name&#125;-backup</span><br><span class="line">                  docker commit $&#123;name&#125; $&#123;name&#125;-backup</span><br><span class="line">                  docker stop --time=20 $&#123;name&#125;</span><br><span class="line">                  docker rm -f $&#123;name&#125;</span><br><span class="line">                  docker pull registry.api.xxx.com/bop-k8s/$&#123;name&#125;:$&#123;build_version&#125;</span><br><span class="line">                  docker run -d -v /data0/$&#123;name&#125;/logs:/data/logs --name $&#123;name&#125; --net="host"  --ulimit nofile=200000 -v /etc/localtime:/etc/localtime:ro -m 1536M --memory-swap 2048M -e JAVA_OPTS="-server -Xmx1024m" registry.api.xxx.com/bop-k8s/$&#123;name&#125;:$&#123;build_version&#125;</span><br><span class="line">                  '''</span><br><span class="line">              &#125;</span><br><span class="line"></span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    node(env.node2)&#123;</span><br><span class="line"></span><br><span class="line">          stage('Pull Image And Run')&#123;</span><br><span class="line">              withCredentials([string(credentialsId: 'xxxxxxx-xxxx-xxxx', variable: 'HUB_TOKEN')]) &#123;</span><br><span class="line">                  sh '''</span><br><span class="line">                  set +e</span><br><span class="line"></span><br><span class="line">                  docker rmi $&#123;name&#125;-backup</span><br><span class="line">                  docker commit $&#123;name&#125; $&#123;name&#125;-backup</span><br><span class="line">                  docker stop --time=20 $&#123;name&#125;</span><br><span class="line">                  docker rm -f $&#123;name&#125;</span><br><span class="line">                  docker pull registry.api.xxx.com/bop-k8s/$&#123;name&#125;:$&#123;build_version&#125;</span><br><span class="line">                  docker run -d -p 80:80 -v /data0/$&#123;name&#125;/logs:/data/logs --name $&#123;name&#125; --net="host"  --ulimit nofile=200000 -v /etc/localtime:/etc/localtime:ro -m 1536M --memory-swap 2048M -e JAVA_OPTS="-server -Xmx1024m" registry.api.xxx.com/bop-k8s/$&#123;name&#125;:$&#123;build_version&#125;</span><br><span class="line">                  '''</span><br><span class="line">              &#125;</span><br><span class="line"></span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="回滚操作-jenkins-job-任务-pipeline-script-脚本"><a href="#回滚操作-jenkins-job-任务-pipeline-script-脚本" class="headerlink" title="回滚操作 jenkins job 任务 pipeline script 脚本"></a>回滚操作 jenkins job 任务 pipeline script 脚本</h3><p>jenkins 新建任务 fms-g-rollback 复制 fms-g job 任务<br>配置 勾选参数化构建过程 选择文本参数<br>定义名称：tag<br>默认值： backup<br>描述：请输入回滚的镜像版本号！默认回滚备份的上一版本 docker 镜像！</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">env.name='fms-g'</span><br><span class="line"></span><br><span class="line">env.node1='xx1.com'</span><br><span class="line">env.node2='xx2.com'</span><br><span class="line"></span><br><span class="line">    node(env.node1)&#123;</span><br><span class="line"></span><br><span class="line">          stage('Rolling back node1')&#123;</span><br><span class="line">              withCredentials([string(credentialsId: 'xxxxx-xxxxx', variable: 'HUB_TOKEN')]) &#123;</span><br><span class="line">                  sh '''</span><br><span class="line">                  set +e</span><br><span class="line">                  sleep 5</span><br><span class="line"></span><br><span class="line">                  rollImages=registry.api.xxx.com/bop-k8s/$&#123;name&#125;:$&#123;tag&#125;</span><br><span class="line">                  if [ "$&#123;tag&#125;" = "backup" ]</span><br><span class="line">                  then</span><br><span class="line">                     rollImages=$&#123;name&#125;-backup</span><br><span class="line">                  fi</span><br><span class="line"></span><br><span class="line">                  if [ "$(docker images -q $&#123;rollImages&#125; 2&gt; /dev/null)" == "" ]</span><br><span class="line">                  then</span><br><span class="line">                    echo "回滚的镜像name为：$&#123;rollImages&#125; 不存在，无法回滚";</span><br><span class="line">                    exit 1</span><br><span class="line">                  fi</span><br><span class="line"></span><br><span class="line">                  docker stop --time=20 $&#123;name&#125;</span><br><span class="line">                  docker rm -f $&#123;name&#125;</span><br><span class="line">                  docker run -d -v /data0/$&#123;name&#125;/logs:/data/logs --name $&#123;name&#125; --net="host"  --ulimit nofile=200000 -v /etc/localtime:/etc/localtime:ro -m 1536M --memory-swap 2048M -e JAVA_OPTS="-server -Xmx1024m" $&#123;rollImages&#125;</span><br><span class="line">                  '''</span><br><span class="line">              &#125;</span><br><span class="line"></span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    node(env.node2)&#123;</span><br><span class="line"></span><br><span class="line">          stage('Rolling back node2')&#123;</span><br><span class="line">              withCredentials([string(credentialsId: 'xxxxx-xxx', variable: 'HUB_TOKEN')]) &#123;</span><br><span class="line">                  sh '''</span><br><span class="line">                  set +e</span><br><span class="line"></span><br><span class="line">                  rollImages=registry.api.xxx.com/bop-k8s/$&#123;name&#125;:$&#123;tag&#125;</span><br><span class="line">                  if [ "$&#123;tag&#125;" = "backup" ]</span><br><span class="line">                  then</span><br><span class="line">                     rollImages=$&#123;name&#125;-backup</span><br><span class="line">                  fi</span><br><span class="line"></span><br><span class="line">                  if [ "$(docker images -q $&#123;rollImages&#125; 2&gt; /dev/null)" == "" ]</span><br><span class="line">                  then</span><br><span class="line">                    echo "回滚的镜像name为：$&#123;rollImages&#125; 不存在，无法回滚";</span><br><span class="line">                    exit 1</span><br><span class="line">                  fi</span><br><span class="line"></span><br><span class="line">                  docker stop --time=20 $&#123;name&#125;</span><br><span class="line">                  docker rm -f $&#123;name&#125;</span><br><span class="line">                  docker run -d -p 80:80 -v /data0/$&#123;name&#125;/logs:/data/logs --name $&#123;name&#125; --net="host"  --ulimit nofile=200000 -v /etc/localtime:/etc/localtime:ro -m 1536M --memory-swap 2048M -e JAVA_OPTS="-server -Xmx1024m" $&#123;rollImages&#125;</span><br><span class="line">                  '''</span><br><span class="line">              &#125;</span><br><span class="line"></span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</section>
+    <!-- Tags START -->
+    
+    <div class="tags">
+      <span>Tags:</span>
+      
+  <a href="/tags#CI&amp;CD">
+    <span class="tag-code">CI&amp;CD</span>
+  </a>
+
+    </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/05/24/CI&CD/docker常用命令/">
+        <span class="nav-arrow">← </span>
+        
+          docker自动化shell脚本
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/05/24/CI&CD/dockerfileJVM配置参考/">
+        
+          dockerfile JVM 配置参考
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <div class="money-like">
+      <div class="reward-btn">
+        赏
+        <span class="money-code">
+          <span class="alipay-code">
+            <div class="code-image"></div>
+            <b>使用支付宝打赏</b>
+          </span>
+          <span class="wechat-code">
+            <div class="code-image"></div>
+            <b>使用微信打赏</b>
+          </span>
+        </span>
+      </div>
+      <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+    </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <div class="qrcode">
+      <canvas id="share-qrcode"></canvas>
+      <p class="notice">扫描二维码，分享此文章</p>
+    </div>
+    
+    <!-- 二维码 END -->
+    
+    <!-- No Comment -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+  <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#部署操作-jenkins-job-任务-pipeline-script-脚本"><span class="toc-nav-text">部署操作 jenkins job 任务 pipeline script 脚本</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#回滚操作-jenkins-job-任务-pipeline-script-脚本"><span class="toc-nav-text">回滚操作 jenkins job 任务 pipeline script 脚本</span></a></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://fengzhaoy.github.io/2019/05/24/CI&amp;CD/jenkins-pipeline-script部署实例和回滚实例/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function () {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function () {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="' + src +
+          '" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function () {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+<script>
+  var qr = new QRious({
+    element: document.getElementById('share-qrcode'),
+    value: document.location.href
+  });
+</script>
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019
+  </p>
+</footer>
+
+<script>
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async ("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function () {
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async ("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function () {
+    $('figure pre').each(function (i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

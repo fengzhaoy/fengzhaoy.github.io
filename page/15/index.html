@@ -142,163 +142,216 @@
   
   <article class="article-card">
     <h2 class="article-head">
-      <a href="/2019/05/21/SpringBoot2/SpringWebFlux性能测试——响应式Spring的道法术器/"></a>
+      <a href="/2019/05/24/分布式日志监控/JVM监控/">JVM 监控</a>
     </h2>
-    <p class="article-date">2019-05-21</p>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#分布式日志监控">
+    <span class="tag-code">分布式日志监控</span>
+  </a>
+
     
     <div class="article-summary">
       
-      Spring WebFlux 性能测试——响应式 Spring 的道法术器https://blog.csdn.net/get_set/article/details/79492439
+      JVM 监控本地监控： jvisualvm
 
       
     </div>
-    <a class="more" href="/2019/05/21/SpringBoot2/SpringWebFlux性能测试——响应式Spring的道法术器/">全文...</a>
+    <a class="more" href="/2019/05/24/分布式日志监控/JVM监控/">全文...</a>
   </article>
   
   <article class="article-card">
     <h2 class="article-head">
-      <a href="/2019/05/21/SpringBoot2/Springboot事件监听/"></a>
+      <a href="/2019/05/24/分布式权限服务/接口鉴权设计/">接口鉴权设计</a>
     </h2>
-    <p class="article-date">2019-05-21</p>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#分布式权限服务">
+    <span class="tag-code">分布式权限服务</span>
+  </a>
+
     
     <div class="article-summary">
       
-      https://www.jianshu.com/p/5f57f2aa5e2chttps://my.oschina.net/u/2278977/blog/794868
-
+      方案一：RESTful 登录设计（基于 Spring 及 Redis 的 Token 鉴权）http://www.scienjus.com/restful-token-authorization/
+方案二：简单签权设计：
+客户端：Url 中每次请求携带参数 accessToken=dqwrw ...
       
     </div>
-    <a class="more" href="/2019/05/21/SpringBoot2/Springboot事件监听/">全文...</a>
+    <a class="more" href="/2019/05/24/分布式权限服务/接口鉴权设计/">全文...</a>
   </article>
   
   <article class="article-card">
     <h2 class="article-head">
-      <a href="/2019/05/21/SpringBoot2/springboot读取配置文件applicationyml中的自定义属性值/"></a>
+      <a href="/2019/05/24/分布式日志监控/java诊断工具/">java 诊断工具</a>
     </h2>
-    <p class="article-date">2019-05-21</p>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#分布式日志监控">
+    <span class="tag-code">分布式日志监控</span>
+  </a>
+
     
     <div class="article-summary">
       
-      springboot 读取配置文件 application.yml 中的自定义属性值http://blog.csdn.net/clementad/article/details/51970962
-
+      java 诊断工具arthashttps://alibaba.github.io/arthas/
+java 性能诊断 shell 脚本https://github.com/oldratlee/useful-scripts/blob/master/docs/java.md#-show-busy ...
       
     </div>
-    <a class="more" href="/2019/05/21/SpringBoot2/springboot读取配置文件applicationyml中的自定义属性值/">全文...</a>
+    <a class="more" href="/2019/05/24/分布式日志监控/java诊断工具/">全文...</a>
   </article>
   
   <article class="article-card">
     <h2 class="article-head">
-      <a href="/2019/05/21/SpringBoot2/SpringBootServlet、Filter、Listener配置/"></a>
+      <a href="/2019/05/24/分布式权限服务/网站安全防御/">网站安全防御</a>
     </h2>
-    <p class="article-date">2019-05-21</p>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#分布式权限服务">
+    <span class="tag-code">分布式权限服务</span>
+  </a>
+
     
     <div class="article-summary">
       
-      SpringBoot Servlet、Filter、Listener 配置http://blog.csdn.net/king_is_everyone/article/details/53116744
-
+      https://blog.csdn.net/zhangxin09/article/details/54881190https://blog.csdn.net/zhangxin09/article/details/51926550https://blog.csdn.net/zhangxin09 ...
       
     </div>
-    <a class="more" href="/2019/05/21/SpringBoot2/SpringBootServlet、Filter、Listener配置/">全文...</a>
+    <a class="more" href="/2019/05/24/分布式权限服务/网站安全防御/">全文...</a>
   </article>
   
   <article class="article-card">
     <h2 class="article-head">
-      <a href="/2019/05/21/SpringBoot2/springbootjvm调优/"></a>
+      <a href="/2019/05/24/分布式权限服务/单点登录原理/">单点登录原理</a>
     </h2>
-    <p class="article-date">2019-05-21</p>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#分布式权限服务">
+    <span class="tag-code">分布式权限服务</span>
+  </a>
+
     
     <div class="article-summary">
       
-      springboot jvm 调优12345678910111213141516171819#方式一：java -Xmx2048m -Xms2048m -Xmn1g -Xss512k -jar target/demo-0.0.1-SNAPSHOT.jar#方式二：java -Xmx2048m ...
+      一、简单实现方式应用与应用之间有一个定义好的 key。从应用 1 直接登录到应用 2
+
+之前需要把用户 username,password,key 同时放到 Cookie 里，
+然后在另一个应用里专门有一个 Servlet 去验证 key 是否和这个应用的 key 相等（key 是加密的 k ...
       
     </div>
-    <a class="more" href="/2019/05/21/SpringBoot2/springbootjvm调优/">全文...</a>
+    <a class="more" href="/2019/05/24/分布式权限服务/单点登录原理/">全文...</a>
   </article>
   
   <article class="article-card">
     <h2 class="article-head">
-      <a href="/2019/05/21/SpringBoot2/fastjson中Map与JSONObject互换，List与JOSNArray互换的实现/"></a>
+      <a href="/2019/05/24/分布式消息队列MQ/Kafka知识点总结/">Kafka知识点总结</a>
     </h2>
-    <p class="article-date">2019-05-21</p>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#分布式消息队列MQ">
+    <span class="tag-code">分布式消息队列MQ</span>
+  </a>
+
     
     <div class="article-summary">
       
-      在开发过程中经常用到 Map，与 List 转换成 json 返回前台的情况，找了一些实现方法，在此记录，方便以后查找。
-1、//将 map 转换成 jsonObject
-JSONObject itemJSONObj = JSONObject.parseObject(JSON.toJSONS ...
+      Kafka 保证数据不丢失https://blog.csdn.net/qingqing7/article/details/80054281
+
       
     </div>
-    <a class="more" href="/2019/05/21/SpringBoot2/fastjson中Map与JSONObject互换，List与JOSNArray互换的实现/">全文...</a>
+    <a class="more" href="/2019/05/24/分布式消息队列MQ/Kafka知识点总结/">全文...</a>
   </article>
   
   <article class="article-card">
     <h2 class="article-head">
-      <a href="/2019/05/21/SpringBoot2/java-jar后台启动脚本/"></a>
+      <a href="/2019/05/24/分布式消息队列MQ/消息系统设计与实现/">消息系统设计与实现</a>
     </h2>
-    <p class="article-date">2019-05-21</p>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#分布式消息队列MQ">
+    <span class="tag-code">分布式消息队列MQ</span>
+  </a>
+
     
     <div class="article-summary">
       
-      java -jar 后台启动脚本https://blog.csdn.net/l1028386804/article/details/53979625
+      http://blog.csdn.net/moshenglv/article/details/51943545
 
       
     </div>
-    <a class="more" href="/2019/05/21/SpringBoot2/java-jar后台启动脚本/">全文...</a>
+    <a class="more" href="/2019/05/24/分布式消息队列MQ/消息系统设计与实现/">全文...</a>
   </article>
   
   <article class="article-card">
     <h2 class="article-head">
-      <a href="/2019/05/21/SpringBoot2/springboot注解/"></a>
+      <a href="/2019/05/24/分布式消息队列MQ/RocketMQ安装部署测试/">RocketMQ安装部署测试</a>
     </h2>
-    <p class="article-date">2019-05-21</p>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#分布式消息队列MQ">
+    <span class="tag-code">分布式消息队列MQ</span>
+  </a>
+
     
     <div class="article-summary">
       
-      springboot 注解Bean 声明注解@Service 业务逻辑层
-@Component 组件
-@Repository 数据访问层
-@Controller Spring mvc 展现层
-@Configurable 声明当前类是一个配置类
-@ComponentScan(“com.weib ...
+      http://blog.csdn.net/zhu_tianwei/article/details/40948447
+
       
     </div>
-    <a class="more" href="/2019/05/21/SpringBoot2/springboot注解/">全文...</a>
+    <a class="more" href="/2019/05/24/分布式消息队列MQ/RocketMQ安装部署测试/">全文...</a>
   </article>
   
   <article class="article-card">
     <h2 class="article-head">
-      <a href="/2019/05/21/SpringBoot2/Spring常用工具类/"></a>
+      <a href="/2019/05/24/分布式缓存/redis分布式缓存/">redis分布式缓存</a>
     </h2>
-    <p class="article-date">2019-05-21</p>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#分布式缓存">
+    <span class="tag-code">分布式缓存</span>
+  </a>
+
     
     <div class="article-summary">
       
-      jar 包位置 spring-core.jar
-
-访问文件资源假设有一个文件地位于 Web 应用的类路径下，您可以通过以下方式对这个文件资源进行访问：FileSystemResource 以文件系统绝对路径的方式进行访问；ClassPathResource 以类路径的方式进行访问；Servl ...
+      一.为什么选择 redis
+在项目中使用 redis 做为缓存，还没有使用 memcache,考虑因素主要有两点：
+1.redis 丰富的数据结构,其 hash,list,set 以及功能丰富的 String 的支持，对于实际项目中的使用有很大的帮忙。（可参考官网 redis.io）
+2.r ...
       
     </div>
-    <a class="more" href="/2019/05/21/SpringBoot2/Spring常用工具类/">全文...</a>
+    <a class="more" href="/2019/05/24/分布式缓存/redis分布式缓存/">全文...</a>
   </article>
   
   <article class="article-card">
     <h2 class="article-head">
-      <a href="/2019/05/21/SpringBoot2/Spring用到的设计模式/"></a>
+      <a href="/2019/05/24/多线程异步并发/BlockingQueue生产者消费者代码实现/">BlockingQueue生产者消费者代码实现</a>
     </h2>
-    <p class="article-date">2019-05-21</p>
+    <p class="article-date">2019-05-24</p>
+    
+    
+  <a href="/tags#多线程异步并发">
+    <span class="tag-code">多线程异步并发</span>
+  </a>
+
     
     <div class="article-summary">
       
-      Spring 用到的设计模式
-简单工厂模式 (静态工厂方法模式) spring 中的 BeanFactory
-
-工厂方法模式 Spring 中的 FactoryBean
-
-单例模式 保证一个类仅有一个实例 spring 中的 bean 的作用域默认是单例的。
-
-适配器模式 spring 中对 ...
+      题目：编写一段生产者/消费者的 Java 代码，其中生产者每次生产 1 个 0 到 1000 之间的随机数，消费者则把该随机数打印出来。如果产生的随机数为 0，则生产者、消费者均退出运行。要求生产者、消费者均使用线程来实现。
+123456789101112131415161718192021 ...
       
     </div>
-    <a class="more" href="/2019/05/21/SpringBoot2/Spring用到的设计模式/">全文...</a>
+    <a class="more" href="/2019/05/24/多线程异步并发/BlockingQueue生产者消费者代码实现/">全文...</a>
   </article>
   
 

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="fengzhaoyang&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+  <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+    java List 集合常用工具类 | fzy-blog
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  <script src="/js/qrious.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>fzy-blog</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>java List 集合常用工具类</h2>
+  <p class="post-date">2019-05-24</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h1 id="java-List-集合常用工具类"><a href="#java-List-集合常用工具类" class="headerlink" title="java List 集合常用工具类"></a>java List 集合常用工具类</h1><p>比较一个 list 集合里是否有重复</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 比较一个list集合里是否有重复</span></span><br><span class="line"><span class="comment"> * */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isRepeat</span><span class="params">(List&lt;Object&gt; list)</span> </span>&#123;</span><br><span class="line">    Set&lt;Object&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;(list);</span><br><span class="line">    <span class="keyword">return</span> set.size() != list.size();</span><br><span class="line">&#125;</span><br><span class="line">比较两个集合是否有重复</span><br><span class="line">```java</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 比较两个集合是否有重复</span></span><br><span class="line"><span class="comment"> * */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isRepeat</span><span class="params">(List&lt;Object&gt; list1, List&lt;Object&gt; list2)</span></span>&#123;</span><br><span class="line">    Set&lt;Object&gt; set1 = <span class="keyword">new</span> HashSet&lt;&gt;(list1);</span><br><span class="line">    Set&lt;Object&gt; set2 = <span class="keyword">new</span> HashSet&lt;&gt;(list2);</span><br><span class="line">    Set&lt;Object&gt; setAll = <span class="keyword">new</span> HashSet&lt;&gt;(set1);</span><br><span class="line">    setAll.addAll(set2);</span><br><span class="line">    <span class="keyword">int</span> setSize = set1.size() + set2.size();</span><br><span class="line">    <span class="keyword">return</span> setAll.size() != setSize;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>单个 List 集合去除重复</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 单个List集合去除重复</span></span><br><span class="line"><span class="comment"> * */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Object&gt; <span class="title">removeRepeat</span><span class="params">(List&lt;Object&gt; list)</span> </span>&#123;</span><br><span class="line">    Set&lt;Object&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;(list);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;&gt;(set);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>单个 List 集合去除重复 （根据对象中的属性进行去除重复）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Comparator&lt;Role&gt; roleComparator = <span class="keyword">new</span> Comparator&lt;Role&gt;() &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Role r1, Role r2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> r1.getCode().compareTo(r2.getCode());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用方法：</span></span><br><span class="line">Set&lt;Role&gt; roles = <span class="keyword">new</span> TreeSet&lt;&gt;(<span class="keyword">this</span>.roleComparator);</span><br><span class="line">roles.addAll(roleList);</span><br></pre></td></tr></table></figure>
+<p>比较两个集合是否有重复(有相同移除第一个集合中的相同值)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 比较两个集合是否有重复(有相同移除第一个集合中的相同值)</span></span><br><span class="line"><span class="comment"> * */</span></span><br><span class="line"><span class="comment">//一般法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Object&gt; <span class="title">removeRepeat</span><span class="params">(List&lt;Object&gt; list1, List&lt;Object&gt; list2)</span> </span>&#123;</span><br><span class="line">    List&lt;Object&gt; newList = <span class="keyword">new</span> ArrayList&lt;Object&gt;();</span><br><span class="line">    <span class="keyword">for</span> (Object o1 : list1) &#123;</span><br><span class="line">        <span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (Object o2 : list2) &#123;</span><br><span class="line">            <span class="keyword">if</span> (o1.equals(o2))&#123;</span><br><span class="line">                flag = <span class="keyword">false</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (flag)&#123;</span><br><span class="line">            newList.add(o1);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newList;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//方法二：</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Object&gt; <span class="title">removeRepeat2</span><span class="params">(List&lt;Object&gt; list1, List&lt;Object&gt; list2)</span> </span>&#123;</span><br><span class="line">    list1.removeAll(list2);</span><br><span class="line">    <span class="keyword">return</span> list1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>比较两个 list 集合：childList 中 包含 parentList 的 map 中的 key 值，如果相等重新放到一个 map&lt;String,List&lt;Map&lt;String,String&gt;&gt;里</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 比较两个list集合中map：childList 中 包含 parentList的 map 中的 key值，如果相等重新放到一个map&lt;String,List&lt;Map&lt;String,String&gt;&gt;里</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Map&lt;String, List&lt;Map&lt;String, String&gt;&gt;&gt; getMapsByKeyId(List&lt;Map&lt;String, String&gt;&gt; parentList,</span><br><span class="line">        List&lt;Map&lt;String, String&gt;&gt; childList, String keyId) &#123;</span><br><span class="line">    Map&lt;String, List&lt;Map&lt;String, String&gt;&gt;&gt; newMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (Map&lt;String, String&gt; parent : parentList) &#123;</span><br><span class="line">        String value = parent.get(keyId);</span><br><span class="line">        List&lt;Map&lt;String, String&gt;&gt; newList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (Map&lt;String, String&gt; child : childList) &#123;</span><br><span class="line">            <span class="keyword">if</span> (child.get(keyId).equals(value))</span><br><span class="line">                newList.add(child);</span><br><span class="line">        &#125;</span><br><span class="line">        newMap.put(value, newList);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newMap;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用方式：</span></span><br><span class="line">Map&lt;String, List&lt;Map&lt;String,String&gt;&gt;&gt; mapNew2 = getMapsByKeyId(list1,list2,<span class="string">"aid"</span>);</span><br><span class="line"></span><br><span class="line">Map&lt;String, List&lt;Map&lt;String,String&gt;&gt;&gt; mapNew3 = getMapsByKeyId(list2,list3,<span class="string">"bid"</span>);</span><br></pre></td></tr></table></figure>
+<p>求两个集合的交集</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 求两个集合的交集（即两个集合都共有的）</span></span><br><span class="line"><span class="comment">* */</span></span><br><span class="line"><span class="comment">//最优法   利用hash这种很有用的数据结构来实现。我们知道，hash的特点之一就是不允许有重复元素，即hash表中的元素都是唯一的。所以，我们的思路就是：先把第一个集合的所有元素都放进hashSet中，时间复杂度O(M)；再把第二个集合中的元素放进hashSet中，如果有重复元素，就是这2个集合的交集，时间复杂度为O(N)。即总的时间复杂度从O(M*N)降低到了O(M+N)。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;String&gt; <span class="title">getIntersection</span><span class="params">(List&lt;String&gt; list1, List&lt;String&gt; list2)</span> </span>&#123;</span><br><span class="line">    List&lt;String&gt; commonList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    Set&lt;Object&gt; hashSet = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">    Collections.addAll(hashSet,list1);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (String item : list2) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!hashSet.add(item)) &#123;</span><br><span class="line">            commonList.add(item);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> commonList;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>求两个集合的并集(即两个集合中重复的只保留一个)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 求两个集合的并集(即两个集合中重复的只保留一个)</span></span><br><span class="line"><span class="comment"> * */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Object&gt; <span class="title">unionAll</span><span class="params">(List&lt;Object&gt; list1, List&lt;Object&gt; list2)</span> </span>&#123;</span><br><span class="line">    list1.removeAll(list2);</span><br><span class="line">    list1.addAll(list2);</span><br><span class="line">    <span class="keyword">return</span> list1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>计算集合中元素重复次数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">List list = <span class="keyword">new</span> ArrayList();</span><br><span class="line">list.add(<span class="string">"a"</span>);</span><br><span class="line">list.add(<span class="string">"b"</span>);</span><br><span class="line">list.add(<span class="string">"c"</span>);</span><br><span class="line">list.add(<span class="string">"d"</span>);</span><br><span class="line">list.add(<span class="string">"b"</span>);</span><br><span class="line">list.add(<span class="string">"c"</span>);</span><br><span class="line">list.add(<span class="string">"a"</span>);</span><br><span class="line">list.add(<span class="string">"a"</span>);</span><br><span class="line">list.add(<span class="string">"a"</span>);</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"\n例子1 - 计算'a'出现的次数"</span>);</span><br><span class="line">System.out.println(<span class="string">"a : "</span> + Collections.frequency(list, <span class="string">"a"</span>));</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"\n例子2 - 计算所有对象出现的次数"</span>);</span><br><span class="line">Set uniqueSet = <span class="keyword">new</span> HashSet(list);</span><br><span class="line"><span class="keyword">for</span> (String temp : uniqueSet) &#123;</span><br><span class="line">    System.out.println(temp + <span class="string">": "</span> + Collections.frequency(list, temp));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"\n例子3 -用Map来计算对象出现的次数"</span>);</span><br><span class="line">Map map = <span class="keyword">new</span> HashMap();</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (String temp : list) &#123;</span><br><span class="line">    Integer count = map.get(temp);</span><br><span class="line">    map.put(temp, (count == <span class="keyword">null</span>) ? <span class="number">1</span> : count + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line">printMap(map);</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"\nMap排序-以key排序"</span>);</span><br><span class="line">Map treeMap = <span class="keyword">new</span> TreeMap(map);</span><br><span class="line">printMap(treeMap);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printMap</span><span class="params">(Map map)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (Map.Entry entry : map.entrySet()) &#123;</span><br><span class="line">        System.out.println(<span class="string">"Key-value : "</span> + entry.getKey() + <span class="string">"- "</span></span><br><span class="line">                + entry.getValue());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</section>
+    <!-- Tags START -->
+    
+    <div class="tags">
+      <span>Tags:</span>
+      
+  <a href="/tags#集合与数组">
+    <span class="tag-code">集合与数组</span>
+  </a>
+
+    </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/05/24/面试题/JVM内存模型与垃圾回收/">
+        <span class="nav-arrow">← </span>
+        
+          JVM内存模型与垃圾回收
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/05/24/面试题/Exception和RuntimeException的区别/">
+        
+          Exception和RuntimeException的区别
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <div class="money-like">
+      <div class="reward-btn">
+        赏
+        <span class="money-code">
+          <span class="alipay-code">
+            <div class="code-image"></div>
+            <b>使用支付宝打赏</b>
+          </span>
+          <span class="wechat-code">
+            <div class="code-image"></div>
+            <b>使用微信打赏</b>
+          </span>
+        </span>
+      </div>
+      <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+    </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <div class="qrcode">
+      <canvas id="share-qrcode"></canvas>
+      <p class="notice">扫描二维码，分享此文章</p>
+    </div>
+    
+    <!-- 二维码 END -->
+    
+    <!-- No Comment -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+  <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#java-List-集合常用工具类"><span class="toc-nav-text">java List 集合常用工具类</span></a></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://fengzhaoy.github.io/2019/05/24/集合与数组/javaList集合常用工具类/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function () {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function () {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="' + src +
+          '" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function () {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+<script>
+  var qr = new QRious({
+    element: document.getElementById('share-qrcode'),
+    value: document.location.href
+  });
+</script>
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019
+  </p>
+</footer>
+
+<script>
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async ("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function () {
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async ("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function () {
+    $('figure pre').each(function (i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>

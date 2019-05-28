@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="fengzhaoyang&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+  <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+    git 常用命令 | fzy-blog
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+  <script src="/js/qrious.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>fzy-blog</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>git 常用命令</h2>
+  <p class="post-date">2019-05-24</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h1 id="git-常用命令"><a href="#git-常用命令" class="headerlink" title="git 常用命令"></a>git 常用命令</h1><h3 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://gitee.com/fengzhaoy/mypro.git   #克隆git项目到本地 默认master分支</span><br><span class="line">git init #初始化本地版本库</span><br></pre></td></tr></table></figure>
+<h3 id="修改和提交"><a href="#修改和提交" class="headerlink" title="修改和提交"></a>修改和提交</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git status  #查看文件状态,列出当前目录没有被git管理，以及被修改过还未提交的文件</span><br><span class="line">git add .   #将提交的文件添加到索引库中（添加到缓冲区），*可以是路径也可以是.符号，</span><br><span class="line">git add . 代表将当前目录下的所有文件都添加到索引库中,如果指定路径则代表将制定路径的文件添加到索引库中。</span><br><span class="line">git rm -rf &lt;file&gt;  #删除本地指定文件</span><br><span class="line">git commit -m &apos;fix&apos;  #提交到本地仓库并加注释 这一步仅仅是放在缓冲区中，还未真正提交到远程</span><br></pre></td></tr></table></figure>
+<h3 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git log #查看提交历史</span><br><span class="line">git log -p &lt;file&gt;  #查看指定文件的提交历史</span><br><span class="line">git blame &lt;file&gt;  #以列表方式查看指定文件的提交历史</span><br></pre></td></tr></table></figure>
+<h3 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD #还原本地未提交的更改</span><br><span class="line">git checkout . #本地所有修改的。没有的提交的，都返回到原来的状态</span><br><span class="line">git checkout HEAD &lt;file&gt; #撤消指定文件的未提交文件的修改内容</span><br><span class="line">git revert &lt;COMMIT&gt; #撤消指定的提交 当用 revert 撤销改动时，它会产生新的提交。</span><br><span class="line">git stash #把所有没有提交的修改暂存到stash里面。可用git stash pop回复。</span><br></pre></td></tr></table></figure>
+<h3 id="分支与标签"><a href="#分支与标签" class="headerlink" title="分支与标签"></a>分支与标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git checkout &lt;branch/tag&gt; #切换到指定分支或标签</span><br><span class="line">git checkout -b &lt;branch&gt;  #创建分支</span><br><span class="line">git branch #显示所有本地分支</span><br><span class="line">git branch &lt;new-branch&gt; #创建新分支</span><br><span class="line">git branch -d &lt;branch&gt; #删除本地分支</span><br><span class="line">git branch the_branch_backup #备份一下这个分支当前的情况</span><br><span class="line"></span><br><span class="line">git tag #列出所有本地标签</span><br><span class="line">git tag &lt;tagname&gt; #基于最新提交创建标签</span><br><span class="line">git tag -d &lt;tagname&gt; #删除标签</span><br></pre></td></tr></table></figure>
+<h3 id="合并与衍合"><a href="#合并与衍合" class="headerlink" title="合并与衍合"></a>合并与衍合</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git merge &lt;branch&gt; #当前分支合并其他分支</span><br><span class="line">git rebase &lt;branch&gt; #衍合指定分支到当前分支</span><br></pre></td></tr></table></figure>
+<h3 id="远程操作"><a href="#远程操作" class="headerlink" title="远程操作"></a>远程操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">git pull #拉取远程所有分支代码合并到本地</span><br><span class="line">git pull origin &lt;branch&gt; #更新当前分支的代码,获取最新的代码 如：git pull origin dev</span><br><span class="line"></span><br><span class="line">git push origin &lt;branch&gt; #上传代码及快速合并到远程branch仓库 如：git push origin dev</span><br><span class="line">git push origin :&lt;branch/tag-name&gt; #删除远程分支或标签</span><br><span class="line">git push --tags #上传所有标签</span><br><span class="line"></span><br><span class="line">#git fetch用法：</span><br><span class="line">cat .git/FETCH_HEAD  #查看FETCH_HEAD内容</span><br><span class="line">git fetch origin master:tmp #在本地新建一个temp分支，并将远程origin仓库的master分支代码下载到本地temp分支</span><br><span class="line">git diff tmp  #比较本地代码与刚刚从远程下载下来的代码的区别</span><br><span class="line">git fetch &lt;remote&gt; #从远程库获取代码</span><br><span class="line"></span><br><span class="line">git remote -v #查看远程版本库信息</span><br><span class="line">git remote show &lt;remote&gt; #查看指定远程版本信息</span><br><span class="line">git remote add &lt;remote&gt; &lt;url&gt; #添加远程版本库</span><br></pre></td></tr></table></figure>
+<h3 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &apos;杨&apos; #设置用户名</span><br><span class="line">git config --global user.email &apos;zhaoyang10@163.com&apos; #设置邮箱</span><br></pre></td></tr></table></figure>
+<h3 id="代码回滚"><a href="#代码回滚" class="headerlink" title="代码回滚"></a>代码回滚</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">代码库回滚: 指的是将代码库某分支退回到以前的某个commit id</span><br><span class="line">本地代码库回滚：</span><br><span class="line">git reset --hard commit-id #回滚到commit-id，讲commit-id之后提交的commit都去除</span><br><span class="line">git reset --hard HEAD~3 #将最近3次的提交回滚</span><br><span class="line"></span><br><span class="line">远程代码库回滚：</span><br><span class="line">这个是重点要说的内容，远程比本地回滚要复杂</span><br><span class="line">应用场景：自动部署系统发布后发现问题，需要回滚到某一个commit，再重新发布</span><br><span class="line">原理：先将本地分支退回到某个commit，删除远程分支，再重新push本地分支</span><br><span class="line">操作步骤：</span><br><span class="line">1、git checkout the_branch</span><br><span class="line">2、git pull</span><br><span class="line">3、git branch the_branch_backup #备份一下这个分支当前的情况</span><br><span class="line">4、git reset --hard the_commit_id #把the_branch本地回滚到the_commit_id</span><br><span class="line">5、git push origin :the_branch #删除远程 the_branch</span><br><span class="line">6、git push origin the_branch #用回滚后的本地分支重新建立远程分支</span><br><span class="line">7、git push origin :the_branch_backup #如果前面都成功了，删除这个备份分支</span><br></pre></td></tr></table></figure>
+<h3 id="重命名分支名"><a href="#重命名分支名" class="headerlink" title="重命名分支名"></a>重命名分支名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">假设分支名称为oldName</span><br><span class="line">想要修改为 newName</span><br><span class="line">一、 本地分支重命名(还没有推送到远程)</span><br><span class="line">git branch -m oldName newName</span><br><span class="line"></span><br><span class="line">二.、远程分支重命名 (已经推送远程-假设本地分支和远程对应分支名称相同)</span><br><span class="line">a. 重命名远程分支对应的本地分支</span><br><span class="line">git branch -m oldName newName</span><br><span class="line">b. 删除远程分支</span><br><span class="line">git push --delete origin oldName</span><br><span class="line">c. 上传新命名的本地分支</span><br><span class="line">git push origin newName</span><br><span class="line">d.把修改后的本地分支与远程分支关联</span><br><span class="line">git branch --set-upstream-to origin/newName</span><br></pre></td></tr></table></figure>
+<h3 id="拉取远程分支到本地"><a href="#拉取远程分支到本地" class="headerlink" title="拉取远程分支到本地"></a>拉取远程分支到本地</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">一、查看所有远程分支</span><br><span class="line">git branch -r</span><br><span class="line">二、拉取远程分支并创建本地分支</span><br><span class="line">方法一</span><br><span class="line">git checkout -b 本地分支名x origin/远程分支名x</span><br><span class="line">使用该方式会在本地新建分支x，并自动切换到该本地分支x。</span><br><span class="line">采用此种方法建立的本地分支会和远程分支建立映射关系。</span><br><span class="line"></span><br><span class="line">方式二</span><br><span class="line">git fetch origin 远程分支名x:本地分支名x</span><br><span class="line">使用该方式会在本地新建分支x，但是不会自动切换到该本地分支x，需要手动checkout。</span><br><span class="line">采用此种方法建立的本地分支不会和远程分支建立映射关系。</span><br></pre></td></tr></table></figure>
+<h3 id="分支合并"><a href="#分支合并" class="headerlink" title="分支合并"></a>分支合并</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">假设有一分支dev 是团队共同开发的代码分支</span><br><span class="line">你为了开发一新功能，通过dev分支新建了一个分支叫job分支，你在job分支上把新功能开发完成。</span><br><span class="line">但是因为团队成员在不断提交dev分支，当你要把job分支功能合并到dev分支，则需要先切换到dev分支</span><br><span class="line">git merge job</span><br><span class="line">解决冲突 然后提交到本地git</span><br><span class="line">git add .;git commit -m &apos;合并job分支开发完成功能&apos;</span><br><span class="line">切换到job分支，再把dev分支mege到job分支</span><br><span class="line">git checkout job</span><br><span class="line">git merge dev</span><br><span class="line">git push origin job   #这样就可以保证job分支是最新代码，同时也不影响到dev分支。</span><br></pre></td></tr></table></figure>
+<h3 id="git-提交规范"><a href="#git-提交规范" class="headerlink" title="git 提交规范"></a>git 提交规范</h3><p>公式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</span><br></pre></td></tr></table></figure>
+<p>type 用于说明 commit 的类别，只允许使用下面 7 个标识。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">feat：新功能（feature）</span><br><span class="line">fix：修补bug</span><br><span class="line">docs：文档（documentation）</span><br><span class="line">style： 格式（不影响代码运行的变动）</span><br><span class="line">refactor：重构（即不是新增功能，也不是修改bug的代码变动）</span><br><span class="line">test：增加测试</span><br><span class="line">chore：构建过程或辅助工具的变动</span><br></pre></td></tr></table></figure>
+<p>scope 用于说明 commit 影响的范围，比如数据层、控制层、视图层等等，视项目不同而不同。<br>subject 是 commit 目的的简短描述，不超过 50 个字符。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>. 以动词开头，使用第一人称现在时，比如change，而不是changed或changes</span><br><span class="line"><span class="number">2</span>. 第一个字母小写</span><br><span class="line"><span class="number">3</span>. 结尾不加句号（.）</span><br></pre></td></tr></table></figure>
+<p>参考：<a href="http://blog.didispace.com/git-commit-specification/" target="_blank" rel="noopener">http://blog.didispace.com/git-commit-specification/</a></p>
+<h3 id="git-常用技巧"><a href="#git-常用技巧" class="headerlink" title="git 常用技巧"></a>git 常用技巧</h3><p><a href="https://github.com/521xueweihan/git-tips" target="_blank" rel="noopener">https://github.com/521xueweihan/git-tips</a></p>
+<h3 id="git-fork-仓库保持同步"><a href="#git-fork-仓库保持同步" class="headerlink" title="git fork 仓库保持同步"></a>git fork 仓库保持同步</h3><p>参考：<a href="https://juejin.im/post/5c82181af265da2da835a3e5" target="_blank" rel="noopener">https://juejin.im/post/5c82181af265da2da835a3e5</a></p>
+<h3 id="git-各种情况的版本回退"><a href="#git-各种情况的版本回退" class="headerlink" title="git 各种情况的版本回退"></a>git 各种情况的版本回退</h3><p>参考：<a href="http://blog.csdn.net/fuchaosz/article/details/52170105" target="_blank" rel="noopener">http://blog.csdn.net/fuchaosz/article/details/52170105</a></p>
+<h3 id="git-原理"><a href="#git-原理" class="headerlink" title="git 原理"></a>git 原理</h3><p>参考：<a href="https://github.com/ZXZxin/ZXBlog/blob/master/%E5%B7%A5%E5%85%B7/Git/Git_1_%E5%9F%BA%E7%A1%80%E5%92%8C%E5%85%A5%E9%97%A8.md" target="_blank" rel="noopener">https://github.com/ZXZxin/ZXBlog/blob/master/%E5%B7%A5%E5%85%B7/Git/Git_1_%E5%9F%BA%E7%A1%80%E5%92%8C%E5%85%A5%E9%97%A8.md</a></p>
+</section>
+    <!-- Tags START -->
+    
+    <div class="tags">
+      <span>Tags:</span>
+      
+  <a href="/tags#开发工具">
+    <span class="tag-code">开发工具</span>
+  </a>
+
+    </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/05/24/开发工具/mavenjar包下载失败解决办法/">
+        <span class="nav-arrow">← </span>
+        
+          maven jar 包下载失败解决办法
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/05/24/开发工具/ideamac常用设置和快捷键/">
+        
+          idea mac 常用设置和快捷键
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+    <div class="money-like">
+      <div class="reward-btn">
+        赏
+        <span class="money-code">
+          <span class="alipay-code">
+            <div class="code-image"></div>
+            <b>使用支付宝打赏</b>
+          </span>
+          <span class="wechat-code">
+            <div class="code-image"></div>
+            <b>使用微信打赏</b>
+          </span>
+        </span>
+      </div>
+      <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+    </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+    <div class="qrcode">
+      <canvas id="share-qrcode"></canvas>
+      <p class="notice">扫描二维码，分享此文章</p>
+    </div>
+    
+    <!-- 二维码 END -->
+    
+    <!-- No Comment -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+  <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#git-常用命令"><span class="toc-nav-text">git 常用命令</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#创建版本库"><span class="toc-nav-text">创建版本库</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#修改和提交"><span class="toc-nav-text">修改和提交</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#查看提交历史"><span class="toc-nav-text">查看提交历史</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#撤销修改"><span class="toc-nav-text">撤销修改</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#分支与标签"><span class="toc-nav-text">分支与标签</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#合并与衍合"><span class="toc-nav-text">合并与衍合</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#远程操作"><span class="toc-nav-text">远程操作</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#全局配置"><span class="toc-nav-text">全局配置</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#代码回滚"><span class="toc-nav-text">代码回滚</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#重命名分支名"><span class="toc-nav-text">重命名分支名</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#拉取远程分支到本地"><span class="toc-nav-text">拉取远程分支到本地</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#分支合并"><span class="toc-nav-text">分支合并</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#git-提交规范"><span class="toc-nav-text">git 提交规范</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#git-常用技巧"><span class="toc-nav-text">git 常用技巧</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#git-fork-仓库保持同步"><span class="toc-nav-text">git fork 仓库保持同步</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#git-各种情况的版本回退"><span class="toc-nav-text">git 各种情况的版本回退</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#git-原理"><span class="toc-nav-text">git 原理</span></a></li></ol></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://fengzhaoy.github.io/2019/05/24/开发工具/git常用命令/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function () {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function () {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="' + src +
+          '" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function () {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+<script>
+  var qr = new QRious({
+    element: document.getElementById('share-qrcode'),
+    value: document.location.href
+  });
+</script>
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019
+  </p>
+</footer>
+
+<script>
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async ("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function () {
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async ("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function () {
+    $('figure pre').each(function (i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>
